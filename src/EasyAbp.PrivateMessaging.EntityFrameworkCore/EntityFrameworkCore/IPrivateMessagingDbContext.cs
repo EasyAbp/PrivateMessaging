@@ -1,8 +1,9 @@
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
 using Volo.Abp.Data;
 using Volo.Abp.EntityFrameworkCore;
 using EasyAbp.PrivateMessaging.PrivateMessages;
 using EasyAbp.PrivateMessaging.PrivateMessageNotifications;
+using EasyAbp.PrivateMessaging.Users;
 
 namespace EasyAbp.PrivateMessaging.EntityFrameworkCore
 {
@@ -14,5 +15,6 @@ namespace EasyAbp.PrivateMessaging.EntityFrameworkCore
          */
         DbSet<PrivateMessage> PrivateMessages { get; set; }
         DbSet<PrivateMessageNotification> PrivateMessageNotifications { get; set; }
+        DbSet<PmUser> PmUser { get; set; }
     }
 }

@@ -1,14 +1,15 @@
 using System;
+using EasyAbp.PrivateMessaging.Users.Dtos;
 using Volo.Abp.Application.Dtos;
 
 namespace EasyAbp.PrivateMessaging.PrivateMessages.Dtos
 {
     public class PrivateMessageDto : FullAuditedEntityDto<Guid>
     {
-        public Guid? TenantId { get; set; }
-
         public Guid ToUserId { get; set; }
 
+        public PmUserDto ToUser { get; set; }
+        
         public string Title { get; set; }
 
         public string Content { get; set; }

@@ -46,5 +46,10 @@ namespace EasyAbp.PrivateMessaging.PrivateMessages
 
             ReadTime = time;
         }
+
+        public string GetTitlePreview()
+        {
+            return Title.Substring(0, PrivateMessageConsts.TitlePreviewMaxLength);
+        }
     }
 }

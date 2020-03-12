@@ -1,6 +1,7 @@
 using EasyAbp.PrivateMessaging.PrivateMessageNotifications;
 using EasyAbp.PrivateMessaging.PrivateMessages;
 using System;
+using EasyAbp.PrivateMessaging.Users;
 using Microsoft.EntityFrameworkCore;
 using Volo.Abp;
 using Volo.Abp.EntityFrameworkCore.Modeling;
@@ -52,6 +53,13 @@ namespace EasyAbp.PrivateMessaging.EntityFrameworkCore
             builder.Entity<PrivateMessageNotification>(b =>
             {
                 b.ToTable(options.TablePrefix + "PrivateMessageNotifications", options.Schema);
+                b.ConfigureByConvention(); 
+                /* Configure more properties here */
+            });
+            
+            builder.Entity<PmUser>(b =>
+            {
+                b.ToTable(options.TablePrefix + "PmUsers", options.Schema);
                 b.ConfigureByConvention(); 
                 /* Configure more properties here */
             });

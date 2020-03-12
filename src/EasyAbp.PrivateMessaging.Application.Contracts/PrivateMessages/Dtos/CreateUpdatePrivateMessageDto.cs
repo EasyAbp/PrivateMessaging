@@ -1,22 +1,20 @@
 using System;
 using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
+
 namespace EasyAbp.PrivateMessaging.PrivateMessages.Dtos
 {
     public class CreateUpdatePrivateMessageDto
     {
-        [DisplayName("PrivateMessageTenantId")]
-        public Guid? TenantId { get; set; }
+        [DisplayName("PrivateMessageToUserName")]
+        public string ToUserName { get; set; }
 
-        [DisplayName("PrivateMessageToUserId")]
-        public Guid ToUserId { get; set; }
-
+        [MaxLength(PrivateMessageConsts.TitleMaxLength)]
         [DisplayName("PrivateMessageTitle")]
         public string Title { get; set; }
 
+        [MaxLength(PrivateMessageConsts.ContentMaxLength)]
         [DisplayName("PrivateMessageContent")]
         public string Content { get; set; }
-
-        [DisplayName("PrivateMessageReadTime")]
-        public DateTime? ReadTime { get; set; }
     }
 }

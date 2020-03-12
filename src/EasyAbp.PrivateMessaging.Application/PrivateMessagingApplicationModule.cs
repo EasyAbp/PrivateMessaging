@@ -18,7 +18,7 @@ namespace EasyAbp.PrivateMessaging
             context.Services.AddAutoMapperObjectMapper<PrivateMessagingApplicationModule>();
             Configure<AbpAutoMapperOptions>(options =>
             {
-                options.AddMaps<PrivateMessagingApplicationModule>(validate: true);
+                options.AddMaps<PrivateMessagingApplicationModule>();
             });
         }
     }

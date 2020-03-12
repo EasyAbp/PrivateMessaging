@@ -4,7 +4,6 @@ $(function () {
 
     var service = easyAbp.privateMessaging.privateMessages.privateMessage;
     var createModal = new abp.ModalManager(abp.appPath + 'PrivateMessages/PrivateMessage/CreateModal');
-    var editModal = new abp.ModalManager(abp.appPath + 'PrivateMessages/PrivateMessage/EditModal');
 
     var dataTable = $('#PrivateMessageTable').DataTable(abp.libs.datatables.normalizeConfiguration({
         processing: true,
@@ -21,12 +20,6 @@ $(function () {
                     items:
                         [
                             {
-                                text: l('Edit'),
-                                action: function (data) {
-                                    editModal.open({ id: data.record.id });
-                                }
-                            },
-                            {
                                 text: l('Delete'),
                                 confirmMessage: function (data) {
                                     return l('PrivateMessageDeletionConfirmationMessage', data.record.id);
@@ -42,19 +35,13 @@ $(function () {
                         ]
                 }
             },
-            { data: "tenantId" },
-            { data: "toUserId" },
+            { data: "toUser.userName" },
             { data: "title" },
-            { data: "content" },
-            { data: "readTime" },
+            { data: "creationTime" },
         ]
     }));
 
     createModal.onResult(function () {
-        dataTable.ajax.reload();
-    });
-
-    editModal.onResult(function () {
         dataTable.ajax.reload();
     });
 
