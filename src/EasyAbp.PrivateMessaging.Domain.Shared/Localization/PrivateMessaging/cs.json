@@ -1,6 +1,24 @@
 {
   "culture": "cs",
   "texts": {
-
+    "Menu:PrivateMessage": "MenuPrivateMessage",
+    "PrivateMessage": "PrivateMessage",
+    "PrivateMessageTenantId": "PrivateMessageTenantId",
+    "PrivateMessageToUserId": "PrivateMessageToUserId",
+    "PrivateMessageTitle": "PrivateMessageTitle",
+    "PrivateMessageContent": "PrivateMessageContent",
+    "PrivateMessageReadTime": "PrivateMessageReadTime",
+    "CreatePrivateMessage": "CreatePrivateMessage",
+    "EditPrivateMessage": "EditPrivateMessage",
+    "PrivateMessageDeletionConfirmationMessage": "Are you sure to delete the privatemessage {0}?",
+    "SuccessfullyDeleted": "Successfully deleted",
+    "Menu:PrivateMessageNotification": "MenuPrivateMessageNotification",
+    "PrivateMessageNotification": "PrivateMessageNotification",
+    "PrivateMessageNotificationTenantId": "PrivateMessageNotificationTenantId",
+    "PrivateMessageNotificationUserId": "PrivateMessageNotificationUserId",
+    "PrivateMessageNotificationPrivateMessageId": "PrivateMessageNotificationPrivateMessageId",
+    "CreatePrivateMessageNotification": "CreatePrivateMessageNotification",
+    "EditPrivateMessageNotification": "EditPrivateMessageNotification",
+    "PrivateMessageNotificationDeletionConfirmationMessage": "Are you sure to delete the privatemessagenotification {0}?"
   }
 }

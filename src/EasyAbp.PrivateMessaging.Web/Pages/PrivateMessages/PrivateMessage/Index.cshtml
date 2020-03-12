@@ -1,0 +1,43 @@
+@page
+@using EasyAbp.PrivateMessaging.Web.Pages.PrivateMessages.PrivateMessage
+@inherits EasyAbp.PrivateMessaging.Web.Pages.PrivateMessagingPage
+@model IndexModel
+
+@section scripts
+{
+    <abp-script src="/Pages/PrivateMessages/PrivateMessage/index.js" />
+}
+@section styles
+{
+    <abp-style src="/Pages/PrivateMessages/PrivateMessage/index.css"/>
+}
+
+<abp-card>
+    <abp-card-header>
+        <abp-row>
+            <abp-column size-md="_2">
+                <h2>@L["PrivateMessage"]</h2>
+            </abp-column>
+            <abp-column size-md="_10" class="text-right">
+                <abp-button id="NewPrivateMessageButton"
+                            text="@L["CreatePrivateMessage"].Value"
+                            icon="plus"
+                            button-type="Primary" />
+            </abp-column>
+        </abp-row>
+    </abp-card-header>
+    <abp-card-body>
+        <abp-table striped-rows="true" id="PrivateMessageTable">
+            <thead>
+            <tr>
+                <th>@L["Actions"]</th>
+                <th>@L["PrivateMessageTenantId"]</th>
+                <th>@L["PrivateMessageToUserId"]</th>
+                <th>@L["PrivateMessageTitle"]</th>
+                <th>@L["PrivateMessageContent"]</th>
+                <th>@L["PrivateMessageReadTime"]</th>
+            </tr>
+            </thead>
+        </abp-table>
+    </abp-card-body>
+</abp-card>

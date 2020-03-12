@@ -1,6 +1,9 @@
-﻿using System;
+using EasyAbp.PrivateMessaging.PrivateMessageNotifications;
+using EasyAbp.PrivateMessaging.PrivateMessages;
+using System;
 using Microsoft.EntityFrameworkCore;
 using Volo.Abp;
+using Volo.Abp.EntityFrameworkCore.Modeling;
 
 namespace EasyAbp.PrivateMessaging.EntityFrameworkCore
 {
@@ -38,6 +41,20 @@ namespace EasyAbp.PrivateMessaging.EntityFrameworkCore
                 b.HasIndex(q => q.CreationTime);
             });
             */
+
+            builder.Entity<PrivateMessage>(b =>
+            {
+                b.ToTable(options.TablePrefix + "PrivateMessages", options.Schema);
+                b.ConfigureByConvention(); 
+                /* Configure more properties here */
+            });
+
+            builder.Entity<PrivateMessageNotification>(b =>
+            {
+                b.ToTable(options.TablePrefix + "PrivateMessageNotifications", options.Schema);
+                b.ConfigureByConvention(); 
+                /* Configure more properties here */
+            });
         }
     }
 }

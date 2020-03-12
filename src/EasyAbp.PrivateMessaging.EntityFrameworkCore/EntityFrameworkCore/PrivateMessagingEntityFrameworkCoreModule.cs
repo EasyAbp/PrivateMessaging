@@ -1,4 +1,6 @@
-﻿using Microsoft.Extensions.DependencyInjection;
+using EasyAbp.PrivateMessaging.PrivateMessageNotifications;
+using EasyAbp.PrivateMessaging.PrivateMessages;
+using Microsoft.Extensions.DependencyInjection;
 using Volo.Abp.EntityFrameworkCore;
 using Volo.Abp.Modularity;
 
@@ -17,6 +19,8 @@ namespace EasyAbp.PrivateMessaging.EntityFrameworkCore
                 /* Add custom repositories here. Example:
                  * options.AddRepository<Question, EfCoreQuestionRepository>();
                  */
+                options.AddRepository<PrivateMessage, PrivateMessageRepository>();
+                options.AddRepository<PrivateMessageNotification, PrivateMessageNotificationRepository>();
             });
         }
     }

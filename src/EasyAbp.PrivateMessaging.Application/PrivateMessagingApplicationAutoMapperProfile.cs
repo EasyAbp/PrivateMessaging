@@ -1,4 +1,8 @@
-﻿using AutoMapper;
+using EasyAbp.PrivateMessaging.PrivateMessages;
+using EasyAbp.PrivateMessaging.PrivateMessages.Dtos;
+using EasyAbp.PrivateMessaging.PrivateMessageNotifications;
+using EasyAbp.PrivateMessaging.PrivateMessageNotifications.Dtos;
+using AutoMapper;
 
 namespace EasyAbp.PrivateMessaging
 {
@@ -9,6 +13,10 @@ namespace EasyAbp.PrivateMessaging
             /* You can configure your AutoMapper mapping configuration here.
              * Alternatively, you can split your mapping configurations
              * into multiple profile classes for a better organization. */
+            CreateMap<PrivateMessage, PrivateMessageDto>();
+            CreateMap<CreateUpdatePrivateMessageDto, PrivateMessage>(MemberList.Source);
+            CreateMap<PrivateMessageNotification, PrivateMessageNotificationDto>();
+            CreateMap<CreateUpdatePrivateMessageNotificationDto, PrivateMessageNotification>(MemberList.Source);
         }
     }
 }

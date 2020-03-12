@@ -1,0 +1,16 @@
+@page
+@inherits EasyAbp.PrivateMessaging.Web.Pages.PrivateMessagingPage
+@using Volo.Abp.AspNetCore.Mvc.UI.Bootstrap.TagHelpers.Modal
+@model EasyAbp.PrivateMessaging.Web.Pages.PrivateMessages.PrivateMessage.CreateModalModel
+@{
+    Layout = null;
+}
+<abp-dynamic-form abp-model="PrivateMessage" data-ajaxForm="true" asp-page="/PrivateMessages/PrivateMessage/CreateModal">
+    <abp-modal>
+        <abp-modal-header title="@L["CreatePrivateMessage"].Value"></abp-modal-header>
+        <abp-modal-body>
+            <abp-form-content />
+        </abp-modal-body>
+        <abp-modal-footer buttons="@(AbpModalButtons.Cancel|AbpModalButtons.Save)"></abp-modal-footer>
+    </abp-modal>
+</abp-dynamic-form>

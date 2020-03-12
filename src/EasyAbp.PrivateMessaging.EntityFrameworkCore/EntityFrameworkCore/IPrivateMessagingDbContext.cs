@@ -1,5 +1,8 @@
-﻿using Volo.Abp.Data;
+using Microsoft.EntityFrameworkCore;
+using Volo.Abp.Data;
 using Volo.Abp.EntityFrameworkCore;
+using EasyAbp.PrivateMessaging.PrivateMessages;
+using EasyAbp.PrivateMessaging.PrivateMessageNotifications;
 
 namespace EasyAbp.PrivateMessaging.EntityFrameworkCore
 {
@@ -9,5 +12,7 @@ namespace EasyAbp.PrivateMessaging.EntityFrameworkCore
         /* Add DbSet for each Aggregate Root here. Example:
          * DbSet<Question> Questions { get; }
          */
+        DbSet<PrivateMessage> PrivateMessages { get; set; }
+        DbSet<PrivateMessageNotification> PrivateMessageNotifications { get; set; }
     }
 }
