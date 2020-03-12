@@ -15,6 +15,6 @@ namespace EasyAbp.PrivateMessaging.EntityFrameworkCore
          */
         DbSet<PrivateMessage> PrivateMessages { get; set; }
         DbSet<PrivateMessageNotification> PrivateMessageNotifications { get; set; }
-        DbSet<PmUser> PmUser { get; set; }
+        DbSet<PmUser> Users { get; set; }
     }
 }

@@ -15,9 +15,9 @@ namespace EasyAbp.PrivateMessaging.PrivateMessages
         
         Task<PagedResultDto<PrivateMessageDto>> GetListSentAsync(PagedResultRequestDto input);
 
-        Task DeleteAsync(IEnumerable<Guid> id);
+        Task DeleteAsync(IEnumerable<Guid> ids);
 
-        Task<PrivateMessageDto> SetReadAsync(IEnumerable<Guid> ids);
+        Task SetReadAsync(IEnumerable<Guid> ids);
 
         Task<PrivateMessageDto> CreateAsync(CreateUpdatePrivateMessageDto input);
     }

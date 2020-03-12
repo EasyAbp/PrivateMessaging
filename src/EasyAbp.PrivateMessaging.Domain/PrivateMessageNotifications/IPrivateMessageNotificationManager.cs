@@ -7,13 +7,12 @@ namespace EasyAbp.PrivateMessaging.PrivateMessageNotifications
 {
     public interface IPrivateMessageNotificationManager : IDomainService
     {
-        Task<IReadOnlyList<PrivateMessageNotification>> GetAsync(Guid userId, Guid? tenantId, int skipCount,
-            int maxResultCount);
+        Task<IReadOnlyList<PrivateMessageNotification>> GetListAsync(Guid userId, int skipCount, int maxResultCount);
 
-        Task CreateAsync(PrivateMessageNotification notification);
+        Task<PrivateMessageNotification> CreateAsync(PrivateMessageNotification notification);
         
-        Task ConsumeAsync(PrivateMessageNotification notification);
-        
-        Task ConsumeAsync(IEnumerable<PrivateMessageNotification> notifications);
+        Task DeleteAsync(PrivateMessageNotification notification);
+
+        Task DeleteByPrivateMessageIdAsync(Guid privateMessageId);
     }
 }

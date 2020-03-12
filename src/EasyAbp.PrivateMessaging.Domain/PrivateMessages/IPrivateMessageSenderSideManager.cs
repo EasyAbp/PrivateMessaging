@@ -8,8 +8,10 @@ namespace EasyAbp.PrivateMessaging.PrivateMessages
 {
     public interface IPrivateMessageSenderSideManager : IDomainService
     {
-        Task<IReadOnlyList<PrivateMessage>> GetSentMessagesAsync(Guid userId, Guid? tenantId, int skipCount,
-            int maxResultCount);
+        Task<long> CountAsync(Guid userId);
+        
+        Task<IReadOnlyList<PrivateMessage>>
+            GetListAsync(Guid userId, int skipCount, int maxResultCount);
 
         Task<PrivateMessage> CreateAsync(PrivateMessage privateMessage);
     }

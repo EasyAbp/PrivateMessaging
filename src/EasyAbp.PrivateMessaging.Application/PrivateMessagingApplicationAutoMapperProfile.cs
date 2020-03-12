@@ -16,7 +16,6 @@ namespace EasyAbp.PrivateMessaging
             CreateMap<PrivateMessage, PrivateMessageDto>();
             CreateMap<CreateUpdatePrivateMessageDto, PrivateMessage>(MemberList.Source);
             CreateMap<PrivateMessageNotification, PrivateMessageNotificationDto>();
-            CreateMap<CreateUpdatePrivateMessageNotificationDto, PrivateMessageNotification>(MemberList.Source);
         }
     }
 }

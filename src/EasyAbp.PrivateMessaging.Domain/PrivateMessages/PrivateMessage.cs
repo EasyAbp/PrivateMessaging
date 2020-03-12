@@ -49,7 +49,10 @@ namespace EasyAbp.PrivateMessaging.PrivateMessages
 
         public string GetTitlePreview()
         {
-            return Title.Substring(0, PrivateMessageConsts.TitlePreviewMaxLength);
+            return Title.Substring(0,
+                Title.Length > PrivateMessageConsts.TitlePreviewMaxLength
+                    ? PrivateMessageConsts.TitlePreviewMaxLength
+                    : Title.Length);
         }
     }
 }

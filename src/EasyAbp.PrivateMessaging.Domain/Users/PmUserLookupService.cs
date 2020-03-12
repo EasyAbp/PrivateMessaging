@@ -11,7 +11,7 @@ namespace EasyAbp.PrivateMessaging.Users
 
         protected override PmUser CreateUser(IUserData externalUser)
         {
-            throw new System.NotImplementedException();
+            throw new System.ApplicationException();
         }
     }
 }
