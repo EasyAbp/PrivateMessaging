@@ -25,6 +25,8 @@ namespace EasyAbp.PrivateMessaging.PrivateMessages
         
         public async Task SetReadAsync(PrivateMessage privateMessage)
         {
+            await _privateMessageNotificationManager.DeleteByPrivateMessageIdAsync(privateMessage.Id);
+
             privateMessage.TrySetReadTime(_clock.Now);
 
             await _repository.UpdateAsync(privateMessage, true);
