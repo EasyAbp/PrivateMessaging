@@ -1,0 +1,41 @@
+@page
+@using EasyAbp.PrivateMessaging.Web.Pages.PrivateMessages.PrivateMessage
+@inherits EasyAbp.PrivateMessaging.Web.Pages.PrivateMessagingPage
+@model InboxModel
+
+@section scripts
+{
+    <abp-script src="/Pages/PrivateMessages/PrivateMessage/inbox.js" />
+}
+@section styles
+{
+    <abp-style src="/Pages/PrivateMessages/PrivateMessage/common.css"/>
+}
+
+<abp-card>
+    <abp-card-header>
+        <abp-row>
+            <abp-column size-md="_2">
+                <h2>@L["PrivateMessageInbox"]</h2>
+            </abp-column>
+            <abp-column size-md="_10" class="text-right">
+                <abp-button id="NewPrivateMessageButton"
+                            text="@L["CreatePrivateMessage"].Value"
+                            icon="plus"
+                            button-type="Primary" />
+            </abp-column>
+        </abp-row>
+    </abp-card-header>
+    <abp-card-body>
+        <abp-table striped-rows="true" id="PrivateMessageTable">
+            <thead>
+            <tr>
+                <th>@L["Actions"]</th>
+                <th>@L["PrivateMessageCreatorUserName"]</th>
+                <th>@L["PrivateMessageTitle"]</th>
+                <th>@L["PrivateMessageCreationTime"]</th>
+            </tr>
+            </thead>
+        </abp-table>
+    </abp-card-body>
+</abp-card>

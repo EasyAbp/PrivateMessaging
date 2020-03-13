@@ -3,6 +3,7 @@ $(function () {
     var l = abp.localization.getResource('PrivateMessaging');
 
     var service = easyAbp.privateMessaging.privateMessages.privateMessage;
+    var detailModal = new abp.ModalManager(abp.appPath + 'PrivateMessages/PrivateMessage/DetailModal');
     var createModal = new abp.ModalManager(abp.appPath + 'PrivateMessages/PrivateMessage/CreateModal');
 
     var dataTable = $('#PrivateMessageTable').DataTable(abp.libs.datatables.normalizeConfiguration({
@@ -13,23 +14,16 @@ $(function () {
         autoWidth: false,
         scrollCollapse: true,
         order: [[1, "asc"]],
-        ajax: abp.libs.datatables.createAjax(service.getList),
+        ajax: abp.libs.datatables.createAjax(service.getListSent),
         columnDefs: [
             {
                 rowAction: {
                     items:
                         [
                             {
-                                text: l('Delete'),
-                                confirmMessage: function (data) {
-                                    return l('PrivateMessageDeletionConfirmationMessage', data.record.id);
-                                },
+                                text: l('Read'),
                                 action: function (data) {
-                                    service.delete(data.record.id)
-                                        .then(function () {
-                                            abp.notify.info(l('SuccessfullyDeleted'));
-                                            dataTable.ajax.reload();
-                                        });
+                                    detailModal.open({ id: data.record.id });
                                 }
                             }
                         ]
@@ -40,7 +34,7 @@ $(function () {
             { data: "creationTime" },
         ]
     }));
-
+    
     createModal.onResult(function () {
         dataTable.ajax.reload();
     });

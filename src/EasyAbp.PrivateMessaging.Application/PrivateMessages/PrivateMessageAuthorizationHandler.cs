@@ -21,7 +21,15 @@ namespace EasyAbp.PrivateMessaging.PrivateMessages
         protected override async Task HandleRequirementAsync(AuthorizationHandlerContext context,
             OperationAuthorizationRequirement requirement, PrivateMessage resource)
         {
-            if (requirement.Name.Equals(CommonOperations.Delete.Name) && await HasDeletePermission(context, resource))
+            if (requirement.Name.Equals(PrivateMessagingPermissions.PrivateMessages.Default) &&
+                await HasGetPermission(context, resource))
+            {
+                context.Succeed(requirement);
+                return;
+            }
+            
+            if (requirement.Name.Equals(PrivateMessagingPermissions.PrivateMessages.Delete) &&
+                await HasDeletePermission(context, resource))
             {
                 context.Succeed(requirement);
                 return;
@@ -33,6 +41,15 @@ namespace EasyAbp.PrivateMessaging.PrivateMessages
                 context.Succeed(requirement);
                 return;
             }
+        }
+
+        private async Task<bool> HasGetPermission(AuthorizationHandlerContext context, PrivateMessage resource)
+        {
+            var currentUserId = context.User.FindUserId();
+            
+            return (resource.ToUserId == currentUserId || resource.CreatorId == currentUserId) &&
+                   await _permissionChecker.IsGrantedAsync(context.User,
+                       PrivateMessagingPermissions.PrivateMessages.Delete);
         }
 
         private async Task<bool> HasDeletePermission(AuthorizationHandlerContext context, PrivateMessage resource)

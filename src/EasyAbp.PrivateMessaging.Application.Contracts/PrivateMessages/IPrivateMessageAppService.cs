@@ -9,6 +9,8 @@ namespace EasyAbp.PrivateMessaging.PrivateMessages
 {
     public interface IPrivateMessageAppService : IApplicationService
     {
+        Task<PrivateMessageDto> GetAsync(Guid id);
+        
         Task<PagedResultDto<PrivateMessageDto>> GetListAsync(PagedResultRequestDto input);
         
         Task<PagedResultDto<PrivateMessageDto>> GetListUnreadAsync(PagedResultRequestDto input);

@@ -1,6 +1,4 @@
-﻿using System;
-using Volo.Abp.Domain.Repositories;
-using Volo.Abp.Users;
+﻿using Volo.Abp.Users;
 
 namespace EasyAbp.PrivateMessaging.Users
 {

@@ -3,6 +3,8 @@ using EasyAbp.PrivateMessaging.PrivateMessages.Dtos;
 using EasyAbp.PrivateMessaging.PrivateMessageNotifications;
 using EasyAbp.PrivateMessaging.PrivateMessageNotifications.Dtos;
 using AutoMapper;
+using EasyAbp.PrivateMessaging.Users;
+using EasyAbp.PrivateMessaging.Users.Dtos;
 
 namespace EasyAbp.PrivateMessaging
 {
@@ -16,6 +18,7 @@ namespace EasyAbp.PrivateMessaging
             CreateMap<PrivateMessage, PrivateMessageDto>();
             CreateMap<CreateUpdatePrivateMessageDto, PrivateMessage>(MemberList.Source);
             CreateMap<PrivateMessageNotification, PrivateMessageNotificationDto>();
+            CreateMap<PmUser, PmUserDto>();
         }
     }
 }

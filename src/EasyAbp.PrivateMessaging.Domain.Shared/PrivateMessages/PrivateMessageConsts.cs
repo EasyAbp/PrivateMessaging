@@ -2,7 +2,7 @@
 {
     public static class PrivateMessageConsts
     {
-        public const int TitleMaxLength = 200;
+        public const int TitleMaxLength = 100;
         
         public const int ContentMaxLength = 2000;
 

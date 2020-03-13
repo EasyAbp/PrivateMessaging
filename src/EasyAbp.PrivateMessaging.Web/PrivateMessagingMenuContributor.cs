@@ -19,10 +19,13 @@ namespace EasyAbp.PrivateMessaging.Web
         private Task ConfigureMainMenu(MenuConfigurationContext context)
         {
             var l = context.ServiceProvider.GetRequiredService<IStringLocalizer<PrivateMessagingResource>>();            //Add main menu items.
-
-            context.Menu.AddItem(
-                new ApplicationMenuItem("PrivateMessage", l["Menu:PrivateMessage"], "/PrivateMessages/PrivateMessage")
-            );
+            
+            var pmMenu = new ApplicationMenuItem("PrivateMessage", l["Menu:PrivateMessage"]);
+            pmMenu.AddItem(new ApplicationMenuItem("PrivateMessageInbox", l["Menu:PrivateMessage:Inbox"], "/PrivateMessages/PrivateMessage/Inbox"));
+            pmMenu.AddItem(new ApplicationMenuItem("PrivateMessageOutbox", l["Menu:PrivateMessage:Outbox"], "/PrivateMessages/PrivateMessage/Outbox"));
+            
+            context.Menu.AddItem(pmMenu);
+            
             return Task.CompletedTask;
         }
     }

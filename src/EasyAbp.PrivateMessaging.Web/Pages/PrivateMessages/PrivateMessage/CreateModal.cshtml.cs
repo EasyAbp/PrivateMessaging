@@ -2,13 +2,14 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using EasyAbp.PrivateMessaging.PrivateMessages;
 using EasyAbp.PrivateMessaging.PrivateMessages.Dtos;
+using EasyAbp.PrivateMessaging.Web.Pages.PrivateMessages.PrivateMessage.InfoModels;
 
 namespace EasyAbp.PrivateMessaging.Web.Pages.PrivateMessages.PrivateMessage
 {
     public class CreateModalModel : PrivateMessagingPageModel
     {
         [BindProperty]
-        public CreateUpdatePrivateMessageDto PrivateMessage { get; set; }
+        public CreatePrivateMessageInfoModel PrivateMessage { get; set; }
 
         private readonly IPrivateMessageAppService _service;
 
@@ -19,7 +20,9 @@ namespace EasyAbp.PrivateMessaging.Web.Pages.PrivateMessages.PrivateMessage
 
         public async Task<IActionResult> OnPostAsync()
         {
-            await _service.CreateAsync(PrivateMessage);
+            await _service.CreateAsync(
+                ObjectMapper.Map<CreatePrivateMessageInfoModel, CreateUpdatePrivateMessageDto>(PrivateMessage));
+            
             return NoContent();
         }
     }

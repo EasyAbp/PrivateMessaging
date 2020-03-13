@@ -10,6 +10,8 @@ namespace EasyAbp.PrivateMessaging.PrivateMessages.Dtos
 
         public PmUserDto ToUser { get; set; }
         
+        public PmUserDto Creator { get; set; }
+        
         public string Title { get; set; }
 
         public string Content { get; set; }
