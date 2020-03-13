@@ -20,6 +20,12 @@ namespace EasyAbp.PrivateMessaging.PrivateMessageNotifications
         }
 
         [Authorize(PrivateMessagingPermissions.PrivateMessageNotifications.Default)]
+        public async Task<long> CountAsync()
+        {
+            return await _repository.CountByUserIdAsync(CurrentUser.GetId());
+        }
+
+        [Authorize(PrivateMessagingPermissions.PrivateMessageNotifications.Default)]
         public async Task<PagedResultDto<PrivateMessageNotificationDto>> GetListAsync(PagedResultRequestDto input)
         {
             var count = await _repository.CountByUserIdAsync(CurrentUser.GetId());
