@@ -1,0 +1,26 @@
+{
+  "culture": "zh-Hans",
+  "texts": {
+    "Read": "查看",
+    "SetRead": "设为已读",
+    "Menu:PrivateMessage": "私信",
+    "Menu:PrivateMessage:Inbox": "我的私信",
+    "Menu:PrivateMessage:Outbox": "发件箱",
+    "PrivateMessage": "私信",
+    "PrivateMessageInbox": "我的私信",
+    "PrivateMessageOutbox": "发件箱",
+    "PrivateMessageCreatorName": "发送方",
+    "PrivateMessageToUserName": "接收方",
+    "PrivateMessageToUserNamePlaceholder": "用户名",
+    "PrivateMessageCreatorUserName": "发送方",
+    "PrivateMessageTitle": "主题",
+    "PrivateMessageContent": "内容",
+    "PrivateMessageCreationTime": "发送时间",
+    "CreatePrivateMessage": "写私信",
+    "PrivateMessageDeletionConfirmationMessage": "确认需要删除私信: {0} 吗?",
+    "SuccessfullyDeleted": "删除成功",
+    "PrivateMessageNotificationShowMore": "查看更多",
+    "PrivateMessageNotificationHide": "隐藏",
+    "PrivateMessageNotificationHideThese": "隐藏这些"
+  }
+}
