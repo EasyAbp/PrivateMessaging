@@ -3,8 +3,8 @@ $(function () {
     var l = abp.localization.getResource('PrivateMessaging');
 
     var service = easyAbp.privateMessaging.privateMessages.privateMessage;
-    var detailModal = new abp.ModalManager(abp.appPath + 'PrivateMessages/DetailModal');
-    var createModal = new abp.ModalManager(abp.appPath + 'PrivateMessages/CreateModal');
+    var detailModal = new abp.ModalManager(abp.appPath + 'PrivateMessages/PrivateMessage/DetailModal');
+    var createModal = new abp.ModalManager(abp.appPath + 'PrivateMessages/PrivateMessage/CreateModal');
     let widgetManager = new abp.WidgetManager("#main-navbar-collapse");
 
     var dataTable = $('#PrivateMessageTable').DataTable(abp.libs.datatables.normalizeConfiguration({
