@@ -31,9 +31,10 @@ namespace EasyAbp.PrivateMessaging.PrivateMessageNotifications
                 .ToListAsync(cancellationToken: cancellationToken);
         }
 
-        public async Task DeleteByPrivateMessageIdAsync(Guid privateMessageId, CancellationToken cancellationToken = default)
+        public async Task DeleteByPrivateMessageIdAsync(IEnumerable<Guid> privateMessageIds, CancellationToken cancellationToken = default)
         {
-            await DeleteAsync(n => n.PrivateMessageId == privateMessageId, true, cancellationToken: cancellationToken);
+            await DeleteAsync(n => privateMessageIds.Contains(n.PrivateMessageId), true,
+                cancellationToken: cancellationToken);
         }
     }
 }

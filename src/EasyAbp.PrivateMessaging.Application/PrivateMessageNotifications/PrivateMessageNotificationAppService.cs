@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using EasyAbp.PrivateMessaging.Authorization;
@@ -12,10 +13,14 @@ namespace EasyAbp.PrivateMessaging.PrivateMessageNotifications
     [Authorize]
     public class PrivateMessageNotificationAppService : ApplicationService, IPrivateMessageNotificationAppService
     {
+        private readonly IPrivateMessageNotificationManager _notificationManager;
         private readonly IPrivateMessageNotificationRepository _repository;
 
-        public PrivateMessageNotificationAppService(IPrivateMessageNotificationRepository repository)
+        public PrivateMessageNotificationAppService(
+            IPrivateMessageNotificationManager notificationManager,
+            IPrivateMessageNotificationRepository repository)
         {
+            _notificationManager = notificationManager;
             _repository = repository;
         }
 
@@ -23,6 +28,20 @@ namespace EasyAbp.PrivateMessaging.PrivateMessageNotifications
         public async Task<long> CountAsync()
         {
             return await _repository.CountByUserIdAsync(CurrentUser.GetId());
+        }
+
+        [Authorize(PrivateMessagingPermissions.PrivateMessageNotifications.Delete)]
+        public async Task DeleteAsync(IEnumerable<Guid> ids)
+        {
+            foreach (var id in ids)
+            {
+                var notification = await _repository.GetAsync(id);
+
+                await AuthorizationService.CheckAsync(notification,
+                    PrivateMessagingPermissions.PrivateMessageNotifications.Delete);
+                
+                await _notificationManager.DeleteAsync(notification);
+            }
         }
 
         [Authorize(PrivateMessagingPermissions.PrivateMessageNotifications.Default)]

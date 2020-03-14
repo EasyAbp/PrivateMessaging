@@ -37,7 +37,8 @@ namespace EasyAbp.PrivateMessaging.PrivateMessages
             int maxResultCount, bool unreadOnly = false, CancellationToken cancellationToken = default)
         {
             return await this.Where(m => m.CreatorId == userId && (!unreadOnly || !m.ReadTime.HasValue))
-                .PageBy(skipCount, maxResultCount).ToListAsync(cancellationToken: cancellationToken);
+                .OrderByDescending(m => m.CreationTime).PageBy(skipCount, maxResultCount)
+                .ToListAsync(cancellationToken: cancellationToken);
         }
 
         public async Task<long> CountReceivingAsync(Guid userId, bool unreadOnly = false,
@@ -51,7 +52,8 @@ namespace EasyAbp.PrivateMessaging.PrivateMessages
             int maxResultCount, bool unreadOnly = false, CancellationToken cancellationToken = default)
         {
             return await this.Where(m => m.ToUserId == userId && (!unreadOnly || !m.ReadTime.HasValue))
-                .PageBy(skipCount, maxResultCount).ToListAsync(cancellationToken: cancellationToken);
+                .OrderByDescending(m => m.CreationTime).PageBy(skipCount, maxResultCount)
+                .ToListAsync(cancellationToken: cancellationToken);
         }
     }
 }

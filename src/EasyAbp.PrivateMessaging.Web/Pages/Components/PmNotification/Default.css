@@ -1,0 +1,15 @@
+﻿.pmNotification-footer {
+  display: flex;
+  justify-content: space-between;
+}
+.pmNotification-row {
+  white-space: nowrap;
+}
+.pmNotification-data-text {
+  cursor: pointer;
+}
+.pmNotification-action a {
+  min-width: 0 !important;
+  color: #95999c !important;
+  cursor: pointer;
+}

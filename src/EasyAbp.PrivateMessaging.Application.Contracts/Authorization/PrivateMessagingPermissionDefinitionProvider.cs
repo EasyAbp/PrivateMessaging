@@ -16,6 +16,7 @@ namespace EasyAbp.PrivateMessaging.Authorization
             privateMessages.AddChild(PrivateMessagingPermissions.PrivateMessages.Delete, L("Permission:Delete"));
             
             var privateMessageNotifications = moduleGroup.AddPermission(PrivateMessagingPermissions.PrivateMessageNotifications.Default, L("Permission:PrivateMessageNotification"));
+            privateMessageNotifications.AddChild(PrivateMessagingPermissions.PrivateMessageNotifications.Delete, L("Permission:Delete"));
         }
 
         private static LocalizableString L(string name)

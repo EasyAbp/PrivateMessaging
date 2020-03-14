@@ -1,11 +1,14 @@
 ﻿using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.Extensions.DependencyInjection;
 using EasyAbp.PrivateMessaging.Localization;
+using EasyAbp.PrivateMessaging.Web.Pages.Components.PmNotification;
 using Volo.Abp.AspNetCore.Mvc.Localization;
+using Volo.Abp.AspNetCore.Mvc.UI.Bundling;
 using Volo.Abp.AspNetCore.Mvc.UI.Theme.Shared;
+using Volo.Abp.AspNetCore.Mvc.UI.Theme.Shared.Bundling;
+using Volo.Abp.AspNetCore.Mvc.UI.Theme.Shared.Toolbars;
 using Volo.Abp.AutoMapper;
 using Volo.Abp.Modularity;
-using Volo.Abp.UI.Navigation;
 using Volo.Abp.VirtualFileSystem;
 
 namespace EasyAbp.PrivateMessaging.Web
@@ -32,9 +35,9 @@ namespace EasyAbp.PrivateMessaging.Web
 
         public override void ConfigureServices(ServiceConfigurationContext context)
         {
-            Configure<AbpNavigationOptions>(options =>
+            Configure<AbpToolbarOptions>(options =>
             {
-                options.MenuContributors.Add(new PrivateMessagingMenuContributor());
+                options.Contributors.Add(new PrivateMessagingToolbarContributor());
             });
 
             Configure<AbpVirtualFileSystemOptions>(options =>
@@ -51,6 +54,21 @@ namespace EasyAbp.PrivateMessaging.Web
             Configure<RazorPagesOptions>(options =>
             {
                 //Configure authorization.
+            });
+            
+            Configure<AbpBundlingOptions>(options =>
+            {
+                options
+                    .StyleBundles
+                    .Configure(StandardBundles.Styles.Global, bundle => {
+                        bundle.AddContributors(typeof(PmNotificationStyleBundleContributor));
+                    });
+                
+                options
+                    .ScriptBundles
+                    .Configure(StandardBundles.Scripts.Global, bundle => {
+                        bundle.AddContributors(typeof(PmNotificationScriptBundleContributor));
+                    });
             });
         }
     }

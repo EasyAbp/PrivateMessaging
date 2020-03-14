@@ -5,15 +5,16 @@ $(function () {
     var service = easyAbp.privateMessaging.privateMessages.privateMessage;
     var detailModal = new abp.ModalManager(abp.appPath + 'PrivateMessages/PrivateMessage/DetailModal');
     var createModal = new abp.ModalManager(abp.appPath + 'PrivateMessages/PrivateMessage/CreateModal');
+    let widgetManager = new abp.WidgetManager("#main-navbar-collapse");
 
     var dataTable = $('#PrivateMessageTable').DataTable(abp.libs.datatables.normalizeConfiguration({
+        bSort: false,
         processing: true,
         serverSide: true,
         paging: true,
         searching: false,
         autoWidth: false,
         scrollCollapse: true,
-        order: [[1, "asc"]],
         ajax: abp.libs.datatables.createAjax(service.getList),
         columnDefs: [
             {
@@ -26,6 +27,7 @@ $(function () {
                                     service.setRead([data.record.id])
                                         .then(function () {
                                             detailModal.open({ id: data.record.id });
+                                            widgetManager.refresh();
                                             dataTable.ajax.reload();
                                         })
                                 }
@@ -35,6 +37,7 @@ $(function () {
                                 action: function (data) {
                                     service.setRead([data.record.id])
                                         .then(function () {
+                                            widgetManager.refresh();
                                             dataTable.ajax.reload();
                                         });
                                 }
@@ -48,6 +51,7 @@ $(function () {
                                     service.delete(data.record.id)
                                         .then(function () {
                                             abp.notify.info(l('SuccessfullyDeleted'));
+                                            widgetManager.refresh();
                                             dataTable.ajax.reload();
                                         });
                                 }
@@ -75,7 +79,12 @@ $(function () {
     }
     
     createModal.onResult(function () {
+        widgetManager.refresh();
         dataTable.ajax.reload();
+    });
+
+    $('#OutboxButton').click(function (e) {
+        document.location.href = 'Outbox';
     });
 
     $('#NewPrivateMessageButton').click(function (e) {

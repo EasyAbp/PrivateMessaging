@@ -30,9 +30,9 @@ namespace EasyAbp.PrivateMessaging.PrivateMessageNotifications
             await _repository.DeleteAsync(notification);
         }
 
-        public async Task DeleteByPrivateMessageIdAsync(Guid privateMessageId)
+        public async Task DeleteByPrivateMessageIdAsync(IEnumerable<Guid> privateMessageIds)
         {
-            await _repository.DeleteByPrivateMessageIdAsync(privateMessageId);
+            await _repository.DeleteByPrivateMessageIdAsync(privateMessageIds);
         }
     }
 }

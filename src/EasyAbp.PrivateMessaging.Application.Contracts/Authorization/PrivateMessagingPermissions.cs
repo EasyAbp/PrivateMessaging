@@ -20,6 +20,8 @@ namespace EasyAbp.PrivateMessaging.Authorization
         public class PrivateMessageNotifications
         {
             public const string Default = GroupName + ".PrivateMessageNotification";
+            
+            public const string Delete = Default + ".Delete";
         }
 
         public static string[] GetAll()

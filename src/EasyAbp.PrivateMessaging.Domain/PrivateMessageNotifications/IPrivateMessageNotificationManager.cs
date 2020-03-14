@@ -12,7 +12,7 @@ namespace EasyAbp.PrivateMessaging.PrivateMessageNotifications
         Task<PrivateMessageNotification> CreateAsync(PrivateMessageNotification notification);
         
         Task DeleteAsync(PrivateMessageNotification notification);
-
-        Task DeleteByPrivateMessageIdAsync(Guid privateMessageId);
+        
+        Task DeleteByPrivateMessageIdAsync(IEnumerable<Guid> privateMessageIds);
     }
 }

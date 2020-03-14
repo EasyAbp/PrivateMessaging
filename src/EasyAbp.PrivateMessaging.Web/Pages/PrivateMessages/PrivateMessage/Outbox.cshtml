@@ -19,10 +19,13 @@
                 <h2>@L["PrivateMessageOutbox"]</h2>
             </abp-column>
             <abp-column size-md="_10" class="text-right">
+                <abp-button id="InboxButton"
+                            text="@L["PrivateMessageInbox"].Value"
+                            button-type="Secondary" />
                 <abp-button id="NewPrivateMessageButton"
                             text="@L["CreatePrivateMessage"].Value"
                             icon="plus"
-                            button-type="Primary" />
+                            button-type="Primary"/>
             </abp-column>
         </abp-row>
     </abp-card-header>

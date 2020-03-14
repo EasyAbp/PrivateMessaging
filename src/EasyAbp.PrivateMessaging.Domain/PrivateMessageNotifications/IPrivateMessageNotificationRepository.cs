@@ -12,7 +12,8 @@ namespace EasyAbp.PrivateMessaging.PrivateMessageNotifications
         
         Task<IReadOnlyList<PrivateMessageNotification>> GetListByUserIdAsync(Guid userId, int skipCount,
             int maxResultCount, CancellationToken cancellationToken = default);
-        
-        Task DeleteByPrivateMessageIdAsync(Guid privateMessageId, CancellationToken cancellationToken = default);
+
+        Task DeleteByPrivateMessageIdAsync(IEnumerable<Guid> privateMessageIds,
+            CancellationToken cancellationToken = default);
     }
 }
