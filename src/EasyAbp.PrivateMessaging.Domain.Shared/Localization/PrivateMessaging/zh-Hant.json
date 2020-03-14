@@ -2,6 +2,7 @@
   "culture": "zh-Hant",
   "texts": {
     "Read": "查看",
+    "Reply": "回復",
     "SetRead": "設為已讀",
     "Permission:PrivateMessaging": "私信",
     "Permission:PrivateMessage": "私信",

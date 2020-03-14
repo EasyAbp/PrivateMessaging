@@ -6,12 +6,17 @@
 @{
     Layout = null;
 }
+
+<abp-script src="/Pages/PrivateMessages/PrivateMessage/detail.js" />
+
 <abp-dynamic-form abp-model="PrivateMessage" data-ajaxForm="true" asp-page="/PrivateMessages/PrivateMessage/DetailModal">
     <abp-modal>
         <abp-modal-header title="@L["PrivateMessage"].Value"></abp-modal-header>
         <abp-modal-body>
             <abp-form-content />
         </abp-modal-body>
-        <abp-modal-footer buttons="@AbpModalButtons.Close"></abp-modal-footer>
+        <abp-modal-footer buttons="@AbpModalButtons.Close">
+            <abp-button data-dismiss="modal" button-type="Primary" id="ReplyPrivateMessage">@L["Reply"]</abp-button>
+        </abp-modal-footer>
     </abp-modal>
 </abp-dynamic-form>

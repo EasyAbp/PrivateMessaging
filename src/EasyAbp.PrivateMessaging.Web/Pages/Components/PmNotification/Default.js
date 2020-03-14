@@ -2,7 +2,7 @@
     let pmService = easyAbp.privateMessaging.privateMessages.privateMessage;
     let notificationService = easyAbp.privateMessaging.privateMessageNotifications.privateMessageNotification;
     let detailModal = new abp.ModalManager(abp. appPath + 'PrivateMessages/PrivateMessage/DetailModal');
-    let widgetManager = new abp.WidgetManager("#main-navbar-collapse");
+    var widgetManager = new abp.WidgetManager("#main-navbar-collapse");
 
     $(document.body).on('click', '#pmNotificationLink', function () {
         document.location.href = "/PrivateMessages/PrivateMessage/Inbox"

@@ -2,6 +2,7 @@
   "culture": "zh-Hans",
   "texts": {
     "Read": "查看",
+    "Reply": "回复",
     "SetRead": "设为已读",
     "Permission:PrivateMessaging": "私信",
     "Permission:PrivateMessage": "私信",

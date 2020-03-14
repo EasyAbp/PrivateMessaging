@@ -2,6 +2,7 @@
   "culture": "en",
   "texts": {
     "Read": "Read",
+    "Reply": "Reply",
     "SetRead": "SetRead",
     "Permission:PrivateMessaging": "Private message",
     "Permission:PrivateMessage": "Private message",

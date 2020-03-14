@@ -1,3 +1,4 @@
+using System;
 using System.Threading.Tasks;
 using EasyAbp.PrivateMessaging.PrivateMessages;
 using EasyAbp.PrivateMessaging.PrivateMessages.Dtos;
@@ -16,6 +17,19 @@ namespace EasyAbp.PrivateMessaging.Web.Pages.PrivateMessages.PrivateMessage
         public CreateModalModel(IPrivateMessageAppService service)
         {
             _service = service;
+        }
+
+        public virtual Task OnGetAsync(string toUserName)
+        {
+            if (!toUserName.IsNullOrEmpty())
+            {
+                PrivateMessage = new CreatePrivateMessageInfoModel
+                {
+                    ToUserName = toUserName
+                };
+            }
+            
+            return Task.CompletedTask;
         }
 
         public virtual async Task<IActionResult> OnPostAsync()
