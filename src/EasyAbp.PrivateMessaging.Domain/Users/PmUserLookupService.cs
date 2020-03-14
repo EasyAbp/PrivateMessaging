@@ -22,7 +22,7 @@ namespace EasyAbp.PrivateMessaging.Users
             throw new System.ApplicationException();
         }
 
-        public async Task<IReadOnlyList<PmUser>> GetListByIdsAsync(IEnumerable<Guid> ids)
+        public virtual async Task<IReadOnlyList<PmUser>> GetListByIdsAsync(IEnumerable<Guid> ids)
         {
             return await _userRepository.GetListAsync(ids);
         }

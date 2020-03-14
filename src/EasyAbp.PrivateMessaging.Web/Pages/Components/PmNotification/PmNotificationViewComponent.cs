@@ -9,7 +9,7 @@ namespace EasyAbp.PrivateMessaging.Web.Pages.Components.PmNotification
     [ViewComponent(Name = "PmNotification")]
     public class PmNotificationViewComponent : AbpViewComponent
     {
-        public async Task<IViewComponentResult> InvokeAsync()
+        public virtual async Task<IViewComponentResult> InvokeAsync()
         {
             return View("~/Pages/Components/PmNotification/Default.cshtml");
         }

@@ -13,7 +13,7 @@ namespace EasyAbp.PrivateMessaging.Samples
         }
 
         [Fact]
-        public async Task Method1Async()
+        public virtual async Task Method1Async()
         {
 
         }

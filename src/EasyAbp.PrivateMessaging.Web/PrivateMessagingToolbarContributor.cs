@@ -6,7 +6,7 @@ namespace EasyAbp.PrivateMessaging.Web
 {
     public class PrivateMessagingToolbarContributor : IToolbarContributor
     {
-        public async Task ConfigureToolbarAsync(IToolbarConfigurationContext context)
+        public virtual async Task ConfigureToolbarAsync(IToolbarConfigurationContext context)
         {
             if (context.Toolbar.Name != StandardToolbars.Main)
             {

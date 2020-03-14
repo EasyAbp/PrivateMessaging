@@ -25,7 +25,7 @@ namespace EasyAbp.PrivateMessaging
             _configuration = configuration;
         }
 
-        public async Task RunAsync()
+        public virtual async Task RunAsync()
         {
             await TestWithDynamicProxiesAsync();
             await TestWithHttpClientAndIdentityModelAuthenticationServiceAsync();

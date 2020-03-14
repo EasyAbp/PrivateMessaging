@@ -20,7 +20,7 @@ namespace EasyAbp.PrivateMessaging.PrivateMessages
             _repository = repository;
         }
         
-        public async Task<long> CountAsync(Guid userId)
+        public virtual async Task<long> CountAsync(Guid userId)
         {
             using (_dataFilter.Disable<ISoftDelete>())
             {
@@ -28,7 +28,7 @@ namespace EasyAbp.PrivateMessaging.PrivateMessages
             }
         }
 
-        public async Task<IReadOnlyList<PrivateMessage>> GetListAsync(Guid userId, int skipCount, int maxResultCount)
+        public virtual async Task<IReadOnlyList<PrivateMessage>> GetListAsync(Guid userId, int skipCount, int maxResultCount)
         {
             using (_dataFilter.Disable<ISoftDelete>())
             {
@@ -36,7 +36,7 @@ namespace EasyAbp.PrivateMessaging.PrivateMessages
             }
         }
 
-        public async Task<PrivateMessage> CreateAsync(PrivateMessage privateMessage)
+        public virtual async Task<PrivateMessage> CreateAsync(PrivateMessage privateMessage)
         {
             return await _repository.InsertAsync(privateMessage, true);
         }

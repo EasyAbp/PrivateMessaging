@@ -16,7 +16,7 @@ namespace EasyAbp.PrivateMessaging.EntityFrameworkCore.PrivateMessages
         }
 
         [Fact]
-        public async Task Test1()
+        public virtual async Task Test1()
         {
             await WithUnitOfWorkAsync(async () =>
             {

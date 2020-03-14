@@ -14,14 +14,14 @@ namespace EasyAbp.PrivateMessaging.Samples
         }
 
         [Fact]
-        public async Task GetAsync()
+        public virtual async Task GetAsync()
         {
             var result = await _sampleAppService.GetAsync();
             result.Value.ShouldBe(42);
         }
 
         [Fact]
-        public async Task GetAuthorizedAsync()
+        public virtual async Task GetAuthorizedAsync()
         {
             var result = await _sampleAppService.GetAuthorizedAsync();
             result.Value.ShouldBe(42);

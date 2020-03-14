@@ -23,7 +23,7 @@ namespace EasyAbp.PrivateMessaging.PrivateMessages
             _repository = repository;
         }
         
-        public async Task SetReadAsync(PrivateMessage privateMessage)
+        public virtual async Task SetReadAsync(PrivateMessage privateMessage)
         {
             await _privateMessageNotificationManager.DeleteByPrivateMessageIdAsync(new[] {privateMessage.Id});
 
@@ -32,18 +32,18 @@ namespace EasyAbp.PrivateMessaging.PrivateMessages
             await _repository.UpdateAsync(privateMessage, true);
         }
 
-        public async Task<long> CountAsync(Guid userId, bool unreadOnly = false)
+        public virtual async Task<long> CountAsync(Guid userId, bool unreadOnly = false)
         {
             return await _repository.CountReceivingAsync(userId, unreadOnly);
         }
 
-        public async Task<IReadOnlyList<PrivateMessage>> GetListAsync(Guid userId, int skipCount,
+        public virtual async Task<IReadOnlyList<PrivateMessage>> GetListAsync(Guid userId, int skipCount,
             int maxResultCount, bool unreadOnly = false)
         {
             return await _repository.GetListReceivingAsync(userId, skipCount, maxResultCount, unreadOnly);
         }
 
-        public async Task DeleteAsync(PrivateMessage privateMessage)
+        public virtual async Task DeleteAsync(PrivateMessage privateMessage)
         {
             await _privateMessageNotificationManager.DeleteByPrivateMessageIdAsync(new[] {privateMessage.Id});
             

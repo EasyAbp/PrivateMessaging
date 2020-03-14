@@ -17,7 +17,7 @@ namespace EasyAbp.PrivateMessaging.Samples
         }
 
         [HttpGet]
-        public async Task<SampleDto> GetAsync()
+        public virtual async Task<SampleDto> GetAsync()
         {
             return await _sampleAppService.GetAsync();
         }
@@ -25,7 +25,7 @@ namespace EasyAbp.PrivateMessaging.Samples
         [HttpGet]
         [Route("authorized")]
         [Authorize]
-        public async Task<SampleDto> GetAuthorizedAsync()
+        public virtual async Task<SampleDto> GetAuthorizedAsync()
         {
             return await _sampleAppService.GetAsync();
         }

@@ -19,19 +19,19 @@ namespace EasyAbp.PrivateMessaging.PrivateMessageNotifications
         {
         }
 
-        public async Task<long> CountByUserIdAsync(Guid userId, CancellationToken cancellationToken = default)
+        public virtual async Task<long> CountByUserIdAsync(Guid userId, CancellationToken cancellationToken = default)
         {
             return await this.Where(n => n.UserId == userId).CountAsync(cancellationToken: cancellationToken);
         }
 
-        public async Task<IReadOnlyList<PrivateMessageNotification>> GetListByUserIdAsync(Guid userId, int skipCount,
+        public virtual async Task<IReadOnlyList<PrivateMessageNotification>> GetListByUserIdAsync(Guid userId, int skipCount,
             int maxResultCount, CancellationToken cancellationToken = default)
         {
             return await this.Where(n => n.UserId == userId).PageBy(skipCount, maxResultCount)
                 .ToListAsync(cancellationToken: cancellationToken);
         }
 
-        public async Task DeleteByPrivateMessageIdAsync(IEnumerable<Guid> privateMessageIds, CancellationToken cancellationToken = default)
+        public virtual async Task DeleteByPrivateMessageIdAsync(IEnumerable<Guid> privateMessageIds, CancellationToken cancellationToken = default)
         {
             await DeleteAsync(n => privateMessageIds.Contains(n.PrivateMessageId), true,
                 cancellationToken: cancellationToken);

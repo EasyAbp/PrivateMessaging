@@ -8,7 +8,7 @@ namespace EasyAbp.PrivateMessaging.HttpApi.Client.ConsoleTestApp
 {
     public class ConsoleTestAppHostedService : IHostedService
     {
-        public async Task StartAsync(CancellationToken cancellationToken)
+        public virtual async Task StartAsync(CancellationToken cancellationToken)
         {
             using (var application = AbpApplicationFactory.Create<PrivateMessagingConsoleApiClientModule>())
             {

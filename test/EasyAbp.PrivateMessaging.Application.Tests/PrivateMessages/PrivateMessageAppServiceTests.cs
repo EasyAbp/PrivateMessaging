@@ -14,7 +14,7 @@ namespace EasyAbp.PrivateMessaging.PrivateMessages
         }
 
         [Fact]
-        public async Task Test1()
+        public virtual async Task Test1()
         {
             // Arrange
 

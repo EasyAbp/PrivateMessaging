@@ -18,7 +18,7 @@ namespace EasyAbp.PrivateMessaging.Web.Pages.PrivateMessages.PrivateMessage
             _service = service;
         }
 
-        public async Task<IActionResult> OnPostAsync()
+        public virtual async Task<IActionResult> OnPostAsync()
         {
             await _service.CreateAsync(
                 ObjectMapper.Map<CreatePrivateMessageInfoModel, CreateUpdatePrivateMessageDto>(PrivateMessage));

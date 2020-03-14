@@ -43,7 +43,7 @@ namespace EasyAbp.PrivateMessaging.PrivateMessages
         }
 
         [Authorize(PrivateMessagingPermissions.PrivateMessages.Default)]
-        public async Task<PrivateMessageDto> GetAsync(Guid id)
+        public virtual async Task<PrivateMessageDto> GetAsync(Guid id)
         {
             using (_dataFilter.Disable<ISoftDelete>())
             {
@@ -56,7 +56,7 @@ namespace EasyAbp.PrivateMessaging.PrivateMessages
         }
 
         [Authorize(PrivateMessagingPermissions.PrivateMessages.Default)]
-        public async Task<PagedResultDto<PrivateMessageDto>> GetListAsync(PagedResultRequestDto input)
+        public virtual async Task<PagedResultDto<PrivateMessageDto>> GetListAsync(PagedResultRequestDto input)
         {
             var list = await _privateMessageReceiverSideManager.GetListAsync(CurrentUser.GetId(), input.SkipCount,
                 input.MaxResultCount);
@@ -67,7 +67,7 @@ namespace EasyAbp.PrivateMessaging.PrivateMessages
         }
 
         [Authorize(PrivateMessagingPermissions.PrivateMessages.Default)]
-        public async Task<PagedResultDto<PrivateMessageDto>> GetListUnreadAsync(PagedResultRequestDto input)
+        public virtual async Task<PagedResultDto<PrivateMessageDto>> GetListUnreadAsync(PagedResultRequestDto input)
         {
             var list = await _privateMessageReceiverSideManager.GetListAsync(CurrentUser.GetId(), input.SkipCount,
                 input.MaxResultCount, true);
@@ -78,7 +78,7 @@ namespace EasyAbp.PrivateMessaging.PrivateMessages
         }
 
         [Authorize(PrivateMessagingPermissions.PrivateMessages.Default)]
-        public async Task<PagedResultDto<PrivateMessageDto>> GetListSentAsync(PagedResultRequestDto input)
+        public virtual async Task<PagedResultDto<PrivateMessageDto>> GetListSentAsync(PagedResultRequestDto input)
         {
             var list = await _privateMessageSenderSideManager.GetListAsync(CurrentUser.GetId(), input.SkipCount,
                 input.MaxResultCount);
@@ -89,7 +89,7 @@ namespace EasyAbp.PrivateMessaging.PrivateMessages
         }
 
         [Authorize(PrivateMessagingPermissions.PrivateMessages.Delete)]
-        public async Task DeleteAsync(IEnumerable<Guid> ids)
+        public virtual async Task DeleteAsync(IEnumerable<Guid> ids)
         {
             var messageList = await _privateMessageRepository.GetListAsync(ids);
             
@@ -102,7 +102,7 @@ namespace EasyAbp.PrivateMessaging.PrivateMessages
         }
 
         [Authorize(PrivateMessagingPermissions.PrivateMessages.SetRead)]
-        public async Task SetReadAsync(IEnumerable<Guid> ids)
+        public virtual async Task SetReadAsync(IEnumerable<Guid> ids)
         {
             var messageList = await _privateMessageRepository.GetListAsync(ids);
 
@@ -115,7 +115,7 @@ namespace EasyAbp.PrivateMessaging.PrivateMessages
         }
 
         [Authorize(PrivateMessagingPermissions.PrivateMessages.Create)]
-        public async Task<PrivateMessageDto> CreateAsync(CreateUpdatePrivateMessageDto input)
+        public virtual async Task<PrivateMessageDto> CreateAsync(CreateUpdatePrivateMessageDto input)
         {
             var toUser = await _pmUserLookupService.FindByUserNameAsync(input.ToUserName);
 

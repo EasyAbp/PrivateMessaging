@@ -25,13 +25,13 @@ namespace EasyAbp.PrivateMessaging.PrivateMessageNotifications
         }
 
         [Authorize(PrivateMessagingPermissions.PrivateMessageNotifications.Default)]
-        public async Task<long> CountAsync()
+        public virtual async Task<long> CountAsync()
         {
             return await _repository.CountByUserIdAsync(CurrentUser.GetId());
         }
 
         [Authorize(PrivateMessagingPermissions.PrivateMessageNotifications.Delete)]
-        public async Task DeleteAsync(IEnumerable<Guid> ids)
+        public virtual async Task DeleteAsync(IEnumerable<Guid> ids)
         {
             foreach (var id in ids)
             {
@@ -45,7 +45,7 @@ namespace EasyAbp.PrivateMessaging.PrivateMessageNotifications
         }
 
         [Authorize(PrivateMessagingPermissions.PrivateMessageNotifications.Default)]
-        public async Task<PagedResultDto<PrivateMessageNotificationDto>> GetListAsync(PagedResultRequestDto input)
+        public virtual async Task<PagedResultDto<PrivateMessageNotificationDto>> GetListAsync(PagedResultRequestDto input)
         {
             var count = await _repository.CountByUserIdAsync(CurrentUser.GetId());
 

@@ -10,7 +10,7 @@ namespace EasyAbp.PrivateMessaging.Pages
             
         }
 
-        public async Task OnPostLoginAsync()
+        public virtual async Task OnPostLoginAsync()
         {
             await HttpContext.ChallengeAsync("oidc");
         }

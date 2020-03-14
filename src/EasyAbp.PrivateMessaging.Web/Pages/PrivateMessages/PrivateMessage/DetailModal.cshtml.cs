@@ -17,7 +17,7 @@ namespace EasyAbp.PrivateMessaging.Web.Pages.PrivateMessages.PrivateMessage
             _service = service;
         }
 
-        public async Task OnGetAsync(Guid id)
+        public virtual async Task OnGetAsync(Guid id)
         {
             PrivateMessage = ObjectMapper.Map<PrivateMessageDto, PrivateMessageInfoModel>(await _service.GetAsync(id));
         }

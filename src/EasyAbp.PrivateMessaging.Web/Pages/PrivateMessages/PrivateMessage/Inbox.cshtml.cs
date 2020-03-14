@@ -4,7 +4,7 @@ namespace EasyAbp.PrivateMessaging.Web.Pages.PrivateMessages.PrivateMessage
 {
     public class InboxModel : PrivateMessagingPageModel
     {
-        public async Task OnGetAsync()
+        public virtual async Task OnGetAsync()
         {
             await Task.CompletedTask;
         }
