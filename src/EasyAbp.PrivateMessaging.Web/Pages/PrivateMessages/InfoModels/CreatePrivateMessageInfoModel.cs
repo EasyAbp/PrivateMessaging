@@ -2,7 +2,7 @@
 using EasyAbp.PrivateMessaging.PrivateMessages;
 using Volo.Abp.AspNetCore.Mvc.UI.Bootstrap.TagHelpers.Form;
 
-namespace EasyAbp.PrivateMessaging.Web.Pages.PrivateMessages.PrivateMessage.InfoModels
+namespace EasyAbp.PrivateMessaging.Web.Pages.PrivateMessages.InfoModels
 {
     public class CreatePrivateMessageInfoModel
     {

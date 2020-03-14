@@ -1,9 +1,8 @@
 ﻿using System;
-using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using Volo.Abp.AspNetCore.Mvc.UI.Bootstrap.TagHelpers.Form;
 
-namespace EasyAbp.PrivateMessaging.Web.Pages.PrivateMessages.PrivateMessage.InfoModels
+namespace EasyAbp.PrivateMessaging.Web.Pages.PrivateMessages.InfoModels
 {
     public class PrivateMessageInfoModel
     {
