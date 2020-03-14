@@ -1,10 +1,10 @@
 using System.Threading.Tasks;
 using EasyAbp.PrivateMessaging.PrivateMessages;
 using EasyAbp.PrivateMessaging.PrivateMessages.Dtos;
-using EasyAbp.PrivateMessaging.Web.Pages.PrivateMessages.InfoModels;
+using EasyAbp.PrivateMessaging.Web.Pages.PrivateMessages.PrivateMessage.InfoModels;
 using Microsoft.AspNetCore.Mvc;
 
-namespace EasyAbp.PrivateMessaging.Web.Pages.PrivateMessages
+namespace EasyAbp.PrivateMessaging.Web.Pages.PrivateMessages.PrivateMessage
 {
     public class CreateModalModel : PrivateMessagingPageModel
     {

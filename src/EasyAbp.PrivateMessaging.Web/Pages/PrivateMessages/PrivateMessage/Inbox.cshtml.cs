@@ -1,8 +1,8 @@
 using System.Threading.Tasks;
 
-namespace EasyAbp.PrivateMessaging.Web.Pages.PrivateMessages
+namespace EasyAbp.PrivateMessaging.Web.Pages.PrivateMessages.PrivateMessage
 {
-    public class OutboxModel : PrivateMessagingPageModel
+    public class InboxModel : PrivateMessagingPageModel
     {
         public async Task OnGetAsync()
         {
