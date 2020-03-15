@@ -12,6 +12,7 @@ using Volo.Abp;
 using Volo.Abp.Application.Dtos;
 using Volo.Abp.Application.Services;
 using Volo.Abp.Data;
+using Volo.Abp.Identity;
 using Volo.Abp.Users;
 
 namespace EasyAbp.PrivateMessaging.PrivateMessages
@@ -20,7 +21,7 @@ namespace EasyAbp.PrivateMessaging.PrivateMessages
     public class PrivateMessageAppService : ApplicationService, IPrivateMessageAppService
     {
         private readonly IDataFilter _dataFilter;
-        private readonly IPmUserLookupService _pmUserLookupService;
+        private readonly IIdentityUserLookupAppService _userLookupAppService;
         private readonly IPrivateMessageRepository _privateMessageRepository;
         private readonly IPrivateMessageNotificationManager _notificationManager;
         private readonly IPrivateMessageSenderSideManager _privateMessageSenderSideManager;
@@ -28,14 +29,14 @@ namespace EasyAbp.PrivateMessaging.PrivateMessages
 
         public PrivateMessageAppService(
             IDataFilter dataFilter,
-            IPmUserLookupService pmUserLookupService,
+            IIdentityUserLookupAppService userLookupAppService,
             IPrivateMessageRepository privateMessageRepository,
             IPrivateMessageNotificationManager notificationManager,
             IPrivateMessageSenderSideManager privateMessageSenderSideManager,
             IPrivateMessageReceiverSideManager privateMessageReceiverSideManager)
         {
             _dataFilter = dataFilter;
-            _pmUserLookupService = pmUserLookupService;
+            _userLookupAppService = userLookupAppService;
             _privateMessageRepository = privateMessageRepository;
             _notificationManager = notificationManager;
             _privateMessageSenderSideManager = privateMessageSenderSideManager;
@@ -117,7 +118,7 @@ namespace EasyAbp.PrivateMessaging.PrivateMessages
         [Authorize(PrivateMessagingPermissions.PrivateMessages.Create)]
         public virtual async Task<PrivateMessageDto> CreateAsync(CreateUpdatePrivateMessageDto input)
         {
-            var toUser = await _pmUserLookupService.FindByUserNameAsync(input.ToUserName);
+            var toUser = await _userLookupAppService.FindByUserNameAsync(input.ToUserName);
 
             var message = await _privateMessageSenderSideManager.CreateAsync(new PrivateMessage(GuidGenerator.Create(),
                 CurrentTenant.Id, toUser.Id, input.Title, input.Content));
@@ -135,21 +136,24 @@ namespace EasyAbp.PrivateMessaging.PrivateMessages
 
             var toUserIds = dtoList.Select(dto => dto.ToUserId);
             var creatorIds = dtoList.Where(dto => dto.CreatorId.HasValue).Select(dto => dto.CreatorId.Value);
-            
-            var pmUserDtoDict =
-                (await _pmUserLookupService.GetListByIdsAsync(toUserIds.Concat(creatorIds).Distinct())).ToDictionary(
-                    user => user.Id, user => ObjectMapper.Map<PmUser, PmUserDto>(user));
+
+            var userIds = toUserIds.Concat(creatorIds).Distinct().ToList();
+
+            var userDtoDict = new Dictionary<Guid, PmUserDto>();
+
+            foreach (var userId in userIds)
+            {
+                userDtoDict[userId] =
+                    ObjectMapper.Map<IUserData, PmUserDto>(await _userLookupAppService.FindByIdAsync(userId));
+            }
             
             foreach (var dto in dtoList)
             {
-                if (pmUserDtoDict.ContainsKey(dto.ToUserId))
+                dto.ToUser = userDtoDict[dto.ToUserId];
+
+                if (dto.CreatorId.HasValue)
                 {
-                    dto.ToUser = pmUserDtoDict[dto.ToUserId];
-                }
-                
-                if (dto.CreatorId.HasValue && pmUserDtoDict.ContainsKey(dto.CreatorId.Value))
-                {
-                    dto.Creator = pmUserDtoDict[dto.CreatorId.Value];
+                    dto.Creator = userDtoDict[dto.CreatorId.Value];
                 }
             }
 

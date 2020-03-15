@@ -3,9 +3,6 @@ using Volo.Abp.Data;
 using Volo.Abp.EntityFrameworkCore;
 using EasyAbp.PrivateMessaging.PrivateMessages;
 using EasyAbp.PrivateMessaging.PrivateMessageNotifications;
-using EasyAbp.PrivateMessaging.Users;
-using Volo.Abp.EntityFrameworkCore.Modeling;
-using Volo.Abp.Users.EntityFrameworkCore;
 
 namespace EasyAbp.PrivateMessaging.EntityFrameworkCore
 {
@@ -17,8 +14,6 @@ namespace EasyAbp.PrivateMessaging.EntityFrameworkCore
          */
         public DbSet<PrivateMessage> PrivateMessages { get; set; }
         public DbSet<PrivateMessageNotification> PrivateMessageNotifications { get; set; }
-        public DbSet<PmUser> Users { get; set; }
-
         public PrivateMessagingDbContext(DbContextOptions<PrivateMessagingDbContext> options) 
             : base(options)
         {
@@ -28,14 +23,6 @@ namespace EasyAbp.PrivateMessaging.EntityFrameworkCore
         protected override void OnModelCreating(ModelBuilder builder)
         {
             base.OnModelCreating(builder);
-            
-            builder.Entity<PmUser>(b =>
-            {
-                b.ToTable("AbpUsers"); //Sharing the same table "AbpUsers" with the IdentityUser
-                b.ConfigureByConvention();
-                b.ConfigureAbpUser();
-                /* Configure more properties here */
-            });
 
             builder.ConfigurePrivateMessaging();
         }

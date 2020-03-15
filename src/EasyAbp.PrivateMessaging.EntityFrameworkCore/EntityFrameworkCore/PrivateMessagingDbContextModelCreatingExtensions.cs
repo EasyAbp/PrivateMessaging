@@ -1,11 +1,9 @@
 using EasyAbp.PrivateMessaging.PrivateMessageNotifications;
 using EasyAbp.PrivateMessaging.PrivateMessages;
 using System;
-using EasyAbp.PrivateMessaging.Users;
 using Microsoft.EntityFrameworkCore;
 using Volo.Abp;
 using Volo.Abp.EntityFrameworkCore.Modeling;
-using Volo.Abp.Users.EntityFrameworkCore;
 
 namespace EasyAbp.PrivateMessaging.EntityFrameworkCore
 {

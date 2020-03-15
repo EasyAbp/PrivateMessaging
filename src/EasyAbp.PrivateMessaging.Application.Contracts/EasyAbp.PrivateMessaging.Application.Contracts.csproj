@@ -13,4 +13,8 @@
     <ProjectReference Include="..\EasyAbp.PrivateMessaging.Domain.Shared\EasyAbp.PrivateMessaging.Domain.Shared.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Users\Dtos" />
+  </ItemGroup>
+
 </Project>

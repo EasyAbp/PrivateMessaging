@@ -23,6 +23,7 @@ using Volo.Abp.FeatureManagement;
 using Volo.Abp.Identity;
 using Volo.Abp.Identity.EntityFrameworkCore;
 using Volo.Abp.Identity.Web;
+using Volo.Abp.IdentityServer.EntityFrameworkCore;
 using Volo.Abp.Localization;
 using Volo.Abp.Modularity;
 using Volo.Abp.MultiTenancy;
@@ -48,11 +49,13 @@ namespace EasyAbp.PrivateMessaging
         typeof(AbpAccountApplicationModule),
         typeof(AbpEntityFrameworkCoreSqlServerModule),
         typeof(AbpSettingManagementEntityFrameworkCoreModule),
+        typeof(AbpIdentityServerEntityFrameworkCoreModule),
         typeof(AbpPermissionManagementEntityFrameworkCoreModule),
         typeof(AbpPermissionManagementApplicationModule),
         typeof(AbpIdentityWebModule),
         typeof(AbpIdentityApplicationModule),
         typeof(AbpIdentityEntityFrameworkCoreModule),
+        typeof(AbpAccountWebIdentityServerModule),
         typeof(AbpPermissionManagementDomainIdentityModule),
         typeof(AbpFeatureManagementApplicationModule),
         typeof(AbpTenantManagementWebModule),
@@ -108,6 +111,15 @@ namespace EasyAbp.PrivateMessaging
                 options.IsEnabled = MultiTenancyConsts.IsEnabled;
             });
 
+            context.Services.AddAuthentication()
+                .AddIdentityServerAuthentication(options =>
+                {
+                    options.Authority = configuration["AuthServer:Authority"];
+                    options.RequireHttpsMetadata = false;
+                    options.ApiName = configuration["AuthServer:ClientId"];
+                    options.ApiSecret = configuration["AuthServer:ClientSecret"];
+                });
+            
             ConfigureConventionalControllers();
         }
 
@@ -128,6 +140,7 @@ namespace EasyAbp.PrivateMessaging
             app.UseHttpsRedirection();
             app.UseVirtualFiles();
             app.UseRouting();
+            app.UseIdentityServer();
             app.UseAuthentication();
             app.UseAuthorization();
             if (MultiTenancyConsts.IsEnabled)

@@ -5,6 +5,7 @@ using EasyAbp.PrivateMessaging.PrivateMessageNotifications.Dtos;
 using AutoMapper;
 using EasyAbp.PrivateMessaging.Users;
 using EasyAbp.PrivateMessaging.Users.Dtos;
+using Volo.Abp.Users;
 
 namespace EasyAbp.PrivateMessaging
 {
@@ -18,7 +19,7 @@ namespace EasyAbp.PrivateMessaging
             CreateMap<PrivateMessage, PrivateMessageDto>();
             CreateMap<CreateUpdatePrivateMessageDto, PrivateMessage>(MemberList.Source);
             CreateMap<PrivateMessageNotification, PrivateMessageNotificationDto>();
-            CreateMap<PmUser, PmUserDto>();
+            CreateMap<IUserData, PmUserDto>();
         }
     }
 }
