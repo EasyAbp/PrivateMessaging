@@ -29,7 +29,7 @@ An abp application module that allows users to send private messages to each oth
 
     1. Add `builder.ConfigurePrivateMessaging();` after `builder.ConfigureMyProject();` to `MyProjectMigrationsDbContext.cs`.
 
-    1. Add EF Core migrations and update your database. See: https://docs.abp.io/en/abp/latest/Tutorials/Part-1?UI=MVC#add-new-migration-update-the-database
+    1. Add EF Core migrations and update your database. See: [ABP document](https://docs.abp.io/en/abp/latest/Tutorials/Part-1?UI=MVC#add-new-migration-update-the-database).
 
 ## Usage
 
