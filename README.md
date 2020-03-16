@@ -37,8 +37,6 @@ An abp application module that allows users to send private messages to each oth
 
 1. Enjoy this wonderful module.
 
-See more: [Custom DTO source examples](doc/CustomDtoSource.md).
-
 ## Roadmap
 
 - [ ] Add more setting items.
