@@ -23,10 +23,12 @@ namespace EasyAbp.PrivateMessaging.PrivateMessageNotifications
 
         public PrivateMessageNotification(
             Guid id,
+            Guid? tenantId,
             Guid userId,
             Guid privateMessageId,
             [NotNull] string titlePreview) : base(id)
         {
+            TenantId = tenantId;
             UserId = userId;
             PrivateMessageId = privateMessageId;
             TitlePreview = titlePreview;

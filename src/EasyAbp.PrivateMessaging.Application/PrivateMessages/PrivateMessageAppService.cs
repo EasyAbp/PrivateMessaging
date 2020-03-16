@@ -124,7 +124,7 @@ namespace EasyAbp.PrivateMessaging.PrivateMessages
                 CurrentTenant.Id, toUser.Id, input.Title, input.Content));
 
             await _notificationManager.CreateAsync(new PrivateMessageNotification(GuidGenerator.Create(),
-                toUser.Id, message.Id, message.GetTitlePreview()));
+                CurrentTenant.Id, toUser.Id, message.Id, message.GetTitlePreview()));
 
             return await MapToDtoAndLoadMoreInfosAsync(message);
         }
