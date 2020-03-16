@@ -21,7 +21,7 @@ namespace EasyAbp.PrivateMessaging.PrivateMessages
     public class PrivateMessageAppService : ApplicationService, IPrivateMessageAppService
     {
         private readonly IDataFilter _dataFilter;
-        private readonly IIdentityUserLookupAppService _userLookupAppService;
+        private readonly IExternalUserLookupServiceProvider _externalUserLookupServiceProvider;
         private readonly IPrivateMessageRepository _privateMessageRepository;
         private readonly IPrivateMessageNotificationManager _notificationManager;
         private readonly IPrivateMessageSenderSideManager _privateMessageSenderSideManager;
@@ -29,14 +29,14 @@ namespace EasyAbp.PrivateMessaging.PrivateMessages
 
         public PrivateMessageAppService(
             IDataFilter dataFilter,
-            IIdentityUserLookupAppService userLookupAppService,
+            IExternalUserLookupServiceProvider externalUserLookupServiceProvider,
             IPrivateMessageRepository privateMessageRepository,
             IPrivateMessageNotificationManager notificationManager,
             IPrivateMessageSenderSideManager privateMessageSenderSideManager,
             IPrivateMessageReceiverSideManager privateMessageReceiverSideManager)
         {
             _dataFilter = dataFilter;
-            _userLookupAppService = userLookupAppService;
+            _externalUserLookupServiceProvider = externalUserLookupServiceProvider;
             _privateMessageRepository = privateMessageRepository;
             _notificationManager = notificationManager;
             _privateMessageSenderSideManager = privateMessageSenderSideManager;
@@ -118,7 +118,7 @@ namespace EasyAbp.PrivateMessaging.PrivateMessages
         [Authorize(PrivateMessagingPermissions.PrivateMessages.Create)]
         public virtual async Task<PrivateMessageDto> CreateAsync(CreateUpdatePrivateMessageDto input)
         {
-            var toUser = await _userLookupAppService.FindByUserNameAsync(input.ToUserName);
+            var toUser = await _externalUserLookupServiceProvider.FindByUserNameAsync(input.ToUserName);
 
             var message = await _privateMessageSenderSideManager.CreateAsync(new PrivateMessage(GuidGenerator.Create(),
                 CurrentTenant.Id, toUser.Id, input.Title, input.Content));
@@ -144,7 +144,7 @@ namespace EasyAbp.PrivateMessaging.PrivateMessages
             foreach (var userId in userIds)
             {
                 userDtoDict[userId] =
-                    ObjectMapper.Map<IUserData, PmUserDto>(await _userLookupAppService.FindByIdAsync(userId));
+                    ObjectMapper.Map<IUserData, PmUserDto>(await _externalUserLookupServiceProvider.FindByIdAsync(userId));
             }
             
             foreach (var dto in dtoList)
