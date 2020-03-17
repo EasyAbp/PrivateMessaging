@@ -5,6 +5,7 @@ using Microsoft.Extensions.Hosting;
 using EasyAbp.PrivateMessaging.EntityFrameworkCore;
 using EasyAbp.PrivateMessaging.MultiTenancy;
 using EasyAbp.PrivateMessaging.Web;
+using Lsw.Abp.AspNetCore.Mvc.UI.Theme.Stisla;
 using Microsoft.OpenApi.Models;
 using Swashbuckle.AspNetCore.Swagger;
 using Volo.Abp;
@@ -61,6 +62,7 @@ namespace EasyAbp.PrivateMessaging
         typeof(AbpTenantManagementWebModule),
         typeof(AbpTenantManagementApplicationModule),
         typeof(AbpTenantManagementEntityFrameworkCoreModule),
+        // typeof(AbpAspNetCoreMvcUiStislaThemeModule),
         typeof(AbpAspNetCoreMvcUiBasicThemeModule),
         typeof(AbpAspNetCoreSerilogModule)
         )]

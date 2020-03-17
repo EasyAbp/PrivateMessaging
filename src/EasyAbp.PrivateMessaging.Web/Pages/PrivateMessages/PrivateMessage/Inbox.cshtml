@@ -1,8 +1,10 @@
 @page
+@using EasyAbp.PrivateMessaging.Authorization
 @using EasyAbp.PrivateMessaging.Web.Pages.PrivateMessages.PrivateMessage
+@using Microsoft.AspNetCore.Authorization
 @inherits EasyAbp.PrivateMessaging.Web.Pages.PrivateMessagingPage
 @model InboxModel
-
+@inject IAuthorizationService Authorization
 @section scripts
 {
     <abp-script src="/Pages/PrivateMessages/PrivateMessage/inbox.js" />
@@ -15,22 +17,25 @@
 <abp-card>
     <abp-card-header>
         <abp-row>
-            <abp-column size-md="_2">
-                <h2>@L["PrivateMessageInbox"]</h2>
+            <abp-column size-md="_6">
+                <abp-card-title>@L["PrivateMessageInbox"]</abp-card-title>
             </abp-column>
-            <abp-column size-md="_10" class="text-right">
+            <abp-column size-md="_6" class="text-right">
                 <abp-button id="OutboxButton"
                             text="@L["PrivateMessageOutbox"].Value"
                             button-type="Secondary" />
-                <abp-button id="NewPrivateMessageButton"
-                            text="@L["CreatePrivateMessage"].Value"
-                            icon="plus"
-                            button-type="Primary" />
+                @if (await Authorization.IsGrantedAsync(PrivateMessagingPermissions.PrivateMessages.Create))
+                {
+                    <abp-button id="NewPrivateMessageButton"
+                                text="@L["CreatePrivateMessage"].Value"
+                                icon="plus"
+                                button-type="Primary" />
+                }
             </abp-column>
         </abp-row>
     </abp-card-header>
     <abp-card-body>
-        <abp-table striped-rows="true" id="PrivateMessageTable">
+        <abp-table striped-rows="true" id="PrivateMessageTable" class="nowrap">
             <thead>
             <tr>
                 <th>@L["Actions"]</th>

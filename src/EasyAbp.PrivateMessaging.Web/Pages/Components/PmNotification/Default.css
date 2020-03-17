@@ -13,3 +13,6 @@
   color: #95999c !important;
   cursor: pointer;
 }
+.dropdown-pm a {
+  padding: 10px 15px;
+}

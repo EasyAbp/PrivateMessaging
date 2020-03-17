@@ -4,10 +4,6 @@
     let detailModal = new abp.ModalManager(abp. appPath + 'PrivateMessages/PrivateMessage/DetailModal');
     var widgetManager = new abp.WidgetManager("#main-navbar-collapse");
 
-    $(document.body).on('click', '#pmNotificationLink', function () {
-        document.location.href = "/PrivateMessages/PrivateMessage/Inbox"
-    });
-
     $(document.body).on('click', '#pmNotificationShowMore', function () {
         document.location.href = "/PrivateMessages/PrivateMessage/Inbox"
     });
