@@ -2,8 +2,14 @@
   display: flex;
   justify-content: space-between;
 }
+.pmNotification-table {
+  width: 100%;
+}
 .pmNotification-row {
   white-space: nowrap;
+}
+.pmNotification-data {
+  width: 100%;
 }
 .pmNotification-data-text {
   cursor: pointer;
