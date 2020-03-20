@@ -3,7 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 using Volo.Abp.AspNetCore.Mvc;
 using Volo.Abp.AspNetCore.Mvc.UI.Widgets;
 
-namespace EasyAbp.PrivateMessaging.Web.Pages.Components.PmNotification
+namespace EasyAbp.PrivateMessaging.Web.Pages.PrivateMessaging.Components.PmNotification
 {
     [Widget(RefreshUrl = "/Widgets/PmNotification")]
     [ViewComponent(Name = "PmNotification")]
@@ -11,7 +11,7 @@ namespace EasyAbp.PrivateMessaging.Web.Pages.Components.PmNotification
     {
         public virtual async Task<IViewComponentResult> InvokeAsync()
         {
-            return View("~/Pages/Components/PmNotification/Default.cshtml");
+            return View("~/Pages/PrivateMessaging/Components/PmNotification/Default.cshtml");
         }
     }
 }

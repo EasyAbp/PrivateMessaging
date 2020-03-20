@@ -1,6 +1,6 @@
 using EasyAbp.PrivateMessaging.PrivateMessages.Dtos;
 using AutoMapper;
-using EasyAbp.PrivateMessaging.Web.Pages.PrivateMessages.PrivateMessage.InfoModels;
+using EasyAbp.PrivateMessaging.Web.Pages.PrivateMessaging.PrivateMessages.PrivateMessage.InfoModels;
 
 namespace EasyAbp.PrivateMessaging.Web
 {

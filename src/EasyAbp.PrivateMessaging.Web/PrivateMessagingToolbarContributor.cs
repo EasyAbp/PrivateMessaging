@@ -1,6 +1,6 @@
 ﻿using System.Threading.Tasks;
 using EasyAbp.PrivateMessaging.Authorization;
-using EasyAbp.PrivateMessaging.Web.Pages.Components.PmNotification;
+using EasyAbp.PrivateMessaging.Web.Pages.PrivateMessaging.Components.PmNotification;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.Extensions.DependencyInjection;
 using Volo.Abp.AspNetCore.Mvc.UI.Theme.Shared.Toolbars;
