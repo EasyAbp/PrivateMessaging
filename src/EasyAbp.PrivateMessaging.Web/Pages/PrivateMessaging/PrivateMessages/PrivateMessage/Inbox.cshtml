@@ -1,9 +1,11 @@
 @page
+@namespace EasyAbp.PrivateMessaging.Web.Pages.PrivateMessaging.PrivateMessages.PrivateMessage
 @using EasyAbp.PrivateMessaging.Authorization
-@using EasyAbp.PrivateMessaging.Web.Pages.PrivateMessaging.PrivateMessages.PrivateMessage
 @using Microsoft.AspNetCore.Authorization
+@using Volo.Abp.AspNetCore.Mvc.UI.Layout
 @inherits EasyAbp.PrivateMessaging.Web.Pages.PrivateMessagingPage
 @model InboxModel
+@inject IPageLayout PageLayout
 @inject IAuthorizationService Authorization
 @section scripts
 {
@@ -12,6 +14,10 @@
 @section styles
 {
     <abp-style src="/Pages/PrivateMessaging/PrivateMessages/PrivateMessage/common.css"/>
+}
+@{
+    PageLayout.Content.Title = L["PrivateMessageInbox"].Value;
+    PageLayout.Content.BreadCrumb.Add(L["Menu:PrivateMessage"].Value);
 }
 
 <abp-card>
