@@ -62,8 +62,8 @@ namespace EasyAbp.PrivateMessaging
         typeof(AbpTenantManagementWebModule),
         typeof(AbpTenantManagementApplicationModule),
         typeof(AbpTenantManagementEntityFrameworkCoreModule),
-        typeof(AbpAspNetCoreMvcUiStislaThemeModule),
-        // typeof(AbpAspNetCoreMvcUiBasicThemeModule),
+        // typeof(AbpAspNetCoreMvcUiStislaThemeModule),
+        typeof(AbpAspNetCoreMvcUiBasicThemeModule),
         typeof(AbpAspNetCoreSerilogModule)
         )]
     public class PrivateMessagingWebUnifiedModule : AbpModule
