@@ -5,7 +5,7 @@ $(function () {
     var service = easyAbp.privateMessaging.privateMessages.privateMessage;
     var detailModal = new abp.ModalManager(abp.appPath + 'PrivateMessages/PrivateMessage/DetailModal');
     var createModal = new abp.ModalManager(abp.appPath + 'PrivateMessages/PrivateMessage/CreateModal');
-    var widgetManager = new abp.WidgetManager("#main-navbar-collapse");
+    var widgetManager = new abp.WidgetManager({filterForm: 'PmNotification'});
 
     var dataTable = $('#PrivateMessageTable').DataTable(abp.libs.datatables.normalizeConfiguration({
         bSort: false,
