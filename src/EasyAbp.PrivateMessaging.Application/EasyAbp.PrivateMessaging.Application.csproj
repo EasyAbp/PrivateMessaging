@@ -8,9 +8,9 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Volo.Abp.AutoMapper" Version="2.2.1" />
-    <PackageReference Include="Volo.Abp.Ddd.Application" Version="2.2.1" />
-    <PackageReference Include="Volo.Abp.Identity.Application.Contracts" Version="2.2.1" />
+    <PackageReference Include="Volo.Abp.AutoMapper" Version="2.3.0" />
+    <PackageReference Include="Volo.Abp.Ddd.Application" Version="2.3.0" />
+    <PackageReference Include="Volo.Abp.Identity.Application.Contracts" Version="2.3.0" />
     <ProjectReference Include="..\EasyAbp.PrivateMessaging.Application.Contracts\EasyAbp.PrivateMessaging.Application.Contracts.csproj" />
     <ProjectReference Include="..\EasyAbp.PrivateMessaging.Domain\EasyAbp.PrivateMessaging.Domain.csproj" />
   </ItemGroup>
