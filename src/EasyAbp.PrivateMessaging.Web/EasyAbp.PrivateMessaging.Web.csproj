@@ -39,4 +39,12 @@
     <Folder Include="wwwroot\" />
   </ItemGroup>
 
+  <ItemGroup>
+    <_ContentIncludedByDefault Remove="Pages\PrivateMessages\PrivateMessage\CreateModal.cshtml" />
+    <_ContentIncludedByDefault Remove="Pages\PrivateMessages\PrivateMessage\DetailModal.cshtml" />
+    <_ContentIncludedByDefault Remove="Pages\PrivateMessages\PrivateMessage\Inbox.cshtml" />
+    <_ContentIncludedByDefault Remove="Pages\PrivateMessages\PrivateMessage\Outbox.cshtml" />
+    <_ContentIncludedByDefault Remove="Pages\Components\PmNotification\Default.cshtml" />
+  </ItemGroup>
+
 </Project>

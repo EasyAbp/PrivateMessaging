@@ -1,8 +1,8 @@
 ﻿$(function () {
 
-    var createModal = new abp.ModalManager(abp.appPath + 'PrivateMessages/PrivateMessage/CreateModal');
+    var createModal = new abp.ModalManager(abp.appPath + 'PrivateMessaging/PrivateMessages/PrivateMessage/CreateModal');
     var dataTableElement = $('#PrivateMessageTable');
-    var widgetManager = new abp.WidgetManager("#main-navbar-collapse");
+    var widgetManager = new abp.WidgetManager({filterForm: 'PmNotification'});
 
     $('#ReplyPrivateMessage').click(function (e) {
         createModal.open({toUserName: $('#PrivateMessage_CreatorUserName').val()});

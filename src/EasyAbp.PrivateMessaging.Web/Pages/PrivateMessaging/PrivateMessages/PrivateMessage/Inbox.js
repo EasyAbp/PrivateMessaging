@@ -3,9 +3,9 @@ $(function () {
     var l = abp.localization.getResource('PrivateMessaging');
 
     var service = easyAbp.privateMessaging.privateMessages.privateMessage;
-    var detailModal = new abp.ModalManager(abp.appPath + 'PrivateMessages/PrivateMessage/DetailModal');
-    var createModal = new abp.ModalManager(abp.appPath + 'PrivateMessages/PrivateMessage/CreateModal');
-    var widgetManager = new abp.WidgetManager("#main-navbar-collapse");
+    var detailModal = new abp.ModalManager(abp.appPath + 'PrivateMessaging/PrivateMessages/PrivateMessage/DetailModal');
+    var createModal = new abp.ModalManager(abp.appPath + 'PrivateMessaging/PrivateMessages/PrivateMessage/CreateModal');
+    var widgetManager = new abp.WidgetManager({filterForm: 'PmNotification'});
 
     var dataTable = $('#PrivateMessageTable').DataTable(abp.libs.datatables.normalizeConfiguration({
         bSort: false,
@@ -81,14 +81,6 @@ $(function () {
     createModal.onResult(function () {
         widgetManager.refresh();
         dataTable.ajax.reload();
-    });
-
-    detailModal.onClose(function (event, response) {
-        console.log(event);
-        console.log(response);
-        // _newTenantInformationModal.open({
-        //     managerPassword: response.responseText
-        // });
     });
 
     $('#OutboxButton').click(function (e) {

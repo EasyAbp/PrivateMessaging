@@ -1,11 +1,11 @@
 ﻿$(function() {
     let pmService = easyAbp.privateMessaging.privateMessages.privateMessage;
     let notificationService = easyAbp.privateMessaging.privateMessageNotifications.privateMessageNotification;
-    let detailModal = new abp.ModalManager(abp. appPath + 'PrivateMessages/PrivateMessage/DetailModal');
-    var widgetManager = new abp.WidgetManager("#main-navbar-collapse");
+    let detailModal = new abp.ModalManager(abp. appPath + 'PrivateMessaging/PrivateMessages/PrivateMessage/DetailModal');
+    var widgetManager = new abp.WidgetManager({filterForm: 'PmNotification'});
 
     $(document.body).on('click', '#pmNotificationShowMore', function () {
-        document.location.href = "/PrivateMessages/PrivateMessage/Inbox"
+        document.location.href = "/PrivateMessaging/PrivateMessages/PrivateMessage/Inbox"
     });
 
     $(document.body).on('click', '#pmNotificationHideThese', function () {

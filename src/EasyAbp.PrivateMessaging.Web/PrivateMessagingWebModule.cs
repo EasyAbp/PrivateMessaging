@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.Extensions.DependencyInjection;
 using EasyAbp.PrivateMessaging.Localization;
-using EasyAbp.PrivateMessaging.Web.Pages.Components.PmNotification;
+using EasyAbp.PrivateMessaging.Web.Pages.PrivateMessaging.Components.PmNotification;
 using Volo.Abp.AspNetCore.Mvc.Localization;
 using Volo.Abp.AspNetCore.Mvc.UI.Bundling;
 using Volo.Abp.AspNetCore.Mvc.UI.Theme.Shared;
