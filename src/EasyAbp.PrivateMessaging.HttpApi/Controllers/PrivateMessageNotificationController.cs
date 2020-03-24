@@ -12,7 +12,7 @@ namespace EasyAbp.PrivateMessaging.PrivateMessageNotifications
     [RemoteService]
     [Area("EasyAbp")]
     [ControllerName("PrivateMessageNotification")]
-    [Route("api/PrivateMessaging/Components/PmNotification")]
+    [Route("api/pm/privateMessageNotification")]
     public class PrivateMessageNotificationController : AbpController, IPrivateMessageNotificationAppService
     {
         protected IPrivateMessageNotificationAppService AppService { get; }
@@ -30,7 +30,6 @@ namespace EasyAbp.PrivateMessaging.PrivateMessageNotifications
         }
 
         [HttpDelete]
-        [Route("{id}")]
         public Task DeleteAsync(IEnumerable<Guid> ids)
         {
             return AppService.DeleteAsync(ids);

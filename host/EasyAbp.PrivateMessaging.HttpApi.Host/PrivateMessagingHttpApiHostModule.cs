@@ -143,7 +143,7 @@ namespace EasyAbp.PrivateMessaging
                 });
             });
 
-            ConfigureConventionalControllers();
+            // ConfigureConventionalControllers();
         }
 
         public override void OnApplicationInitialization(ApplicationInitializationContext context)

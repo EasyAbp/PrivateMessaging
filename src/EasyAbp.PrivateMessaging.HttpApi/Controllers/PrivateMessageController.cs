@@ -14,7 +14,7 @@ namespace EasyAbp.PrivateMessaging.PrivateMessages
     [RemoteService]
     [Area("EasyAbp")]
     [ControllerName("PrivateMessage")]
-    [Route("api/PrivateMessaging/PrivateMessages/PrivateMessage")]
+    [Route("api/pm/privateMessage")]
     public class PrivateMessageController : AbpController, IPrivateMessageAppService
     {
         protected IPrivateMessageAppService AppService { get; }
@@ -58,14 +58,13 @@ namespace EasyAbp.PrivateMessaging.PrivateMessages
         }
 
         [HttpDelete]
-        [Route("{id}")]
         public Task DeleteAsync(IEnumerable<Guid> ids)
         {
             return AppService.DeleteAsync(ids);
         }
 
         [HttpPost]
-        [Route("SetRead")]
+        [Route("setRead")]
         public Task SetReadAsync(IEnumerable<Guid> ids)
         {
             return AppService.SetReadAsync(ids);
