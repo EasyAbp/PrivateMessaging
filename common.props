@@ -10,7 +10,7 @@
     <RepositoryUrl>https://github.com/EasyAbp/PrivateMessaging</RepositoryUrl>
     <PackageTags>abp module easyabp pm privatemessaging privatemessage message</PackageTags>
     <Company>EasyAbp</Company>
-    <PackageLicenseExpression>Apache-2.0</PackageLicenseExpression>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
   </PropertyGroup>
 
   <ItemGroup>
