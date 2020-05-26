@@ -244,7 +244,7 @@ namespace EasyAbp.PrivateMessaging
 
             app.UseAuditing();
             app.UseAbpSerilogEnrichers();
-            app.UseMvcWithDefaultRouteAndArea();
+            app.UseConfiguredEndpoints();
         }
     }
 }
