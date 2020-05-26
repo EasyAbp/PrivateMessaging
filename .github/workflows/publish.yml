@@ -12,63 +12,63 @@ jobs:
 
       # Publish
       - name: publish PrivateMessaging.Application.dll
-        uses: brandedoutcast/publish-nuget@v2.5.2
+        uses: brandedoutcast/publish-nuget@v2
         with:
           PROJECT_FILE_PATH: src/EasyAbp.PrivateMessaging.Application/EasyAbp.PrivateMessaging.Application.csproj
           VERSION_FILE_PATH: common.props
           NUGET_KEY: ${{secrets.NUGET_API_KEY}}
           
       - name: publish PrivateMessaging.Application.Contracts.dll
-        uses: brandedoutcast/publish-nuget@v2.5.2
+        uses: brandedoutcast/publish-nuget@v2
         with:
           PROJECT_FILE_PATH: src/EasyAbp.PrivateMessaging.Application.Contracts/EasyAbp.PrivateMessaging.Application.Contracts.csproj
           VERSION_FILE_PATH: common.props
           NUGET_KEY: ${{secrets.NUGET_API_KEY}}
 
       - name: publish PrivateMessaging.Domain.dll
-        uses: brandedoutcast/publish-nuget@v2.5.2
+        uses: brandedoutcast/publish-nuget@v2
         with:
           PROJECT_FILE_PATH: src/EasyAbp.PrivateMessaging.Domain/EasyAbp.PrivateMessaging.Domain.csproj
           VERSION_FILE_PATH: common.props
           NUGET_KEY: ${{secrets.NUGET_API_KEY}}
 
       - name: publish PrivateMessaging.Domain.Shared.dll
-        uses: brandedoutcast/publish-nuget@v2.5.2
+        uses: brandedoutcast/publish-nuget@v2
         with:
           PROJECT_FILE_PATH: src/EasyAbp.PrivateMessaging.Domain.Shared/EasyAbp.PrivateMessaging.Domain.Shared.csproj
           VERSION_FILE_PATH: common.props
           NUGET_KEY: ${{secrets.NUGET_API_KEY}}
 
       - name: publish PrivateMessaging.EntityFrameworkCore.dll
-        uses: brandedoutcast/publish-nuget@v2.5.2
+        uses: brandedoutcast/publish-nuget@v2
         with:
           PROJECT_FILE_PATH: src/EasyAbp.PrivateMessaging.EntityFrameworkCore/EasyAbp.PrivateMessaging.EntityFrameworkCore.csproj
           VERSION_FILE_PATH: common.props
           NUGET_KEY: ${{secrets.NUGET_API_KEY}}
 
       - name: publish PrivateMessaging.HttpApi.dll
-        uses: brandedoutcast/publish-nuget@v2.5.2
+        uses: brandedoutcast/publish-nuget@v2
         with:
           PROJECT_FILE_PATH: src/EasyAbp.PrivateMessaging.HttpApi/EasyAbp.PrivateMessaging.HttpApi.csproj
           VERSION_FILE_PATH: common.props
           NUGET_KEY: ${{secrets.NUGET_API_KEY}}
 
       - name: publish PrivateMessaging.HttpApi.Client.dll
-        uses: brandedoutcast/publish-nuget@v2.5.2
+        uses: brandedoutcast/publish-nuget@v2
         with:
           PROJECT_FILE_PATH: src/EasyAbp.PrivateMessaging.HttpApi.Client/EasyAbp.PrivateMessaging.HttpApi.Client.csproj
           VERSION_FILE_PATH: common.props
           NUGET_KEY: ${{secrets.NUGET_API_KEY}}
 
       - name: publish PrivateMessaging.MongoDB.dll
-        uses: brandedoutcast/publish-nuget@v2.5.2
+        uses: brandedoutcast/publish-nuget@v2
         with:
           PROJECT_FILE_PATH: src/EasyAbp.PrivateMessaging.MongoDB/EasyAbp.PrivateMessaging.MongoDB.csproj
           VERSION_FILE_PATH: common.props
           NUGET_KEY: ${{secrets.NUGET_API_KEY}}
 
       - name: publish PrivateMessaging.Web.dll
-        uses: brandedoutcast/publish-nuget@v2.5.2
+        uses: brandedoutcast/publish-nuget@v2
         with:
           PROJECT_FILE_PATH: src/EasyAbp.PrivateMessaging.Web/EasyAbp.PrivateMessaging.Web.csproj
           VERSION_FILE_PATH: common.props
