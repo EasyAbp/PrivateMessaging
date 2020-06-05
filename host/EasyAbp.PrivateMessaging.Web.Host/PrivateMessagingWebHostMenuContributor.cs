@@ -32,7 +32,7 @@ namespace EasyAbp.PrivateMessaging
         private void AddLogoutItemToMenu(MenuConfigurationContext context)
         {
             var currentUser = context.ServiceProvider.GetRequiredService<ICurrentUser>();
-            var l = context.ServiceProvider.GetRequiredService<IStringLocalizer<PrivateMessagingResource>>();
+            var l = context.GetLocalizer<PrivateMessagingResource>();
 
             if (currentUser.IsAuthenticated)
             {
