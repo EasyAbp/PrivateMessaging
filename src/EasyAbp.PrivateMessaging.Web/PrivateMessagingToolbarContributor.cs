@@ -16,9 +16,7 @@ namespace EasyAbp.PrivateMessaging.Web
                 return;
             }
 
-            var authorizationService = context.ServiceProvider.GetService<IAuthorizationService>();
-
-            if (await authorizationService.IsGrantedAsync(
+            if (await context.IsGrantedAsync(
                 PrivateMessagingPermissions.PrivateMessageNotifications.Default))
             {
                 context.Toolbar.Items.Insert(0, new ToolbarItem(typeof(PmNotificationViewComponent)));
