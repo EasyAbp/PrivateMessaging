@@ -20,5 +20,8 @@ jobs:
       - name: dotnet pack
         run: dotnet pack -c Release --no-build -o dest
 
+      - name: remove unused packages
+        run: ls -1 | grep -v EasyAbp. | xargs rm -f
+
       - name: dotnet nuget push
-        run: dotnet nuget push dest\\EasyAbp.\*.nupkg -k ${{secrets.NUGET_API_KEY}} -s https://api.nuget.org/v3/index.json --skip-duplicate
+        run: dotnet nuget push dest\*.nupkg -k ${{secrets.NUGET_API_KEY}} -s https://api.nuget.org/v3/index.json --skip-duplicate
