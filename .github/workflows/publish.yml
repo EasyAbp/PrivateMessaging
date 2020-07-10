@@ -21,4 +21,4 @@ jobs:
         run: dotnet pack -c Release --no-build -o dest
 
       - name: dotnet nuget push
-        run: dotnet nuget push dest\\EasyAbp.*.nupkg -k ${{secrets.NUGET_API_KEY}} -s https://api.nuget.org/v3/index.json --skip-duplicate
+        run: dotnet nuget push dest\\EasyAbp.\*.nupkg -k ${{secrets.NUGET_API_KEY}} -s https://api.nuget.org/v3/index.json --skip-duplicate
