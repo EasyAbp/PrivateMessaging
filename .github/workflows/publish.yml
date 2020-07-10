@@ -5,71 +5,23 @@ on:
       - master # Default release branch
 jobs:
   publish:
-    name: list on nuget
-    runs-on: ubuntu-latest
+    runs-on: windows-latest
     steps:
       - uses: actions/checkout@v2
 
-      # Publish
-      - name: publish EasyAbp.PrivateMessaging.Application.dll
-        uses: brandedoutcast/publish-nuget@v2
+      - name: Setup .NET Core
+        uses: actions/setup-dotnet@v1
         with:
-          PROJECT_FILE_PATH: src/EasyAbp.PrivateMessaging.Application/EasyAbp.PrivateMessaging.Application.csproj
-          VERSION_FILE_PATH: common.props
-          NUGET_KEY: ${{secrets.NUGET_API_KEY}}
-          
-      - name: publish EasyAbp.PrivateMessaging.Application.Contracts.dll
-        uses: brandedoutcast/publish-nuget@v2
-        with:
-          PROJECT_FILE_PATH: src/EasyAbp.PrivateMessaging.Application.Contracts/EasyAbp.PrivateMessaging.Application.Contracts.csproj
-          VERSION_FILE_PATH: common.props
-          NUGET_KEY: ${{secrets.NUGET_API_KEY}}
+          dotnet-version: 3.1.200
 
-      - name: publish EasyAbp.PrivateMessaging.Domain.dll
-        uses: brandedoutcast/publish-nuget@v2
-        with:
-          PROJECT_FILE_PATH: src/EasyAbp.PrivateMessaging.Domain/EasyAbp.PrivateMessaging.Domain.csproj
-          VERSION_FILE_PATH: common.props
-          NUGET_KEY: ${{secrets.NUGET_API_KEY}}
+      - name: dotnet nuget add source
+        run: dotnet nuget add source https://nuget.pkg.github.com/EasyAbp/index.json -n github -u EasyAbp -p ${{ secrets.GITHUB_TOKEN }}
 
-      - name: publish EasyAbp.PrivateMessaging.Domain.Shared.dll
-        uses: brandedoutcast/publish-nuget@v2
-        with:
-          PROJECT_FILE_PATH: src/EasyAbp.PrivateMessaging.Domain.Shared/EasyAbp.PrivateMessaging.Domain.Shared.csproj
-          VERSION_FILE_PATH: common.props
-          NUGET_KEY: ${{secrets.NUGET_API_KEY}}
+      - name: dotnet build
+        run: dotnet build -c Release
 
-      - name: publish EasyAbp.PrivateMessaging.EntityFrameworkCore.dll
-        uses: brandedoutcast/publish-nuget@v2
-        with:
-          PROJECT_FILE_PATH: src/EasyAbp.PrivateMessaging.EntityFrameworkCore/EasyAbp.PrivateMessaging.EntityFrameworkCore.csproj
-          VERSION_FILE_PATH: common.props
-          NUGET_KEY: ${{secrets.NUGET_API_KEY}}
+      - name: dotnet pack
+        run: dotnet pack -c Release --no-build -o dest
 
-      - name: publish EasyAbp.PrivateMessaging.HttpApi.dll
-        uses: brandedoutcast/publish-nuget@v2
-        with:
-          PROJECT_FILE_PATH: src/EasyAbp.PrivateMessaging.HttpApi/EasyAbp.PrivateMessaging.HttpApi.csproj
-          VERSION_FILE_PATH: common.props
-          NUGET_KEY: ${{secrets.NUGET_API_KEY}}
-
-      - name: publish EasyAbp.PrivateMessaging.HttpApi.Client.dll
-        uses: brandedoutcast/publish-nuget@v2
-        with:
-          PROJECT_FILE_PATH: src/EasyAbp.PrivateMessaging.HttpApi.Client/EasyAbp.PrivateMessaging.HttpApi.Client.csproj
-          VERSION_FILE_PATH: common.props
-          NUGET_KEY: ${{secrets.NUGET_API_KEY}}
-
-      - name: publish EasyAbp.PrivateMessaging.MongoDB.dll
-        uses: brandedoutcast/publish-nuget@v2
-        with:
-          PROJECT_FILE_PATH: src/EasyAbp.PrivateMessaging.MongoDB/EasyAbp.PrivateMessaging.MongoDB.csproj
-          VERSION_FILE_PATH: common.props
-          NUGET_KEY: ${{secrets.NUGET_API_KEY}}
-
-      - name: publish EasyAbp.PrivateMessaging.Web.dll
-        uses: brandedoutcast/publish-nuget@v2
-        with:
-          PROJECT_FILE_PATH: src/EasyAbp.PrivateMessaging.Web/EasyAbp.PrivateMessaging.Web.csproj
-          VERSION_FILE_PATH: common.props
-          NUGET_KEY: ${{secrets.NUGET_API_KEY}}
+      - name: dotnet nuget push
+        run: dotnet nuget push dest\*.nupkg -s "github" --skip-duplicate

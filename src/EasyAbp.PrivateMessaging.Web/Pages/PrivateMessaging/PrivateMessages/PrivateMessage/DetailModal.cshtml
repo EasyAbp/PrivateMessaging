@@ -1,21 +1,22 @@
 @page
-@namespace EasyAbp.PrivateMessaging.Web.Pages.PrivateMessaging.PrivateMessages.PrivateMessage
-@inherits EasyAbp.PrivateMessaging.Web.Pages.PrivateMessagingPage
+@using EasyAbp.PrivateMessaging.Localization
+@using Microsoft.AspNetCore.Mvc.Localization
 @using Volo.Abp.AspNetCore.Mvc.UI.Bootstrap.TagHelpers.Modal
-@model DetailModalModel
+@inject IHtmlLocalizer<PrivateMessagingResource> L
+@model EasyAbp.PrivateMessaging.Web.Pages.PrivateMessaging.PrivateMessages.PrivateMessage.DetailModalModel
 @{
     Layout = null;
 }
 
 <abp-script src="/Pages/PrivateMessaging/PrivateMessages/PrivateMessage/detail.js" />
 
-<abp-dynamic-form abp-model="PrivateMessage" data-ajaxForm="true" asp-page="/PrivateMessaging/PrivateMessages/PrivateMessage/DetailModal">
+<abp-dynamic-form abp-model="PrivateMessage" data-ajaxForm="true" asp-page="DetailModal">
     <abp-modal>
         <abp-modal-header title="@L["PrivateMessage"].Value"></abp-modal-header>
         <abp-modal-body>
             <abp-form-content />
         </abp-modal-body>
-        <abp-modal-footer buttons="@AbpModalButtons.Close">
+        <abp-modal-footer buttons="@(AbpModalButtons.Close)">
             <abp-button data-dismiss="modal" button-type="Primary" id="ReplyPrivateMessage">@L["Reply"]</abp-button>
         </abp-modal-footer>
     </abp-modal>

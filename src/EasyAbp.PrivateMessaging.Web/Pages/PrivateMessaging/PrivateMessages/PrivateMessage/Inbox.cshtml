@@ -1,12 +1,14 @@
 @page
 @namespace EasyAbp.PrivateMessaging.Web.Pages.PrivateMessaging.PrivateMessages.PrivateMessage
 @using EasyAbp.PrivateMessaging.Authorization
+@using EasyAbp.PrivateMessaging.Localization
 @using Microsoft.AspNetCore.Authorization
+@using Microsoft.AspNetCore.Mvc.Localization
 @using Volo.Abp.AspNetCore.Mvc.UI.Layout
-@inherits EasyAbp.PrivateMessaging.Web.Pages.PrivateMessagingPage
 @model InboxModel
 @inject IPageLayout PageLayout
 @inject IAuthorizationService Authorization
+@inject IHtmlLocalizer<PrivateMessagingResource> L
 @section scripts
 {
     <abp-script src="/Pages/PrivateMessaging/PrivateMessages/PrivateMessage/inbox.js" />

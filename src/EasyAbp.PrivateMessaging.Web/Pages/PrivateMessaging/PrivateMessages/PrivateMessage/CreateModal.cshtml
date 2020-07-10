@@ -1,12 +1,14 @@
 @page
 @namespace EasyAbp.PrivateMessaging.Web.Pages.PrivateMessaging.PrivateMessages.PrivateMessage
-@inherits EasyAbp.PrivateMessaging.Web.Pages.PrivateMessagingPage
+@using EasyAbp.PrivateMessaging.Localization
+@using Microsoft.AspNetCore.Mvc.Localization
 @using Volo.Abp.AspNetCore.Mvc.UI.Bootstrap.TagHelpers.Modal
+@inject IHtmlLocalizer<PrivateMessagingResource> L
 @model CreateModalModel
 @{
     Layout = null;
 }
-<abp-dynamic-form abp-model="PrivateMessage" data-ajaxForm="true" asp-page="/PrivateMessaging/PrivateMessages/PrivateMessage/CreateModal">
+<abp-dynamic-form abp-model="PrivateMessage" data-ajaxForm="true" asp-page="CreateModal">
     <abp-modal>
         <abp-modal-header title="@L["CreatePrivateMessage"].Value"></abp-modal-header>
         <abp-modal-body>

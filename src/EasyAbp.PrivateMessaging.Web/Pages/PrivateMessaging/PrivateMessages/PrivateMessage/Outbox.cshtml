@@ -1,7 +1,12 @@
 @page
 @namespace EasyAbp.PrivateMessaging.Web.Pages.PrivateMessaging.PrivateMessages.PrivateMessage
+@using EasyAbp.PrivateMessaging.Authorization
+@using EasyAbp.PrivateMessaging.Localization
+@using Microsoft.AspNetCore.Authorization
+@using Microsoft.AspNetCore.Mvc.Localization
 @using Volo.Abp.AspNetCore.Mvc.UI.Layout
-@inherits EasyAbp.PrivateMessaging.Web.Pages.PrivateMessagingPage
+@inject IHtmlLocalizer<PrivateMessagingResource> L
+@inject IAuthorizationService Authorization
 @inject IPageLayout PageLayout
 @model OutboxModel
 
@@ -28,10 +33,13 @@
                 <abp-button id="InboxButton"
                             text="@L["PrivateMessageInbox"].Value"
                             button-type="Secondary" />
-                <abp-button id="NewPrivateMessageButton"
-                            text="@L["CreatePrivateMessage"].Value"
-                            icon="plus"
-                            button-type="Primary"/>
+                @if (await Authorization.IsGrantedAsync(PrivateMessagingPermissions.PrivateMessages.Create))
+                {
+                    <abp-button id="NewPrivateMessageButton"
+                                text="@L["CreatePrivateMessage"].Value"
+                                icon="plus"
+                                button-type="Primary"/>
+                }
             </abp-column>
         </abp-row>
     </abp-card-header>
