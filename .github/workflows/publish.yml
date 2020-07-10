@@ -13,8 +13,6 @@ jobs:
         uses: actions/setup-dotnet@v1
         with:
           dotnet-version: 3.1.200
-        env:
-          NUGET_AUTH_TOKEN: ${{secrets.NUGET_API_KEY}}
 
       - name: dotnet build
         run: dotnet build -c Release
@@ -23,4 +21,4 @@ jobs:
         run: dotnet pack -c Release --no-build -o dest
 
       - name: dotnet nuget push
-        run: dotnet nuget push dest\EasyAbp.*.nupkg --skip-duplicate
+        run: dotnet nuget push dest\EasyAbp.*.nupkg -k ${{secrets.NUGET_API_KEY}} -s https://api.nuget.org/v3/index.json --skip-duplicate
