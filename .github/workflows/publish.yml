@@ -13,9 +13,9 @@ jobs:
         uses: actions/setup-dotnet@v1
         with:
           dotnet-version: 3.1.200
-          source-url: https://nuget.pkg.github.com/EasyAbp/index.json
-        env:
-          NUGET_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: dotnet nuget add source
+        run: dotnet nuget add source https://nuget.pkg.github.com/EasyAbp/index.json -n github -u EasyAbp -p ${{ secrets.GITHUB_TOKEN }}
 
       - name: dotnet build
         run: dotnet build -c Release
