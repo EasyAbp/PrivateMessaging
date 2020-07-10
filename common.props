@@ -1,11 +1,12 @@
 <Project>
   <PropertyGroup>
     <LangVersion>latest</LangVersion>
-    <Version>0.2.10</Version>
+    <Version>0.2.11</Version>
     <NoWarn>$(NoWarn);CS1591</NoWarn>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <Authors>EasyAbp Team</Authors>
     <Description>An abp application module that allows users to send private messages to each other.</Description>
+    <PackageIconUrl>https://avatars3.githubusercontent.com/u/58311641</PackageIconUrl>
     <PackageProjectUrl>https://github.com/EasyAbp/PrivateMessaging</PackageProjectUrl>
     <RepositoryUrl>https://github.com/EasyAbp/PrivateMessaging</RepositoryUrl>
     <PackageTags>abp module easyabp pm privatemessaging privatemessage message</PackageTags>
