@@ -5,7 +5,7 @@ on:
       - master # Default release branch
 jobs:
   publish:
-    runs-on: windows-latest
+    runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
 
@@ -13,9 +13,8 @@ jobs:
         uses: actions/setup-dotnet@v1
         with:
           dotnet-version: 3.1.200
-
-      - name: dotnet nuget add source
-        run: dotnet nuget add source https://nuget.pkg.github.com/EasyAbp/index.json -n github -u EasyAbp -p ${{ secrets.GITHUB_TOKEN }}
+        env:
+          NUGET_AUTH_TOKEN: ${{secrets.NUGET_API_KEY}}
 
       - name: dotnet build
         run: dotnet build -c Release
@@ -24,4 +23,4 @@ jobs:
         run: dotnet pack -c Release --no-build -o dest
 
       - name: dotnet nuget push
-        run: dotnet nuget push dest\*.nupkg -s "github" --skip-duplicate
+        run: dotnet nuget push dest\EasyAbp.*.nupkg -s "github" --skip-duplicate
