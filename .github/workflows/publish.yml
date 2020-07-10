@@ -23,4 +23,4 @@ jobs:
         run: dotnet pack -c Release --no-build -o dest
 
       - name: dotnet nuget push
-        run: dotnet nuget push dest\EasyAbp.*.nupkg -s "github" --skip-duplicate
+        run: dotnet nuget push dest\EasyAbp.*.nupkg --skip-duplicate
