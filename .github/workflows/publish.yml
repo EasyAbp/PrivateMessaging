@@ -13,6 +13,9 @@ jobs:
         uses: actions/setup-dotnet@v1
         with:
           dotnet-version: 3.1.200
+          source-url: https://nuget.pkg.github.com/EasyAbp/index.json
+        env:
+          NUGET_AUTH_TOKEN: ${{secrets.GITHUB_TOKEN}}
 
       - name: dotnet build
         run: dotnet build -c Release
@@ -23,5 +26,8 @@ jobs:
       - name: remove unused packages
         run: ls ./dest | grep -v EasyAbp. | xargs rm -f; ls ./dest | grep -v HttpApi.Client.ConsoleTestApp | xargs rm -f
 
-      - name: dotnet nuget push
+      - name: dotnet nuget push to GitHub
+        run: dotnet nuget push dest/*.nupkg --skip-duplicate --no-symbols true
+
+      - name: dotnet nuget push to NuGet
         run: dotnet nuget push dest/*.nupkg -k ${{secrets.NUGET_API_KEY}} -s https://api.nuget.org/v3/index.json --skip-duplicate
