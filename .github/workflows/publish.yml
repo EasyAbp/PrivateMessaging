@@ -28,9 +28,10 @@ jobs:
           cd dest
           ls | grep -v EasyAbp. | xargs rm -f
           ls | grep HttpApi.Client.ConsoleTestApp | xargs rm -f
+          ls
 
       - name: dotnet nuget push to GitHub
-        run: dotnet nuget push *.nupkg --skip-duplicate --no-symbols true
+        run: dotnet nuget push ./dest/*.nupkg --skip-duplicate --no-symbols true
 
       - name: dotnet nuget push to NuGet
-        run: dotnet nuget push *.nupkg -k ${{secrets.NUGET_API_KEY}} -s https://api.nuget.org/v3/index.json --skip-duplicate
+        run: dotnet nuget push ./dest/*.nupkg -k ${{secrets.NUGET_API_KEY}} -s https://api.nuget.org/v3/index.json --skip-duplicate
