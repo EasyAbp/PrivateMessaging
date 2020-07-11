@@ -6,7 +6,7 @@
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <Authors>EasyAbp Team</Authors>
     <Description>An abp application module that allows users to send private messages to each other.</Description>
-    <PackageIconUrl>https://avatars3.githubusercontent.com/u/58311641</PackageIconUrl>
+    <PackageIconUrl>https://avatars3.githubusercontent.com/u/58311641?s=128</PackageIconUrl>
     <PackageProjectUrl>https://github.com/EasyAbp/PrivateMessaging</PackageProjectUrl>
     <RepositoryUrl>https://github.com/EasyAbp/PrivateMessaging</RepositoryUrl>
     <PackageTags>abp module easyabp pm privatemessaging privatemessage message</PackageTags>
