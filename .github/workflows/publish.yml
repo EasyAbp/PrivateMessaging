@@ -23,16 +23,14 @@ jobs:
       - name: dotnet pack
         run: dotnet pack -c Release --no-build -o dest
 
-      - name: go to dest directory
-        run: cd dest
-
       - name: remove unused packages
         run: |
+          cd dest
           ls | grep -v EasyAbp. | xargs rm -f
           ls | grep -v HttpApi.Client.ConsoleTestApp | xargs rm -f
 
       - name: dotnet nuget push to GitHub
-        run: dotnet nuget push *.nupkg --skip-duplicate --no-symbols true
+        run: cd dest; dotnet nuget push *.nupkg --skip-duplicate --no-symbols true
 
       - name: dotnet nuget push to NuGet
-        run: dotnet nuget push *.nupkg -k ${{secrets.NUGET_API_KEY}} -s https://api.nuget.org/v3/index.json --skip-duplicate
+        run: cd dest; dotnet nuget push *.nupkg -k ${{secrets.NUGET_API_KEY}} -s https://api.nuget.org/v3/index.json --skip-duplicate
