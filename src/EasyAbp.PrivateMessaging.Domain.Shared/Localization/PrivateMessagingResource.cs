@@ -2,7 +2,7 @@
 
 namespace EasyAbp.PrivateMessaging.Localization
 {
-    [LocalizationResourceName("PrivateMessaging")]
+    [LocalizationResourceName("EasyAbpPrivateMessaging")]
     public class PrivateMessagingResource
     {
         

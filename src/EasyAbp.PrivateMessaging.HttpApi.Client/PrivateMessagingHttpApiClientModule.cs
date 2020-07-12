@@ -9,7 +9,7 @@ namespace EasyAbp.PrivateMessaging
         typeof(AbpHttpClientModule))]
     public class PrivateMessagingHttpApiClientModule : AbpModule
     {
-        public const string RemoteServiceName = "PrivateMessaging";
+        public const string RemoteServiceName = "EasyAbpPrivateMessaging";
 
         public override void ConfigureServices(ServiceConfigurationContext context)
         {

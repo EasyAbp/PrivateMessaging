@@ -1,6 +1,6 @@
 $(function () {
 
-    var l = abp.localization.getResource('PrivateMessaging');
+    var l = abp.localization.getResource('EasyAbpPrivateMessaging');
 
     var service = easyAbp.privateMessaging.privateMessages.privateMessage;
     var detailModal = new abp.ModalManager(abp.appPath + 'PrivateMessaging/PrivateMessages/PrivateMessage/DetailModal');

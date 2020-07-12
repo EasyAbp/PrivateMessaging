@@ -5,7 +5,7 @@ using Volo.Abp.AspNetCore.Mvc.UI.Widgets;
 
 namespace EasyAbp.PrivateMessaging.Web.Pages.PrivateMessaging.Components.PmNotification
 {
-    [Widget(RefreshUrl = "/Widgets/PmNotification")]
+    [Widget(RefreshUrl = "/widgets/pmNotification")]
     [ViewComponent(Name = "PmNotification")]
     public class PmNotificationViewComponent : AbpViewComponent
     {

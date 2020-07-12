@@ -22,6 +22,7 @@ using Volo.Abp.Autofac;
 using Volo.Abp.Caching;
 using Volo.Abp.EntityFrameworkCore;
 using Volo.Abp.EntityFrameworkCore.SqlServer;
+using Volo.Abp.Identity;
 using Volo.Abp.Localization;
 using Volo.Abp.Modularity;
 using Volo.Abp.MultiTenancy;
@@ -42,7 +43,8 @@ namespace EasyAbp.PrivateMessaging
         typeof(AbpAuditLoggingEntityFrameworkCoreModule),
         typeof(AbpPermissionManagementEntityFrameworkCoreModule),
         typeof(AbpSettingManagementEntityFrameworkCoreModule),
-        typeof(AbpAspNetCoreSerilogModule)
+        typeof(AbpAspNetCoreSerilogModule),
+        typeof(AbpIdentityHttpApiClientModule)
         )]
     public class PrivateMessagingHttpApiHostModule : AbpModule
     {
@@ -180,10 +182,6 @@ namespace EasyAbp.PrivateMessaging
         {
             Configure<AbpAspNetCoreMvcOptions>(options =>
             {
-                options.ConventionalControllers.Create(typeof(PrivateMessagingApplicationModule).Assembly, setting =>
-                {
-                    setting.RootPath = "pm";
-                });
             });
         }
     }

@@ -4,15 +4,17 @@ using EasyAbp.PrivateMessaging.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Volo.Abp.EntityFrameworkCore;
 
 namespace EasyAbp.PrivateMessaging.Migrations
 {
     [DbContext(typeof(IdentityServerHostMigrationsDbContext))]
-    partial class IdentityServerHostMigrationsDbContextModelSnapshot : ModelSnapshot
+    [Migration("20200712183355_UpgradedToAbp3_0_1")]
+    partial class UpgradedToAbp3_0_1
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

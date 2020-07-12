@@ -176,10 +176,6 @@ namespace EasyAbp.PrivateMessaging
         {
             Configure<AbpAspNetCoreMvcOptions>(options =>
             {
-                options.ConventionalControllers.Create(typeof(PrivateMessagingApplicationModule).Assembly, setting =>
-                {
-                    setting.RootPath = "pm";
-                });
             });
         }
     }

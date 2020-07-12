@@ -4,7 +4,7 @@ namespace EasyAbp.PrivateMessaging.Authorization
 {
     public class PrivateMessagingPermissions
     {
-        public const string GroupName = "PrivateMessaging";
+        public const string GroupName = "EasyAbp.PrivateMessaging";
         
         public class PrivateMessages
         {
