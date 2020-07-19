@@ -42,7 +42,7 @@ namespace EasyAbp.PrivateMessaging.Web
 
             Configure<AbpVirtualFileSystemOptions>(options =>
             {
-                options.FileSets.AddEmbedded<PrivateMessagingWebModule>("EasyAbp.PrivateMessaging.Web");
+                options.FileSets.AddEmbedded<PrivateMessagingWebModule>();
             });
 
             context.Services.AddAutoMapperObjectMapper<PrivateMessagingWebModule>();

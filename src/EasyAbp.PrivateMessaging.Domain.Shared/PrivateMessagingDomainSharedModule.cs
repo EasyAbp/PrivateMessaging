@@ -17,7 +17,7 @@ namespace EasyAbp.PrivateMessaging
         {
             Configure<AbpVirtualFileSystemOptions>(options =>
             {
-                options.FileSets.AddEmbedded<PrivateMessagingDomainSharedModule>("EasyAbp.PrivateMessaging");
+                options.FileSets.AddEmbedded<PrivateMessagingDomainSharedModule>();
             });
 
             Configure<AbpLocalizationOptions>(options =>

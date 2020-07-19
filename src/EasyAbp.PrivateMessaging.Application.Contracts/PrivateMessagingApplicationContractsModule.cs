@@ -12,12 +12,6 @@ namespace EasyAbp.PrivateMessaging
         )]
     public class PrivateMessagingApplicationContractsModule : AbpModule
     {
-        public override void ConfigureServices(ServiceConfigurationContext context)
-        {
-            Configure<AbpVirtualFileSystemOptions>(options =>
-            {
-                options.FileSets.AddEmbedded<PrivateMessagingApplicationContractsModule>("EasyAbp.PrivateMessaging");
-            });
-        }
+
     }
 }
