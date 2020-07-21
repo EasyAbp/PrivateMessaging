@@ -30,8 +30,6 @@ An abp application module that allows users to send private messages to each oth
     1. Install `EasyAbp.PrivateMessaging.MongoDB` NuGet package to `MyProject.MongoDB` project and add `[DependsOn(PrivateMessagingMongoDbModule)]` attribute to the module.
 
     1. (Optional) If you need MVC UI, install `EasyAbp.PrivateMessaging.Web` NuGet package to `MyProject.Web` project and add `[DependsOn(PrivateMessagingWebModule)]` attribute to the module.
-    
-    1. Add `options.ConventionalControllers.Create(typeof(PrivateMessagingApplicationModule).Assembly);` to `Configure<AbpAspNetCoreMvcOptions>(options => { ... });` in your host module (It is usually Web project or HttpApi.Host project).
 
     1. Add `builder.ConfigurePrivateMessaging();` to OnModelCreating method in `MyProjectMigrationsDbContext.cs`.
 
