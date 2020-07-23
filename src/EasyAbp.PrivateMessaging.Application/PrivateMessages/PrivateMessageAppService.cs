@@ -8,6 +8,7 @@ using EasyAbp.PrivateMessaging.PrivateMessages.Dtos;
 using EasyAbp.PrivateMessaging.Users;
 using EasyAbp.PrivateMessaging.Users.Dtos;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Authorization.Infrastructure;
 using Volo.Abp;
 using Volo.Abp.Application.Dtos;
 using Volo.Abp.Application.Services;
@@ -43,14 +44,14 @@ namespace EasyAbp.PrivateMessaging.PrivateMessages
             _privateMessageReceiverSideManager = privateMessageReceiverSideManager;
         }
 
-        [Authorize(PrivateMessagingPermissions.PrivateMessages.Default)]
         public virtual async Task<PrivateMessageDto> GetAsync(Guid id)
         {
             using (_dataFilter.Disable<ISoftDelete>())
             {
                 var message = await _privateMessageRepository.GetAsync(id);
 
-                await AuthorizationService.CheckAsync(message, PrivateMessagingPermissions.PrivateMessages.Default);
+                await AuthorizationService.CheckAsync(message,
+                    new OperationAuthorizationRequirement {Name = PrivateMessagingPermissions.PrivateMessages.Default});
 
                 return await MapToDtoAndLoadMoreInfosAsync(message);
             }
@@ -89,27 +90,27 @@ namespace EasyAbp.PrivateMessaging.PrivateMessages
             return new PagedResultDto<PrivateMessageDto>(count, await MapToDtoAndLoadMoreInfosAsync(list));
         }
 
-        [Authorize(PrivateMessagingPermissions.PrivateMessages.Delete)]
         public virtual async Task DeleteAsync(IEnumerable<Guid> ids)
         {
             var messageList = await _privateMessageRepository.GetListAsync(ids);
             
             foreach (var message in messageList)
             {
-                await AuthorizationService.CheckAsync(message, PrivateMessagingPermissions.PrivateMessages.Delete);
+                await AuthorizationService.CheckAsync(message,
+                    new OperationAuthorizationRequirement {Name = PrivateMessagingPermissions.PrivateMessages.Delete});
 
                 await _privateMessageReceiverSideManager.DeleteAsync(message);
             }
         }
 
-        [Authorize(PrivateMessagingPermissions.PrivateMessages.SetRead)]
         public virtual async Task SetReadAsync(IEnumerable<Guid> ids)
         {
             var messageList = await _privateMessageRepository.GetListAsync(ids);
 
             foreach (var message in messageList)
             {
-                await AuthorizationService.CheckAsync(message, PrivateMessagingPermissions.PrivateMessages.SetRead);
+                await AuthorizationService.CheckAsync(message,
+                    new OperationAuthorizationRequirement {Name = PrivateMessagingPermissions.PrivateMessages.SetRead});
 
                 await _privateMessageReceiverSideManager.SetReadAsync(message);
             }
