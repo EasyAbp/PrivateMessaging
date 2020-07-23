@@ -8,7 +8,7 @@ using Volo.Abp.DependencyInjection;
 
 namespace EasyAbp.PrivateMessaging.PrivateMessages
 {
-    public class PrivateMessageAuthorizationHandler : AuthorizationHandler<OperationAuthorizationRequirement, PrivateMessage>, ITransientDependency
+    public class PrivateMessageAuthorizationHandler : AuthorizationHandler<OperationAuthorizationRequirement, PrivateMessage>, ISingletonDependency
     {
         private readonly IPermissionChecker _permissionChecker;
 
