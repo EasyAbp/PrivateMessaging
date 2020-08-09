@@ -11,7 +11,7 @@ using Volo.Abp.EntityFrameworkCore;
 namespace EasyAbp.PrivateMessaging.PrivateMessageNotifications
 {
     public class PrivateMessageNotificationRepository :
-        EfCoreRepository<PrivateMessagingDbContext, PrivateMessageNotification, Guid>,
+        EfCoreRepository<IPrivateMessagingDbContext, PrivateMessageNotification, Guid>,
         IPrivateMessageNotificationRepository
     {
         public PrivateMessageNotificationRepository(IDbContextProvider<PrivateMessagingDbContext> dbContextProvider) :

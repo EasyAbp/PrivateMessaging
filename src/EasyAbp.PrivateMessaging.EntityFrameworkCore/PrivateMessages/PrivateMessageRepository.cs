@@ -10,7 +10,7 @@ using Volo.Abp.EntityFrameworkCore;
 
 namespace EasyAbp.PrivateMessaging.PrivateMessages
 {
-    public class PrivateMessageRepository : EfCoreRepository<PrivateMessagingDbContext, PrivateMessage, Guid>,
+    public class PrivateMessageRepository : EfCoreRepository<IPrivateMessagingDbContext, PrivateMessage, Guid>,
         IPrivateMessageRepository
     {
         public PrivateMessageRepository(IDbContextProvider<PrivateMessagingDbContext> dbContextProvider) : base(
