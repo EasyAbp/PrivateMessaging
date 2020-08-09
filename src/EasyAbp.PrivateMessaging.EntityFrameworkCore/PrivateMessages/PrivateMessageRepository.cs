@@ -13,7 +13,7 @@ namespace EasyAbp.PrivateMessaging.PrivateMessages
     public class PrivateMessageRepository : EfCoreRepository<IPrivateMessagingDbContext, PrivateMessage, Guid>,
         IPrivateMessageRepository
     {
-        public PrivateMessageRepository(IDbContextProvider<PrivateMessagingDbContext> dbContextProvider) : base(
+        public PrivateMessageRepository(IDbContextProvider<IPrivateMessagingDbContext> dbContextProvider) : base(
             dbContextProvider)
         {
         }

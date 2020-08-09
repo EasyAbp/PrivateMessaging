@@ -14,7 +14,7 @@ namespace EasyAbp.PrivateMessaging.PrivateMessageNotifications
         EfCoreRepository<IPrivateMessagingDbContext, PrivateMessageNotification, Guid>,
         IPrivateMessageNotificationRepository
     {
-        public PrivateMessageNotificationRepository(IDbContextProvider<PrivateMessagingDbContext> dbContextProvider) :
+        public PrivateMessageNotificationRepository(IDbContextProvider<IPrivateMessagingDbContext> dbContextProvider) :
             base(dbContextProvider)
         {
         }
