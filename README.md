@@ -5,6 +5,8 @@
 
 An abp application module that allows users to send private messages to each other.
 
+The online preview： http://52.142.14.248:8100
+
 ## Getting Started
 
 * Install with [AbpHelper](https://github.com/EasyAbp/AbpHelper.GUI)
