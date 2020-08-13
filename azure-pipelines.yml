@@ -49,18 +49,15 @@ steps:
     publishWebProjects: true
 
 - task: CmdLine@2
-  displayName: 'build efcore migrations'
+  displayName: 'drop database'
   inputs:
     script: |
-       dotnet ef migrations script --project host/EasyAbp.PrivateMessaging.Web.Unified/EasyAbp.PrivateMessaging.Web.Unified.csproj -o $(Build.ArtifactStagingDirectory)/migrations/scripts.sql -i
-
-- task: PublishBuildArtifacts@1
-  displayName: 'publish Artifacts migrations file'
+      dotnet ef database drop --project host/EasyAbp.PrivateMessaging.Web.Unified/EasyAbp.PrivateMessaging.Web.Unified.csproj -f
+- task: CmdLine@2
+  displayName: 'update database'
   inputs:
-    PathtoPublish: '$(Build.ArtifactStagingDirectory)/migrations/scripts.sql'
-    ArtifactName: 'drop'
-    publishLocation: 'Container'
-    
+    script: dotnet ef database update --project host/EasyAbp.PrivateMessaging.Web.Unified/EasyAbp.PrivateMessaging.Web.Unified.csproj
+ 
 - task: Docker@2
   displayName: 'build and push docker'
   inputs:
