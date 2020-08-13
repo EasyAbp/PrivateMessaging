@@ -56,7 +56,8 @@ steps:
 - task: CmdLine@2
   displayName: 'update database'
   inputs:
-    script: dotnet ef database update --project host/EasyAbp.PrivateMessaging.Web.Unified/EasyAbp.PrivateMessaging.Web.Unified.csproj
+    script: | 
+      dotnet ef database update --project host/EasyAbp.PrivateMessaging.Web.Unified/EasyAbp.PrivateMessaging.Web.Unified.csproj
  
 - task: Docker@2
   displayName: 'build and push docker'
