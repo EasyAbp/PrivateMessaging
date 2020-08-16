@@ -30,18 +30,16 @@ jobs:
           rm -rf docs/.vuepress/public/modules/${{ github.event.repository.name }}
           cp -rf ../docs/ docs/modules/${{ github.event.repository.name }}
           cp -rf ../docs/ docs/.vuepress/public/modules/${{ github.event.repository.name }}
-          git config --local user.email "action@github.com"
-          git config --local user.name "GitHub Action"
           git add --all
           echo "##[set-output name=diff;]$(git diff --staged)"
-
-      - name: Echo steps.change.outputs.diff
-        run: |
-          echo ${{ steps.change.outputs.diff}}
 
       - name: Commit files
         if: steps.change.outputs.diff
         run: |
+          ls
+          cd easyabp.github.io
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
           git commit -m "Update the docs of ${{ github.event.repository.name }}" -a
 
       - name: Push changes
