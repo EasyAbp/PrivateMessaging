@@ -43,10 +43,10 @@ The online preview： https://pm.samples.easyabp.io
 
 1. Enjoy this wonderful module.
 
-![Notifications](/docs/images/Notifications.png)
-![Write a message](/docs/images/WriteMessage.png)
-![Inbox](/docs/images/Inbox.png)
-![Read a message](/docs/images/ReadMessage.png)
+![Notifications](docs/images/Notifications.png)
+![Write a message](docs/images/WriteMessage.png)
+![Inbox](docs/images/Inbox.png)
+![Read a message](docs/images/ReadMessage.png)
 
 ## Roadmap
 
