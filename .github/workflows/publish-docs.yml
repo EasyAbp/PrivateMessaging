@@ -7,7 +7,10 @@ jobs:
   publish:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@master
+      - uses: actions/checkout@v2
+        with:
+         persist-credentials: false
+
       - name: Find and Replace
         uses: shitiomatic/str-replace@master
         with:
@@ -24,6 +27,3 @@ jobs:
           FOLDER: docs
           REPOSITORY_NAME: EasyAbp/easyabp.github.io
           TARGET_FOLDER: modules/${{ github.event.repository.name }}
-          # GIT_CONFIG_NAME: easyabpio
-          # GIT_CONFIG_EMAIL: github@easyabp.io
-          SILENT: false
