@@ -35,6 +35,10 @@ jobs:
           git add --all
           echo "##[set-output name=diff;]$(git diff)"
 
+      - name: Echo steps.change.outputs.diff
+        run: |
+          echo ${{ steps.change.outputs.diff }}
+
       - name: Commit files
         if: steps.change.outputs.diff
         run: |
