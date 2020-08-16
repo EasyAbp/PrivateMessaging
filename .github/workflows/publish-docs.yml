@@ -18,11 +18,8 @@ jobs:
         with:
           files: "docs"
 
-      - name: Stop action when docs directory is not change.
-        if: steps.changed_files.outputs.files_changed == 'false'
-        run: exit 0
-
       - name: Find and Replace
+        if: steps.changed_files.outputs.files_changed == 'true'
         uses: shitiomatic/str-replace@master
         with:
           find: \]\((/docs/)
@@ -30,18 +27,20 @@ jobs:
           include: docs/
 
       - name: Pull, change, and commit files
+        if: steps.changed_files.outputs.files_changed == 'true'
         run: |
           ls
           git clone https://github.com/EasyAbp/easyabp.github.io
           cd easyabp.github.io
-          git pull
           rm -rf docs/modules/${{ github.event.repository.name }}
           cp -rf ../docs/ docs/modules/${{ github.event.repository.name }}
+          cp -rf ../docs/ .vuepress/public/modules/${{ github.event.repository.name }}
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
           git commit -m "Update the docs of ${{ github.event.repository.name }}" -a
 
       - name: Push changes
+        if: steps.changed_files.outputs.files_changed == 'true'
         uses: ad-m/github-push-action@master
         with:
           github_token: ${{ secrets.EASYABP_IO_ACCESS_TOKEN }}
