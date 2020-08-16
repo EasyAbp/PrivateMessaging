@@ -23,15 +23,13 @@ jobs:
         run: |
           ls
           git clone https://github.com/EasyAbp/easyabp.github.io
-          rm -rf easyabp.github.io/docs/modules/${{ github.event.repository.name }}
-          cp -rf docs/ easyabp.github.io/docs/modules/${{ github.event.repository.name }}
           cd easyabp.github.io
+          git pull
+          rm -rf docs/modules/${{ github.event.repository.name }}
+          cp -rf ../docs/ docs/modules/${{ github.event.repository.name }}
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
           git commit -m "Update the docs of ${{ github.event.repository.name }}" -a
-
-      - name: Echo README.md
-        run: echo ${{ steps.read.outputs.content }}
 
       - name: Push changes
         uses: ad-m/github-push-action@master
