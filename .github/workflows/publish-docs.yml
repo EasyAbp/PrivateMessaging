@@ -9,29 +9,11 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v2
-
-      - name: Diffset
-        id: diffset
-        uses: softprops/diffset@v1
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        with:
-          special_files: |
-            docs/**/*
-
-      - name: Print Diffset
-        run: |
-          ls -al ${{ steps.diffset.outputs.files }}
-          ls -al ${{ steps.diffset.outputs.special_files }}
-
-      - name: Checkout again
-        uses: actions/checkout@v2
         with:
           persist-credentials: false
           fetch-depth: 0
 
       - name: Find and Replace
-        if: steps.diffset.outputs.special_files
         uses: shitiomatic/str-replace@master
         with:
           find: \]\((/docs/)
@@ -39,7 +21,6 @@ jobs:
           include: docs/
 
       - name: Pull, change, and commit files
-        if: steps.diffset.outputs.special_files
         run: |
           ls
           git clone https://github.com/EasyAbp/easyabp.github.io
@@ -50,10 +31,10 @@ jobs:
           cp -rf ../docs/ docs/.vuepress/public/modules/${{ github.event.repository.name }}
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
+          git add --all
           git commit -m "Update the docs of ${{ github.event.repository.name }}" -a
 
       - name: Push changes
-        if: steps.diffset.outputs.special_files
         uses: ad-m/github-push-action@master
         with:
           github_token: ${{ secrets.EASYABP_IO_ACCESS_TOKEN }}
