@@ -1,0 +1,21 @@
+{
+  "name": "templete",
+  "version": "1.1.1",
+  "description": "A VuePress project created by vuepress-creator.",
+  "main": "index.js",
+  "scripts": {
+    "dev": "vuepress dev .",
+    "build": "vuepress build ."
+  },
+  "keywords": [],
+  "author": "Feng L.H.",
+  "license": "MIT",
+  "devDependencies": {
+  },
+  "dependencies": {
+    "vuepress": "^1.5.2",
+    "core-js": "^2.6.11",
+    "vuepress-theme-antdocs": "^1.1.1"
+  },
+  "creator": ">=2.0.0"
+}
