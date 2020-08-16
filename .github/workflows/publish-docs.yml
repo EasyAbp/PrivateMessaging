@@ -7,20 +7,20 @@ jobs:
   publish:
     runs-on: ubuntu-latest
     steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+        with:
+          persist-credentials: false
+          fetch-depth: 0
+
       - name: Diffset
         id: diffset
         uses: softprops/diffset@v1
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          special_files: ['docs/**/*']
-
-      - name: Checkout
-        if: steps.diffset.outputs.special_files
-        uses: actions/checkout@v2
-        with:
-          persist-credentials: false
-          fetch-depth: 0
+          special_files: |
+            docs/**/*
 
       - name: Find and Replace
         if: steps.diffset.outputs.special_files
