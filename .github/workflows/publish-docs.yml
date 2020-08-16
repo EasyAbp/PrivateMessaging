@@ -22,6 +22,9 @@ jobs:
           special_files: |
             docs/**/*
 
+      - name: Print Diffset
+        run: ls -al ${{ steps.diffset.outputs.files }}
+
       - name: Find and Replace
         if: steps.diffset.outputs.special_files
         uses: shitiomatic/str-replace@master
