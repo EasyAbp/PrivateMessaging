@@ -52,4 +52,3 @@ We have launched an online demo for this module: [https://pm.samples.easyabp.io]
 - [ ] Use MongoDB to provide new message notifications.
 - [ ] Support Angular UI.
 - [ ] Unit tests.
-

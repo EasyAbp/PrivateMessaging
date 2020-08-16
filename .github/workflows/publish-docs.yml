@@ -33,11 +33,11 @@ jobs:
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
           git add --all
-          echo "##[set-output name=diff;]$(git diff)"
+          echo "##[set-output name=diff;]$(git diff --staged)"
 
       - name: Echo steps.change.outputs.diff
         run: |
-          echo ${{ steps.change.outputs.diff }}
+          echo ${{ steps.change.outputs.diff}}
 
       - name: Commit files
         if: steps.change.outputs.diff
