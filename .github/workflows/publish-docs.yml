@@ -35,4 +35,4 @@ jobs:
           BRANCH: master
           FOLDER: docs
           REPOSITORY_NAME: EasyAbp/easyabp.github.io
-          TARGET_FOLDER: modules/${{ github.event.repository.name }}
+          TARGET_FOLDER: docs/modules/${{ github.event.repository.name }}
