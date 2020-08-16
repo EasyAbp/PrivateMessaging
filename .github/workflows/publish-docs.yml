@@ -2,7 +2,7 @@ name: publish to easyabp.io
 on:
   push:
     branches:
-      - master # Default release branch
+      - master
 jobs:
   publish:
     runs-on: ubuntu-latest
