@@ -49,5 +49,5 @@ We have launched an online demo for this module: [https://pm.samples.easyabp.io]
 ## Roadmap
 
 - [ ] Add more configurations.
-- [ ] Add MongoDB notification implementation.
+- [ ] Use MongoDB to provide new message notifications.
 - [ ] Unit tests.
