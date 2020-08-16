@@ -20,7 +20,8 @@ jobs:
           replace: "](/modules/${{ github.event.repository.name }}/"
           include: docs/
 
-      - name: Pull, change, and commit files
+      - name: Pull repo and change files
+        id: change
         run: |
           ls
           git clone https://github.com/EasyAbp/easyabp.github.io
@@ -32,9 +33,15 @@ jobs:
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
           git add --all
+          echo "##[set-output name=diff;]$(git diff)"
+
+      - name: Commit files
+        if: steps.change.outputs.diff
+        run: |
           git commit -m "Update the docs of ${{ github.event.repository.name }}" -a
 
       - name: Push changes
+        if: steps.change.outputs.diff
         uses: ad-m/github-push-action@master
         with:
           github_token: ${{ secrets.EASYABP_IO_ACCESS_TOKEN }}
