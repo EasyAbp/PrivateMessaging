@@ -9,7 +9,8 @@ jobs:
     steps:
       - uses: actions/checkout@v2
         with:
-         persist-credentials: false
+          persist-credentials: false
+          fetch-depth: 0
 
       - name: Find and Replace
         uses: shitiomatic/str-replace@master
@@ -18,21 +19,21 @@ jobs:
           replace: "](/modules/${{ github.event.repository.name }}/"
           include: docs/
 
-      - name: Read README.md
-        id: read
-        uses: juliangruber/read-file-action@v1
-        with:
-          path: docs/README.md
+      - name: Pull, change, and commit files
+        run: |
+          git clone https://github.com/EasyAbp/easyabp.github.io
+          rm -rf easyabp.github.io/docs/modules/${{ github.event.repository.name }}
+          cp docs/ easyabp.github.io/docs/modules/${{ github.event.repository.name }}
+          cd easyabp.github.io
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          git commit -m "Update the docs of ${{ github.event.repository.name }}" -a
 
       - name: Echo README.md
         run: echo ${{ steps.read.outputs.content }}
 
-      - name: Deploy 🚀
-        uses: JamesIves/github-pages-deploy-action@3.5.9
+      - name: Push changes
+        uses: ad-m/github-push-action@master
         with:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          ACCESS_TOKEN: ${{ secrets.EASYABP_IO_ACCESS_TOKEN }}
-          BRANCH: master
-          FOLDER: docs
-          REPOSITORY_NAME: EasyAbp/easyabp.github.io
-          TARGET_FOLDER: docs/modules/${{ github.event.repository.name }}
+          github_token: ${{ secrets.EASYABP_IO_ACCESS_TOKEN }}
+          repository: EasyAbp/easyabp.github.io
