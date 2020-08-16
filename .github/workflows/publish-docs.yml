@@ -10,14 +10,15 @@ jobs:
       - name: Diffset
         id: diffset
         uses: softprops/diffset@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           special_files: |
             docs/**/*
-          env:
-            GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-      - uses: actions/checkout@v2
+      - name: Checkout
         if: diffset.outputs.special_files
+        uses: actions/checkout@v2
         with:
           persist-credentials: false
           fetch-depth: 0
