@@ -2,7 +2,7 @@ module.exports = {
   theme:"antdocs",
   title: "VuePress-Creator",
   description: "A lightweight creator for VuePress project.",
-  base: "/",
+  base: "/PrivateMessaging/",
   head: [
     ["link",{ rel: "icon",href: "/assets/logo.png" }]
   ],
