@@ -11,8 +11,8 @@ jobs:
       - name: Find and Replace
         uses: shitiomatic/str-replace@master
         with:
-          find: \]\((/docs/)
-          replace: \](/modules/${{ github.event.repository.name }}/
+          find: "\]\((/docs/)"
+          replace: "](/modules/${{ github.event.repository.name }}/"
           include: docs/
 
       - name: Deploy 🚀
@@ -21,5 +21,5 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           BRANCH: master
           FOLDER: docs
-          REPOSITORY_NAME: EasyAbp/${{ github.event.repository.name }}
-          TARGET_FOLDER: docs/modules/${{ github.event.repository.name }}
+          REPOSITORY_NAME: EasyAbp/easyabp.github.io
+          TARGET_FOLDER: modules/${{ github.event.repository.name }}
