@@ -23,7 +23,7 @@ jobs:
         run: |
           git clone https://github.com/EasyAbp/easyabp.github.io
           rm -rf easyabp.github.io/docs/modules/${{ github.event.repository.name }}
-          cp docs/ easyabp.github.io/docs/modules/${{ github.event.repository.name }}
+          cp -rf docs/ easyabp.github.io/docs/modules/${{ github.event.repository.name }}
           cd easyabp.github.io
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
