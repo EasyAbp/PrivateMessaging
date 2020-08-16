@@ -5,6 +5,8 @@
 
 An abp application module that allows users to send private messages to each other.
 
+The online preview： https://pm.samples.easyabp.io
+
 ## Getting Started
 
 * Install with [AbpHelper](https://github.com/EasyAbp/AbpHelper.GUI)
