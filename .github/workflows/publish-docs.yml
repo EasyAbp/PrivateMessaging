@@ -23,4 +23,6 @@ jobs:
           FOLDER: docs
           REPOSITORY_NAME: EasyAbp/easyabp.github.io
           TARGET_FOLDER: modules/${{ github.event.repository.name }}
+          GIT_CONFIG_NAME: easyabpio
+          GIT_CONFIG_EMAIL: github@easyabp.io
           SILENT: false
