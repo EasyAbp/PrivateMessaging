@@ -11,7 +11,7 @@ jobs:
       - name: Find and Replace
         uses: shitiomatic/str-replace@master
         with:
-          find: "]((/docs/)"
+          find: \]\((/docs/)
           replace: "](/modules/${{ github.event.repository.name }}/"
           include: docs/
 
