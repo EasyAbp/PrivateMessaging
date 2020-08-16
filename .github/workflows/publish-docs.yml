@@ -12,6 +12,16 @@ jobs:
           persist-credentials: false
           fetch-depth: 0
 
+      - name: Run Find changed files.
+        id: changed_files
+        uses: jackton1/find-changed-files@v1.1
+        with:
+          files: "docs"
+
+      - name: Stop action when docs directory is not change.
+        if: steps.changed_files.outputs.files_changed == 'false'
+        run: exit 0
+
       - name: Find and Replace
         uses: shitiomatic/str-replace@master
         with:
