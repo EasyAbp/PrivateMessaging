@@ -5,37 +5,35 @@
 
 An abp application module that allows users to send private messages to each other.
 
-The online preview： https://pm.samples.easyabp.io
+## Online Demo
+
+We have launched an online demo for this module: [https://pm.samples.easyabp.io](https://pm.samples.easyabp.io)
 
 ## Getting Started
 
-* Install with [AbpHelper](https://github.com/EasyAbp/AbpHelper.GUI)
+### Install with [AbpHelper](https://github.com/EasyAbp/AbpHelper.GUI)
 
-    Coming soon.
+* Coming soon.
 
-* Install Manually
+### Install Manually
 
-    1. Install `EasyAbp.PrivateMessaging.Application` NuGet package to `MyProject.Application` project and add `[DependsOn(PrivateMessagingApplicationModule)]` attribute to the module.
+1. Install the following NuGet packages. (see how)
 
-    1. Install `EasyAbp.PrivateMessaging.Application.Contracts` NuGet package to `MyProject.Application.Contracts` project and add `[DependsOn(PrivateMessagingApplicationContractsModule)]` attribute to the module.
+    * EasyAbp.PrivateMessaging.Application
+    * EasyAbp.PrivateMessaging.Application.Contracts
+    * EasyAbp.PrivateMessaging.Domain
+    * EasyAbp.PrivateMessaging.Domain.Shared
+    * EasyAbp.PrivateMessaging.EntityFrameworkCore
+    * EasyAbp.PrivateMessaging.HttpApi
+    * EasyAbp.PrivateMessaging.HttpApi.Client
+    * (Optional) EasyAbp.PrivateMessaging.MongoDB
+    * (Optional) EasyAbp.PrivateMessaging.Web
 
-    1. Install `EasyAbp.PrivateMessaging.Domain` NuGet package to `MyProject.Domain` project and add `[DependsOn(PrivateMessagingDomainModule)]` attribute to the module.
+1. Add `DependsOn(typeof(xxx))` attribute to configure the module dependencies. (see how)
 
-    1. Install `EasyAbp.PrivateMessaging.Domain.Shared` NuGet package to `MyProject.Domain.Shared` project and add `[DependsOn(PrivateMessagingDomainSharedModule)]` attribute to the module.
+1. Add `builder.ConfigurePrivateMessaging();` to the `OnModelCreating()` method in **MyProjectMigrationsDbContext.cs**.
 
-    1. Install `EasyAbp.PrivateMessaging.EntityFrameworkCore` NuGet package to `MyProject.EntityFrameworkCore` project and add `[DependsOn(PrivateMessagingEntityFrameworkCoreModule)]` attribute to the module.
-
-    1. Install `EasyAbp.PrivateMessaging.HttpApi` NuGet package to `MyProject.HttpApi` project and add `[DependsOn(PrivateMessagingHttpApiModule)]` attribute to the module.
-
-    1. Install `EasyAbp.PrivateMessaging.HttpApi.Client` NuGet package to `MyProject.HttpApi.Client` project and add `[DependsOn(PrivateMessagingHttpApiClientModule)]` attribute to the module.
-
-    1. Install `EasyAbp.PrivateMessaging.MongoDB` NuGet package to `MyProject.MongoDB` project and add `[DependsOn(PrivateMessagingMongoDbModule)]` attribute to the module.
-
-    1. (Optional) If you need MVC UI, install `EasyAbp.PrivateMessaging.Web` NuGet package to `MyProject.Web` project and add `[DependsOn(PrivateMessagingWebModule)]` attribute to the module.
-
-    1. Add `builder.ConfigurePrivateMessaging();` to OnModelCreating method in `MyProjectMigrationsDbContext.cs`.
-
-    1. Add EF Core migrations and update your database. See: [ABP document](https://docs.abp.io/en/abp/latest/Tutorials/Part-1?UI=MVC#add-new-migration-update-the-database).
+1. Add EF Core migrations and update your database. See: [ABP document](https://docs.abp.io/en/abp/latest/Tutorials/Part-1?UI=MVC#add-new-migration-update-the-database).
 
 ## Usage
 
