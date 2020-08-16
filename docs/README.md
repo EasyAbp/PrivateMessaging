@@ -48,6 +48,6 @@ We have launched an online demo for this module: [https://pm.samples.easyabp.io]
 
 ## Roadmap
 
-- [ ] Add more setting items.
+- [ ] Add more configurations.
 - [ ] Add MongoDB notification implementation.
 - [ ] Unit tests.
