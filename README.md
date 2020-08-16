@@ -41,10 +41,10 @@ An abp application module that allows users to send private messages to each oth
 
 1. Enjoy this wonderful module.
 
-![Notifications](doc/images/Notifications.png)
-![Write a message](doc/images/WriteMessage.png)
-![Inbox](doc/images/Inbox.png)
-![Read a message](doc/images/ReadMessage.png)
+![Notifications](/docs/images/Notifications.png)
+![Write a message](/docs/images/WriteMessage.png)
+![Inbox](/docs/images/Inbox.png)
+![Read a message](/docs/images/ReadMessage.png)
 
 ## Roadmap
 
