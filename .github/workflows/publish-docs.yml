@@ -21,7 +21,7 @@ jobs:
 
       - name: Pull, change, and commit files
         run: |
-          dir -name
+          ls
           git clone https://github.com/EasyAbp/easyabp.github.io
           rm -rf easyabp.github.io/docs/modules/${{ github.event.repository.name }}
           cp -rf docs/ easyabp.github.io/docs/modules/${{ github.event.repository.name }}
