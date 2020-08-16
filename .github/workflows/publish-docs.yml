@@ -18,6 +18,15 @@ jobs:
           replace: "](/modules/${{ github.event.repository.name }}/"
           include: docs/
 
+      - name: Read README.md
+        id: read
+        uses: juliangruber/read-file-action@v1
+        with:
+          path: docs/README.md
+
+      - name: Echo README.md
+        run: echo ${{ steps.read.outputs.content }}
+
       - name: Deploy 🚀
         uses: JamesIves/github-pages-deploy-action@3.5.9
         with:
