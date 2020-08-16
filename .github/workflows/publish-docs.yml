@@ -20,7 +20,9 @@ jobs:
             docs/**/*
 
       - name: Print Diffset
-        run: ls -al ${{ steps.diffset.outputs.files }}
+        run: |
+          ls -al ${{ steps.diffset.outputs.files }}
+          ls -al ${{ steps.diffset.outputs.special_files }}
 
       - name: Checkout again
         uses: actions/checkout@v2
