@@ -13,8 +13,7 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          special_files: |
-            docs/**/*
+          special_files: ['docs/**/*']
 
       - name: Checkout
         if: steps.diffset.outputs.special_files
