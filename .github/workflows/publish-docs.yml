@@ -9,9 +9,6 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v2
-        with:
-          persist-credentials: false
-          fetch-depth: 0
 
       - name: Diffset
         id: diffset
@@ -24,6 +21,12 @@ jobs:
 
       - name: Print Diffset
         run: ls -al ${{ steps.diffset.outputs.files }}
+
+      - name: Checkout again
+        uses: actions/checkout@v2
+        with:
+          persist-credentials: false
+          fetch-depth: 0
 
       - name: Find and Replace
         if: steps.diffset.outputs.special_files
