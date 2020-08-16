@@ -18,11 +18,12 @@ jobs:
       - name: Deploy 🚀
         uses: JamesIves/github-pages-deploy-action@3.5.9
         with:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           ACCESS_TOKEN: ${{ secrets.EASYABP_IO_ACCESS_TOKEN }}
           BRANCH: master
           FOLDER: docs
           REPOSITORY_NAME: EasyAbp/easyabp.github.io
           TARGET_FOLDER: modules/${{ github.event.repository.name }}
-          GIT_CONFIG_NAME: easyabpio
-          GIT_CONFIG_EMAIL: github@easyabp.io
+          # GIT_CONFIG_NAME: easyabpio
+          # GIT_CONFIG_EMAIL: github@easyabp.io
           SILENT: false
