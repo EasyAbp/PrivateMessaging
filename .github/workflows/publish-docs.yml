@@ -11,8 +11,8 @@ jobs:
       - name: Find and Replace
         uses: shitiomatic/str-replace@master
         with:
-          find: (?<=\]\()(/docs/)+(?=.*\))
-          replace: /modules/${{ github.event.repository.name }}/
+          find: \]\((/docs/)
+          replace: \](/modules/${{ github.event.repository.name }}/
           include: docs/
 
       - name: Deploy 🚀
