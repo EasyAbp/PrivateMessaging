@@ -49,15 +49,18 @@ steps:
   inputs:
     command: 'build'
 
+- task: CmdLine@2
+  displayName: 'output files'
+  inputs:
+   script: |
+    ls
+    
 - task: DotNetCoreCLI@2
   displayName: 'publish'
   inputs:
     command: 'publish'
-    #publishWebProjects: true
-    publishWebProjects: false
-    projects: '**/*.csproj'
-    arguments: '-o testpath'
-
+    publishWebProjects: true
+    
 - task: CmdLine@2
   displayName: 'drop database'
   inputs:
