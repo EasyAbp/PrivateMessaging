@@ -53,7 +53,10 @@ steps:
   displayName: 'publish'
   inputs:
     command: 'publish'
-    publishWebProjects: true
+    #publishWebProjects: true
+    publishWebProjects: false
+    projects: '**/*.csproj'
+    arguments: '-o testpath'
 
 - task: CmdLine@2
   displayName: 'drop database'
