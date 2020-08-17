@@ -50,16 +50,10 @@ steps:
     command: 'build'
 
 - task: CmdLine@2
-  displayName: 'output files'
-  inputs:
-   script: |
-    ls
-    
-- task: DotNetCoreCLI@2
   displayName: 'publish'
   inputs:
-    command: 'publish'
-    publishWebProjects: true
+   script: |
+    dotnet publish
     
 - task: CmdLine@2
   displayName: 'drop database'
