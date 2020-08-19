@@ -49,12 +49,12 @@ steps:
   inputs:
     command: 'build'
 
-- task: DotNetCoreCLI@2
+- task: CmdLine@2
   displayName: 'publish'
   inputs:
-    command: 'publish'
-    publishWebProjects: true
-
+   script: |
+    dotnet publish
+    
 - task: CmdLine@2
   displayName: 'drop database'
   inputs:
