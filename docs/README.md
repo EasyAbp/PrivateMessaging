@@ -2,6 +2,7 @@
 
 [![NuGet](https://img.shields.io/nuget/v/EasyAbp.PrivateMessaging.Domain.Shared.svg?style=flat-square)](https://www.nuget.org/packages/EasyAbp.PrivateMessaging.Domain.Shared)
 [![NuGet Download](https://img.shields.io/nuget/dt/EasyAbp.PrivateMessaging.Domain.Shared.svg?style=flat-square)](https://www.nuget.org/packages/EasyAbp.PrivateMessaging.Domain.Shared)
+[![GitHub stars](https://img.shields.io/github/stars/EasyAbp/PrivateMessaging?style=social)](https://www.github.com/EasyAbp/PrivateMessaging)
 
 An abp application module that allows users to send private messages to each other.
 
