@@ -10,13 +10,7 @@ An abp application module that allows users to send private messages to each oth
 
 We have launched an online demo for this module: [https://pm.samples.easyabp.io](https://pm.samples.easyabp.io)
 
-## Getting Started
-
-### Install with [AbpHelper](https://github.com/EasyAbp/AbpHelper.GUI)
-
-* Coming soon.
-
-### Install Manually
+## Installation
 
 1. Install the following NuGet packages. (see how)
 
