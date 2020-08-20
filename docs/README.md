@@ -12,7 +12,7 @@ We have launched an online demo for this module: [https://pm.samples.easyabp.io]
 
 ## Installation
 
-1. Install the following NuGet packages. (see how)
+1. Install the following NuGet packages. ([see how](https://github.com/EasyAbp/EasyAbpGuide/blob/master/How-To.md#add-nuget-packages))
 
     * EasyAbp.PrivateMessaging.Application
     * EasyAbp.PrivateMessaging.Application.Contracts
@@ -24,7 +24,7 @@ We have launched an online demo for this module: [https://pm.samples.easyabp.io]
     * (Optional) EasyAbp.PrivateMessaging.MongoDB
     * (Optional) EasyAbp.PrivateMessaging.Web
 
-1. Add `DependsOn(typeof(xxx))` attribute to configure the module dependencies. (see how)
+1. Add `DependsOn(typeof(xxx))` attribute to configure the module dependencies. ([see how](https://github.com/EasyAbp/EasyAbpGuide/blob/master/How-To.md#add-module-dependencies))
 
 1. Add `builder.ConfigurePrivateMessaging();` to the `OnModelCreating()` method in **MyProjectMigrationsDbContext.cs**.
 
