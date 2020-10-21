@@ -1,6 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Volo.Abp.AuditLogging.EntityFrameworkCore;
 using Volo.Abp.EntityFrameworkCore;
+using Volo.Abp.FeatureManagement.EntityFrameworkCore;
 using Volo.Abp.Identity.EntityFrameworkCore;
 using Volo.Abp.IdentityServer.EntityFrameworkCore;
 using Volo.Abp.PermissionManagement.EntityFrameworkCore;
@@ -27,6 +28,7 @@ namespace EasyAbp.PrivateMessaging.EntityFrameworkCore
             modelBuilder.ConfigureIdentity();
             modelBuilder.ConfigureTenantManagement();
             modelBuilder.ConfigureIdentityServer();
+            modelBuilder.ConfigureFeatureManagement();
             modelBuilder.ConfigurePrivateMessaging();
         }
     }
