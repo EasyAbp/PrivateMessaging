@@ -8,8 +8,8 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Volo.Abp.EntityFrameworkCore" Version="4.0.2" />
-    <PackageReference Include="Volo.Abp.Users.EntityFrameworkCore" Version="4.0.2" />
+    <PackageReference Include="Volo.Abp.EntityFrameworkCore" Version="$(AbpVersion)" />
+    <PackageReference Include="Volo.Abp.Users.EntityFrameworkCore" Version="$(AbpVersion)" />
     <ProjectReference Include="..\EasyAbp.PrivateMessaging.Domain\EasyAbp.PrivateMessaging.Domain.csproj" />
   </ItemGroup>
 
