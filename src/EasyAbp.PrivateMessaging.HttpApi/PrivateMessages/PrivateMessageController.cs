@@ -9,7 +9,7 @@ using Volo.Abp.Application.Dtos;
 namespace EasyAbp.PrivateMessaging.PrivateMessages
 {
     [RemoteService(Name = "EasyAbpPrivateMessaging")]
-    [Route("/api/privateMessaging/privateMessage")]
+    [Route("/api/private-messaging/private-message")]
     public class PrivateMessageController : PrivateMessagingController, IPrivateMessageAppService
     {
         private readonly IPrivateMessageAppService _service;
@@ -53,7 +53,7 @@ namespace EasyAbp.PrivateMessaging.PrivateMessages
         }
 
         [HttpPost]
-        [Route("setRead")]
+        [Route("set-read")]
         public Task SetReadAsync(IEnumerable<Guid> ids)
         {
             return _service.SetReadAsync(ids);

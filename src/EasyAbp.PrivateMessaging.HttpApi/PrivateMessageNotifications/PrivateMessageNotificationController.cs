@@ -9,7 +9,7 @@ using Volo.Abp.Application.Dtos;
 namespace EasyAbp.PrivateMessaging.PrivateMessageNotifications
 {
     [RemoteService(Name = "EasyAbpPrivateMessaging")]
-    [Route("/api/privateMessaging/privateMessageNotification")]
+    [Route("/api/private-messaging/private-message-notification")]
     public class PrivateMessageNotificationController : PrivateMessagingController, IPrivateMessageNotificationAppService
     {
         private readonly IPrivateMessageNotificationAppService _service;
@@ -20,7 +20,7 @@ namespace EasyAbp.PrivateMessaging.PrivateMessageNotifications
         }
 
         [HttpGet]
-        [Route("/widgets/pmNotification")]
+        [Route("/widgets/pm-notification")]
         public IActionResult PmNotification()
         {
             return ViewComponent("PmNotification");
