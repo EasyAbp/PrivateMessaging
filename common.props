@@ -3,6 +3,7 @@
     <LangVersion>latest</LangVersion>
     <Version>0.6.3</Version>
     <NoWarn>$(NoWarn);CS1591;CS0436</NoWarn>
+    <AbpProjectType>module</AbpProjectType>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <Authors>EasyAbp Team</Authors>
     <Description>An abp application module that allows users to send private messages to each other.</Description>
