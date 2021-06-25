@@ -1,6 +1,7 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using EasyAbp.PrivateMessaging.PrivateMessages;
 using Volo.Abp.AspNetCore.Mvc.UI.Bootstrap.TagHelpers.Form;
+using Volo.Abp.Validation;
 
 namespace EasyAbp.PrivateMessaging.Web.Pages.PrivateMessaging.PrivateMessages.PrivateMessage.InfoModels
 {
@@ -12,12 +13,12 @@ namespace EasyAbp.PrivateMessaging.Web.Pages.PrivateMessaging.PrivateMessages.Pr
         public string ToUserName { get; set; }
 
         [Required]
-        [MaxLength(PrivateMessageConsts.TitleMaxLength)]
+        [DynamicMaxLength(typeof(PrivateMessageConsts), nameof(PrivateMessageConsts.TitleMaxLength))]
         [Display(Name = "PrivateMessageTitle")]
         public string Title { get; set; }
 
         [TextArea(Rows = 4)]
-        [MaxLength(PrivateMessageConsts.ContentMaxLength)]
+        [DynamicMaxLength(typeof(PrivateMessageConsts), nameof(PrivateMessageConsts.ContentMaxLength))]
         [Display(Name = "PrivateMessageContent")]
         public string Content { get; set; }
     }

@@ -9,6 +9,8 @@ namespace EasyAbp.PrivateMessaging.PrivateMessages
     {
         public virtual Guid? TenantId { get; protected set; }
         
+        public virtual Guid? FromUserId { get; protected set; }
+        
         public virtual Guid ToUserId { get; protected set; }
 
         [NotNull]
@@ -24,14 +26,16 @@ namespace EasyAbp.PrivateMessaging.PrivateMessages
             
         }
 
-        public PrivateMessage(
+        internal PrivateMessage(
             Guid id,
             Guid? tenantId,
+            Guid? fromUserId,
             Guid toUserId,
             [NotNull] string title,
             [CanBeNull] string content) : base(id)
         {
             TenantId = tenantId;
+            FromUserId = fromUserId;
             ToUserId = toUserId;
             Title = title;
             Content = content;

@@ -8,6 +8,8 @@ namespace EasyAbp.PrivateMessaging.Web.Pages.PrivateMessaging.PrivateMessages.Pr
 {
     public class DetailModalModel : PrivateMessagingPageModel
     {
+        public bool IsSystemUserMessage { get; set; }
+        
         public PrivateMessageInfoModel PrivateMessage { get; set; }
 
         private readonly IPrivateMessageAppService _service;
@@ -20,6 +22,12 @@ namespace EasyAbp.PrivateMessaging.Web.Pages.PrivateMessaging.PrivateMessages.Pr
         public virtual async Task OnGetAsync(Guid id)
         {
             PrivateMessage = ObjectMapper.Map<PrivateMessageDto, PrivateMessageInfoModel>(await _service.GetAsync(id));
+
+            if (PrivateMessage.FromUserName.IsNullOrEmpty())
+            {
+                PrivateMessage.FromUserName = L["SystemUserName"];
+                IsSystemUserMessage = true;
+            }
         }
     }
 }

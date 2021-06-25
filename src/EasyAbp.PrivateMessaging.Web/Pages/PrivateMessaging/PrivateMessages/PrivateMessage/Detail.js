@@ -5,7 +5,7 @@
     var widgetManager = new abp.WidgetManager({filterForm: 'PmNotification'});
 
     $('#ReplyPrivateMessage').click(function (e) {
-        createModal.open({toUserName: $('#PrivateMessage_CreatorUserName').val()});
+        createModal.open({toUserName: $('#PrivateMessage_FromUserName').val()});
     });
 
     createModal.onResult(function () {

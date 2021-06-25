@@ -60,8 +60,7 @@ $(function () {
                 }
             },
             {
-                data: "creator.userName",
-                render: function ( data, type, row, meta ) { return renderRow(row, data) }
+                render: function ( data, type, row, meta ) { return renderRow(row, GetUserName(row.fromUser)) }
             },
             {
                 data: "title",
@@ -76,6 +75,10 @@ $(function () {
 
     function renderRow(row, data) {
         return row.readTime == null ? '<span class="bold">' + data + '</span>' : data;
+    }
+
+    function GetUserName(userData) {
+        return userData === null ? l('SystemUserName') : userData.userName;
     }
     
     createModal.onResult(function () {

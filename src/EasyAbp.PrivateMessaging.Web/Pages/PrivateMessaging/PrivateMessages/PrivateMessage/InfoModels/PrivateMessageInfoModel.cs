@@ -7,8 +7,8 @@ namespace EasyAbp.PrivateMessaging.Web.Pages.PrivateMessaging.PrivateMessages.Pr
     public class PrivateMessageInfoModel
     {
         [DisabledInput]
-        [Display(Name = "PrivateMessageCreatorUserName")]
-        public string CreatorUserName { get; set; }
+        [Display(Name = "PrivateMessageFromUserName")]
+        public string FromUserName { get; set; }
 
         [DisabledInput]
         [Display(Name = "PrivateMessageToUserName")]

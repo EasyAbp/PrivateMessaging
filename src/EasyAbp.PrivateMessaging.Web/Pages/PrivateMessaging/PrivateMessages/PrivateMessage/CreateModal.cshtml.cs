@@ -10,7 +10,7 @@ namespace EasyAbp.PrivateMessaging.Web.Pages.PrivateMessaging.PrivateMessages.Pr
     public class CreateModalModel : PrivateMessagingPageModel
     {
         [BindProperty]
-        public CreatePrivateMessageInfoModel PrivateMessage { get; set; }
+        public CreatePrivateMessageInfoModel PrivateMessage { get; set; } = new();
 
         private readonly IPrivateMessageAppService _service;
 
@@ -21,13 +21,7 @@ namespace EasyAbp.PrivateMessaging.Web.Pages.PrivateMessaging.PrivateMessages.Pr
 
         public virtual Task OnGetAsync(string toUserName)
         {
-            if (!toUserName.IsNullOrEmpty())
-            {
-                PrivateMessage = new CreatePrivateMessageInfoModel
-                {
-                    ToUserName = toUserName
-                };
-            }
+            PrivateMessage.ToUserName = toUserName;
             
             return Task.CompletedTask;
         }

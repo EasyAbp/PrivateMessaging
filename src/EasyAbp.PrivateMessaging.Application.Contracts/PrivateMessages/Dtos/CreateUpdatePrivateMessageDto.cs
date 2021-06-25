@@ -1,6 +1,7 @@
 using System;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
+using Volo.Abp.Validation;
 
 namespace EasyAbp.PrivateMessaging.PrivateMessages.Dtos
 {
@@ -11,11 +12,11 @@ namespace EasyAbp.PrivateMessaging.PrivateMessages.Dtos
         public string ToUserName { get; set; }
 
         [Required]
-        [MaxLength(PrivateMessageConsts.TitleMaxLength)]
+        [DynamicMaxLength(typeof(PrivateMessageConsts), nameof(PrivateMessageConsts.TitleMaxLength))]
         [DisplayName("PrivateMessageTitle")]
         public string Title { get; set; }
 
-        [MaxLength(PrivateMessageConsts.ContentMaxLength)]
+        [DynamicMaxLength(typeof(PrivateMessageConsts), nameof(PrivateMessageConsts.ContentMaxLength))]
         [DisplayName("PrivateMessageContent")]
         public string Content { get; set; }
     }

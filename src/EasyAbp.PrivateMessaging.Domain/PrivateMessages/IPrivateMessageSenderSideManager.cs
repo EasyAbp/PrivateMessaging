@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 using JetBrains.Annotations;
 using Volo.Abp.Domain.Services;
+using Volo.Abp.Users;
 
 namespace EasyAbp.PrivateMessaging.PrivateMessages
 {
@@ -13,6 +14,10 @@ namespace EasyAbp.PrivateMessaging.PrivateMessages
         Task<IReadOnlyList<PrivateMessage>>
             GetListAsync(Guid userId, int skipCount, int maxResultCount);
 
-        Task<PrivateMessage> CreateAsync(PrivateMessage privateMessage);
+        Task<PrivateMessage> CreateAsync(
+            [CanBeNull] IUserData fromUser,
+            IUserData toUser,
+            [NotNull] string title,
+            [CanBeNull] string content);
     }
 }

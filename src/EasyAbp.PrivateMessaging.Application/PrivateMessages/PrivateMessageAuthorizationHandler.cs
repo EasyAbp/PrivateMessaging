@@ -49,7 +49,7 @@ namespace EasyAbp.PrivateMessaging.PrivateMessages
         {
             var currentUserId = context.User.FindUserId();
             
-            return (resource.ToUserId == currentUserId || resource.CreatorId == currentUserId) &&
+            return (resource.ToUserId == currentUserId || resource.FromUserId == currentUserId) &&
                    await _permissionChecker.IsGrantedAsync(context.User,
                        PrivateMessagingPermissions.PrivateMessages.Delete);
         }

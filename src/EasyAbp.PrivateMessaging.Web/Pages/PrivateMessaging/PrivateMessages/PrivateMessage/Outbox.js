@@ -30,11 +30,17 @@ $(function () {
                         ]
                 }
             },
-            { data: "toUser.userName" },
+            {
+                render: function ( data, type, row, meta ) { return GetUserName(row.toUser) }
+            },
             { data: "title" },
             { data: "creationTime" },
         ]
     }));
+
+    function GetUserName(userData) {
+        return userData === null ? l('SystemUserName') : userData.userName;
+    }
     
     createModal.onResult(function () {
         widgetManager.refresh();

@@ -119,10 +119,11 @@ namespace EasyAbp.PrivateMessaging.PrivateMessages
         [Authorize(PrivateMessagingPermissions.PrivateMessages.Create)]
         public virtual async Task<PrivateMessageDto> CreateAsync(CreateUpdatePrivateMessageDto input)
         {
+            var fromUser = await _externalUserLookupServiceProvider.FindByIdAsync(CurrentUser.GetId());
             var toUser = await _externalUserLookupServiceProvider.FindByUserNameAsync(input.ToUserName);
 
-            var message = await _privateMessageSenderSideManager.CreateAsync(new PrivateMessage(GuidGenerator.Create(),
-                CurrentTenant.Id, toUser.Id, input.Title, input.Content));
+            var message =
+                await _privateMessageSenderSideManager.CreateAsync(fromUser, toUser, input.Title, input.Content);
 
             await _notificationManager.CreateAsync(new PrivateMessageNotification(GuidGenerator.Create(),
                 CurrentTenant.Id, toUser.Id, message.Id, message.GetTitlePreview()));
@@ -130,15 +131,15 @@ namespace EasyAbp.PrivateMessaging.PrivateMessages
             return await MapToDtoAndLoadMoreInfosAsync(message);
         }
 
-        private async Task<IReadOnlyList<PrivateMessageDto>> MapToDtoAndLoadMoreInfosAsync(
+        protected virtual async Task<IReadOnlyList<PrivateMessageDto>> MapToDtoAndLoadMoreInfosAsync(
             IReadOnlyList<PrivateMessage> entityList)
         {
             var dtoList = ObjectMapper.Map<IReadOnlyList<PrivateMessage>, IReadOnlyList<PrivateMessageDto>>(entityList);
 
+            var fromUserIds = dtoList.Where(dto => dto.FromUserId.HasValue).Select(dto => dto.FromUserId.Value);
             var toUserIds = dtoList.Select(dto => dto.ToUserId);
-            var creatorIds = dtoList.Where(dto => dto.CreatorId.HasValue).Select(dto => dto.CreatorId.Value);
 
-            var userIds = toUserIds.Concat(creatorIds).Distinct().ToList();
+            var userIds = toUserIds.Concat(fromUserIds).Distinct().ToList();
 
             var userDtoDict = new Dictionary<Guid, PmUserDto>();
 
@@ -152,16 +153,16 @@ namespace EasyAbp.PrivateMessaging.PrivateMessages
             {
                 dto.ToUser = userDtoDict[dto.ToUserId];
 
-                if (dto.CreatorId.HasValue)
+                if (dto.FromUserId.HasValue)
                 {
-                    dto.Creator = userDtoDict[dto.CreatorId.Value];
+                    dto.FromUser = userDtoDict[dto.FromUserId.Value];
                 }
             }
 
             return dtoList;
         }
 
-        private async Task<PrivateMessageDto> MapToDtoAndLoadMoreInfosAsync(PrivateMessage entity)
+        protected virtual async Task<PrivateMessageDto> MapToDtoAndLoadMoreInfosAsync(PrivateMessage entity)
         {
             return (await MapToDtoAndLoadMoreInfosAsync(new[] {entity})).First();
         }

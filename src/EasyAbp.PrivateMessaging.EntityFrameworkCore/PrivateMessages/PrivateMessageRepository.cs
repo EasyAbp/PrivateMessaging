@@ -29,14 +29,14 @@ namespace EasyAbp.PrivateMessaging.PrivateMessages
         public virtual async Task<long> CountSendingAsync(Guid userId, bool unreadOnly = false,
             CancellationToken cancellationToken = default)
         {
-            return await this.Where(m => m.CreatorId == userId && (!unreadOnly || !m.ReadTime.HasValue))
+            return await this.Where(m => m.FromUserId == userId && (!unreadOnly || !m.ReadTime.HasValue))
                 .CountAsync(cancellationToken: cancellationToken);
         }
 
         public virtual async Task<IReadOnlyList<PrivateMessage>> GetListSendingAsync(Guid userId, int skipCount,
             int maxResultCount, bool unreadOnly = false, CancellationToken cancellationToken = default)
         {
-            return await this.Where(m => m.CreatorId == userId && (!unreadOnly || !m.ReadTime.HasValue))
+            return await this.Where(m => m.FromUserId == userId && (!unreadOnly || !m.ReadTime.HasValue))
                 .OrderByDescending(m => m.CreationTime).PageBy(skipCount, maxResultCount)
                 .ToListAsync(cancellationToken: cancellationToken);
         }

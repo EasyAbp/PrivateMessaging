@@ -48,7 +48,7 @@ namespace EasyAbp.PrivateMessaging.EntityFrameworkCore
                 b.ConfigureByConvention(); 
                 /* Configure more properties here */
                 b.HasIndex(m => m.ToUserId);
-                b.HasIndex(m => m.CreatorId);
+                b.HasIndex(m => m.FromUserId);
             });
 
             builder.Entity<PrivateMessageNotification>(b =>

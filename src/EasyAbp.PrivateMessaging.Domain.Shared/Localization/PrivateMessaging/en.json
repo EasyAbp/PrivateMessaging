@@ -18,7 +18,7 @@
     "PrivateMessageOutbox": "Outbox",
     "PrivateMessageToUserName": "Receiver",
     "PrivateMessageToUserNamePlaceholder": "Username of the receiver",
-    "PrivateMessageCreatorUserName": "From",
+    "PrivateMessageFromUserName": "From",
     "PrivateMessageTitle": "Title",
     "PrivateMessageContent": "Content",
     "PrivateMessageCreationTime": "Sending Time",
@@ -30,6 +30,7 @@
     "PmNotificationEmpty": "No new messages",
     "PmNotificationShowMore": "Show More",
     "PmNotificationHide": "Hide",
-    "PmNotificationHideThese": "Hide These"
+    "PmNotificationHideThese": "Hide These",
+    "SystemUserName": "System"
   }
 }

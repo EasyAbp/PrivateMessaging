@@ -18,7 +18,7 @@
     "PrivateMessageOutbox": "发件箱",
     "PrivateMessageToUserName": "收件人",
     "PrivateMessageToUserNamePlaceholder": "用户名",
-    "PrivateMessageCreatorUserName": "发件人",
+    "PrivateMessageFromUserName": "发件人",
     "PrivateMessageTitle": "主题",
     "PrivateMessageContent": "内容",
     "PrivateMessageCreationTime": "发送时间",
@@ -30,6 +30,7 @@
     "PmNotificationEmpty": "没有新的私信",
     "PmNotificationShowMore": "查看更多",
     "PmNotificationHide": "隐藏",
-    "PmNotificationHideThese": "批量隐藏"
+    "PmNotificationHideThese": "批量隐藏",
+    "SystemUserName": "系统通知"
   }
 }

@@ -2,10 +2,10 @@
 {
     public static class PrivateMessageConsts
     {
-        public const int TitleMaxLength = 100;
+        public static int TitleMaxLength { get; set; } = 100;
         
-        public const int ContentMaxLength = 2000;
+        public static int ContentMaxLength { get; set; } = 2000;
 
-        public const int TitlePreviewMaxLength = 20;
+        public static int TitlePreviewMaxLength { get; set; } = 20;
     }
 }
