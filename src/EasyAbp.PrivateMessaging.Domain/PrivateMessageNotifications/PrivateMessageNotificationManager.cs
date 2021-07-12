@@ -19,20 +19,5 @@ namespace EasyAbp.PrivateMessaging.PrivateMessageNotifications
         {
             return await _repository.GetListByUserIdAsync(userId, skipCount, maxResultCount);
         }
-
-        public virtual async Task<PrivateMessageNotification> CreateAsync(PrivateMessageNotification notification)
-        {
-            return await _repository.InsertAsync(notification, true);
-        }
-
-        public virtual async Task DeleteAsync(PrivateMessageNotification notification)
-        {
-            await _repository.DeleteAsync(notification);
-        }
-
-        public virtual async Task DeleteByPrivateMessageIdAsync(IEnumerable<Guid> privateMessageIds)
-        {
-            await _repository.DeleteByPrivateMessageIdAsync(privateMessageIds);
-        }
     }
 }

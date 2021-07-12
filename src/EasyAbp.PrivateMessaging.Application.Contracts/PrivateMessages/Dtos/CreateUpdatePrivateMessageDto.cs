@@ -1,11 +1,12 @@
 using System;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
+using Volo.Abp.Data;
 using Volo.Abp.Validation;
 
 namespace EasyAbp.PrivateMessaging.PrivateMessages.Dtos
 {
-    public class CreateUpdatePrivateMessageDto
+    public class CreateUpdatePrivateMessageDto : IHasExtraProperties
     {
         [Required]
         [DisplayName("PrivateMessageToUserName")]
@@ -19,5 +20,7 @@ namespace EasyAbp.PrivateMessaging.PrivateMessages.Dtos
         [DynamicMaxLength(typeof(PrivateMessageConsts), nameof(PrivateMessageConsts.ContentMaxLength))]
         [DisplayName("PrivateMessageContent")]
         public string Content { get; set; }
+
+        public ExtraPropertyDictionary ExtraProperties { get; set; } = new();
     }
 }

@@ -47,20 +47,18 @@ namespace EasyAbp.PrivateMessaging.PrivateMessages
             }
         }
 
-        public virtual async Task<PrivateMessage> CreateAsync(IUserData fromUser, IUserData toUser, string title,
+        public virtual Task<PrivateMessage> CreateAsync(IUserData fromUser, IUserData toUser, string title,
             string content)
         {
             var privateMessage = new PrivateMessage(GuidGenerator.Create(), CurrentTenant.Id, fromUser?.Id, toUser.Id,
                 title, content);
-
-            await _repository.InsertAsync(privateMessage, true);
 
             _unitOfWorkManager.Current.OnCompleted(async () =>
                 await _distributedEventBus.PublishAsync(new PrivateMessageSentEto(privateMessage.TenantId,
                     privateMessage.Id, fromUser?.Id, fromUser?.UserName, toUser.Id, toUser.UserName,
                     privateMessage.CreationTime, privateMessage.Title)));
             
-            return privateMessage;
+            return Task.FromResult(privateMessage);
         }
     }
 }

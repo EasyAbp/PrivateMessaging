@@ -1,6 +1,7 @@
 ﻿using System.Threading.Tasks;
 using Volo.Abp.DependencyInjection;
 using Volo.Abp.EventBus.Distributed;
+using Volo.Abp.ObjectExtending;
 using Volo.Abp.Uow;
 using Volo.Abp.Users;
 
@@ -28,7 +29,9 @@ namespace EasyAbp.PrivateMessaging.PrivateMessages
             
             var toUser = await _externalUserLookupServiceProvider.FindByIdAsync(eventData.ToUserId);
 
-            await _manager.CreateAsync(fromUser, toUser, eventData.Title, eventData.Content);
+            var privateMessage = await _manager.CreateAsync(fromUser, toUser, eventData.Title, eventData.Content);
+            
+            eventData.MapExtraPropertiesTo(privateMessage);
         }
     }
 }

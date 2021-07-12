@@ -13,14 +13,11 @@ namespace EasyAbp.PrivateMessaging.PrivateMessageNotifications
     [Authorize]
     public class PrivateMessageNotificationAppService : ApplicationService, IPrivateMessageNotificationAppService
     {
-        private readonly IPrivateMessageNotificationManager _notificationManager;
         private readonly IPrivateMessageNotificationRepository _repository;
 
         public PrivateMessageNotificationAppService(
-            IPrivateMessageNotificationManager notificationManager,
             IPrivateMessageNotificationRepository repository)
         {
-            _notificationManager = notificationManager;
             _repository = repository;
         }
 
@@ -40,7 +37,7 @@ namespace EasyAbp.PrivateMessaging.PrivateMessageNotifications
                 await AuthorizationService.CheckAsync(notification,
                     PrivateMessagingPermissions.PrivateMessageNotifications.Delete);
                 
-                await _notificationManager.DeleteAsync(notification);
+                await _repository.DeleteAsync(notification);
             }
         }
 

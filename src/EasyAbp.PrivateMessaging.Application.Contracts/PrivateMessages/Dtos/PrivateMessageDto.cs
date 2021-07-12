@@ -5,7 +5,7 @@ using Volo.Abp.Application.Dtos;
 
 namespace EasyAbp.PrivateMessaging.PrivateMessages.Dtos
 {
-    public class PrivateMessageDto : FullAuditedEntityDto<Guid>
+    public class PrivateMessageDto : ExtensibleFullAuditedEntityDto<Guid>
     {
         public Guid? FromUserId { get; set; }
         

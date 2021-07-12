@@ -1,11 +1,12 @@
 ﻿using System;
 using JetBrains.Annotations;
+using Volo.Abp.Data;
 using Volo.Abp.MultiTenancy;
 
 namespace EasyAbp.PrivateMessaging.PrivateMessages
 {
     [Serializable]
-    public class PrivateMessageReadEto : IMultiTenant
+    public class PrivateMessageReadEto : IMultiTenant, IHasExtraProperties
     {
         public Guid? TenantId { get; set; }
         
@@ -27,7 +28,14 @@ namespace EasyAbp.PrivateMessaging.PrivateMessages
         
         [NotNull]
         public string Title { get; set; }
+        
+        public ExtraPropertyDictionary ExtraProperties { get; set; }
 
+        protected PrivateMessageReadEto()
+        {
+            ExtraProperties = new ExtraPropertyDictionary();
+        }
+        
         public PrivateMessageReadEto(Guid? tenantId, Guid privateMessageId, Guid? fromUserId,
             [CanBeNull] string fromUserName, Guid toUserId, [NotNull] string toUserName, DateTime sentTime,
             DateTime readTime, [NotNull] string title)
@@ -41,6 +49,8 @@ namespace EasyAbp.PrivateMessaging.PrivateMessages
             SentTime = sentTime;
             ReadTime = readTime;
             Title = title;
+            
+            ExtraProperties = new ExtraPropertyDictionary();
         }
     }
 }

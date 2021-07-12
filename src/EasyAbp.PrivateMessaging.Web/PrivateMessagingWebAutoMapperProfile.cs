@@ -1,6 +1,7 @@
 using EasyAbp.PrivateMessaging.PrivateMessages.Dtos;
 using AutoMapper;
 using EasyAbp.PrivateMessaging.Web.Pages.PrivateMessaging.PrivateMessages.PrivateMessage.InfoModels;
+using Volo.Abp.AutoMapper;
 
 namespace EasyAbp.PrivateMessaging.Web
 {
@@ -13,7 +14,7 @@ namespace EasyAbp.PrivateMessaging.Web
              * into multiple profile classes for a better organization. */
             CreateMap<PrivateMessageDto, CreateUpdatePrivateMessageDto>();
             CreateMap<PrivateMessageDto, PrivateMessageInfoModel>();
-            CreateMap<CreatePrivateMessageInfoModel, CreateUpdatePrivateMessageDto>();
+            CreateMap<CreatePrivateMessageInfoModel, CreateUpdatePrivateMessageDto>().Ignore(x => x.ExtraProperties);
         }
     }
 }

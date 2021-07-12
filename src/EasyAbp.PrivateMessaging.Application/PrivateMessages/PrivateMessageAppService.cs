@@ -14,6 +14,7 @@ using Volo.Abp.Application.Dtos;
 using Volo.Abp.Application.Services;
 using Volo.Abp.Data;
 using Volo.Abp.Identity;
+using Volo.Abp.ObjectExtending;
 using Volo.Abp.Users;
 
 namespace EasyAbp.PrivateMessaging.PrivateMessages
@@ -24,24 +25,24 @@ namespace EasyAbp.PrivateMessaging.PrivateMessages
         private readonly IDataFilter _dataFilter;
         private readonly IExternalUserLookupServiceProvider _externalUserLookupServiceProvider;
         private readonly IPrivateMessageRepository _privateMessageRepository;
-        private readonly IPrivateMessageNotificationManager _notificationManager;
         private readonly IPrivateMessageSenderSideManager _privateMessageSenderSideManager;
         private readonly IPrivateMessageReceiverSideManager _privateMessageReceiverSideManager;
+        private readonly IPrivateMessageNotificationRepository _privateMessageNotificationRepository;
 
         public PrivateMessageAppService(
             IDataFilter dataFilter,
             IExternalUserLookupServiceProvider externalUserLookupServiceProvider,
             IPrivateMessageRepository privateMessageRepository,
-            IPrivateMessageNotificationManager notificationManager,
             IPrivateMessageSenderSideManager privateMessageSenderSideManager,
-            IPrivateMessageReceiverSideManager privateMessageReceiverSideManager)
+            IPrivateMessageReceiverSideManager privateMessageReceiverSideManager,
+            IPrivateMessageNotificationRepository privateMessageNotificationRepository)
         {
             _dataFilter = dataFilter;
             _externalUserLookupServiceProvider = externalUserLookupServiceProvider;
             _privateMessageRepository = privateMessageRepository;
-            _notificationManager = notificationManager;
             _privateMessageSenderSideManager = privateMessageSenderSideManager;
             _privateMessageReceiverSideManager = privateMessageReceiverSideManager;
+            _privateMessageNotificationRepository = privateMessageNotificationRepository;
         }
 
         public virtual async Task<PrivateMessageDto> GetAsync(Guid id)
@@ -125,8 +126,13 @@ namespace EasyAbp.PrivateMessaging.PrivateMessages
             var message =
                 await _privateMessageSenderSideManager.CreateAsync(fromUser, toUser, input.Title, input.Content);
 
-            await _notificationManager.CreateAsync(new PrivateMessageNotification(GuidGenerator.Create(),
-                CurrentTenant.Id, toUser.Id, message.Id, message.GetTitlePreview()));
+            input.MapExtraPropertiesTo(message);
+            
+            await _privateMessageRepository.InsertAsync(message, true);
+
+            await _privateMessageNotificationRepository.InsertAsync(
+                new PrivateMessageNotification(GuidGenerator.Create(), CurrentTenant.Id, toUser.Id, message.Id,
+                    message.GetTitlePreview()));
 
             return await MapToDtoAndLoadMoreInfosAsync(message);
         }

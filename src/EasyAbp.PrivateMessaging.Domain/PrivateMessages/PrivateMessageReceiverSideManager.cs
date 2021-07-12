@@ -4,6 +4,7 @@ using System.Threading.Tasks;
 using EasyAbp.PrivateMessaging.PrivateMessageNotifications;
 using Volo.Abp.Domain.Services;
 using Volo.Abp.EventBus.Distributed;
+using Volo.Abp.ObjectExtending;
 using Volo.Abp.Timing;
 using Volo.Abp.Uow;
 using Volo.Abp.Users;
@@ -17,7 +18,7 @@ namespace EasyAbp.PrivateMessaging.PrivateMessages
         private readonly IUnitOfWorkManager _unitOfWorkManager;
         private readonly IDistributedEventBus _distributedEventBus;
         private readonly IExternalUserLookupServiceProvider _externalUserLookupServiceProvider;
-        private readonly IPrivateMessageNotificationManager _privateMessageNotificationManager;
+        private readonly IPrivateMessageNotificationRepository _privateMessageNotificationRepository;
         private readonly IPrivateMessageRepository _repository;
 
         public PrivateMessageReceiverSideManager(
@@ -25,14 +26,14 @@ namespace EasyAbp.PrivateMessaging.PrivateMessages
             IUnitOfWorkManager unitOfWorkManager,
             IDistributedEventBus distributedEventBus,
             IExternalUserLookupServiceProvider externalUserLookupServiceProvider,
-            IPrivateMessageNotificationManager privateMessageNotificationManager,
+            IPrivateMessageNotificationRepository privateMessageNotificationRepository,
             IPrivateMessageRepository repository)
         {
             _clock = clock;
             _unitOfWorkManager = unitOfWorkManager;
             _distributedEventBus = distributedEventBus;
             _externalUserLookupServiceProvider = externalUserLookupServiceProvider;
-            _privateMessageNotificationManager = privateMessageNotificationManager;
+            _privateMessageNotificationRepository = privateMessageNotificationRepository;
             _repository = repository;
         }
         
@@ -44,16 +45,22 @@ namespace EasyAbp.PrivateMessaging.PrivateMessages
             
             var toUser = await _externalUserLookupServiceProvider.FindByIdAsync(privateMessage.ToUserId);
             
-            await _privateMessageNotificationManager.DeleteByPrivateMessageIdAsync(new[] {privateMessage.Id});
+            await _privateMessageNotificationRepository.DeleteByPrivateMessageIdAsync(new[] {privateMessage.Id});
 
             privateMessage.TrySetReadTime(_clock.Now);
 
             await _repository.UpdateAsync(privateMessage, true);
 
-            _unitOfWorkManager.Current.OnCompleted(async () => await _distributedEventBus.PublishAsync(
-                new PrivateMessageReadEto(privateMessage.TenantId, privateMessage.Id, privateMessage.FromUserId,
-                    fromUser?.UserName, privateMessage.ToUserId, toUser.UserName, privateMessage.CreationTime,
-                    privateMessage.ReadTime!.Value, privateMessage.Title)));
+            _unitOfWorkManager.Current.OnCompleted(async () =>
+            {
+                var eto = new PrivateMessageReadEto(privateMessage.TenantId, privateMessage.Id,
+                    privateMessage.FromUserId, fromUser?.UserName, privateMessage.ToUserId, toUser.UserName,
+                    privateMessage.CreationTime, privateMessage.ReadTime!.Value, privateMessage.Title);
+
+                privateMessage.MapExtraPropertiesTo(eto);
+                
+                await _distributedEventBus.PublishAsync(eto);
+            });
         }
 
         public virtual async Task<long> CountAsync(Guid userId, bool unreadOnly = false)
@@ -69,7 +76,7 @@ namespace EasyAbp.PrivateMessaging.PrivateMessages
 
         public virtual async Task DeleteAsync(PrivateMessage privateMessage)
         {
-            await _privateMessageNotificationManager.DeleteByPrivateMessageIdAsync(new[] {privateMessage.Id});
+            await _privateMessageNotificationRepository.DeleteByPrivateMessageIdAsync(new[] {privateMessage.Id});
             
             await _repository.DeleteAsync(privateMessage, true);
         }
