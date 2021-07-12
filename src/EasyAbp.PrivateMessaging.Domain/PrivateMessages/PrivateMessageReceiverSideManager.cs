@@ -57,7 +57,7 @@ namespace EasyAbp.PrivateMessaging.PrivateMessages
                     privateMessage.FromUserId, fromUser?.UserName, privateMessage.ToUserId, toUser.UserName,
                     privateMessage.CreationTime, privateMessage.ReadTime!.Value, privateMessage.Title);
 
-                privateMessage.MapExtraPropertiesTo(eto);
+                privateMessage.MapExtraPropertiesTo(eto, MappingPropertyDefinitionChecks.None);
                 
                 await _distributedEventBus.PublishAsync(eto);
             });

@@ -6,6 +6,7 @@ using Volo.Abp;
 using Volo.Abp.Data;
 using Volo.Abp.Domain.Services;
 using Volo.Abp.EventBus.Distributed;
+using Volo.Abp.ObjectExtending;
 using Volo.Abp.Uow;
 using Volo.Abp.Users;
 
@@ -54,9 +55,14 @@ namespace EasyAbp.PrivateMessaging.PrivateMessages
                 title, content);
 
             _unitOfWorkManager.Current.OnCompleted(async () =>
-                await _distributedEventBus.PublishAsync(new PrivateMessageSentEto(privateMessage.TenantId,
-                    privateMessage.Id, fromUser?.Id, fromUser?.UserName, toUser.Id, toUser.UserName,
-                    privateMessage.CreationTime, privateMessage.Title)));
+            {
+                var eto = new PrivateMessageSentEto(privateMessage.TenantId, privateMessage.Id, fromUser?.Id,
+                    fromUser?.UserName, toUser.Id, toUser.UserName, privateMessage.CreationTime, privateMessage.Title);
+                
+                privateMessage.MapExtraPropertiesTo(eto, MappingPropertyDefinitionChecks.None);
+                
+                await _distributedEventBus.PublishAsync(eto);
+            });
             
             return Task.FromResult(privateMessage);
         }
