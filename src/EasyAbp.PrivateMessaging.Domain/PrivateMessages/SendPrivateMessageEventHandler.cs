@@ -31,7 +31,7 @@ namespace EasyAbp.PrivateMessaging.PrivateMessages
 
             var privateMessage = await _manager.CreateAsync(fromUser, toUser, eventData.Title, eventData.Content);
             
-            eventData.MapExtraPropertiesTo(privateMessage);
+            eventData.MapExtraPropertiesTo(privateMessage, MappingPropertyDefinitionChecks.None);
         }
     }
 }
