@@ -3,7 +3,7 @@ using Volo.Abp.Application.Dtos;
 
 namespace EasyAbp.PrivateMessaging.Users.Dtos
 {
-    public class PmUserDto : EntityDto<Guid>
+    public class PmUserDto : ExtensibleEntityDto<Guid>
     {
         public string UserName { get; set; }
 
