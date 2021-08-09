@@ -66,7 +66,7 @@ namespace EasyAbp.PrivateMessaging.PrivateMessages
         }
 
         [HttpPost]
-        [Route("user-id")]
+        [Route("by-user-id")]
         public Task<PrivateMessageDto> CreateByUserIdAsync(CreatePrivateMessageByUserIdDto input)
         {
             return _service.CreateByUserIdAsync(input);
