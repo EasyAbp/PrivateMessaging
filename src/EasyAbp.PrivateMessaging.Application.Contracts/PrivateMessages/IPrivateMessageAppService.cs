@@ -22,5 +22,7 @@ namespace EasyAbp.PrivateMessaging.PrivateMessages
         Task SetReadAsync(IEnumerable<Guid> ids);
 
         Task<PrivateMessageDto> CreateAsync(CreateUpdatePrivateMessageDto input);
+
+        Task<PrivateMessageDto> CreateByUserIdAsync(CreatePrivateMessageByUserIdDto input);
     }
 }

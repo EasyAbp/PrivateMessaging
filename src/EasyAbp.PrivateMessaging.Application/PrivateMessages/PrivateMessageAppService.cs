@@ -137,6 +137,26 @@ namespace EasyAbp.PrivateMessaging.PrivateMessages
             return await MapToDtoAndLoadMoreInfosAsync(message);
         }
 
+        [Authorize(PrivateMessagingPermissions.PrivateMessages.Create)]
+        public virtual async Task<PrivateMessageDto> CreateByUserIdAsync(CreatePrivateMessageByUserIdDto input)
+        {
+            var fromUser = await _externalUserLookupServiceProvider.FindByIdAsync(CurrentUser.GetId());
+            var toUser = await _externalUserLookupServiceProvider.FindByUserNameAsync(input.ToUserId);
+
+            var message =
+                await _privateMessageSenderSideManager.CreateAsync(fromUser, toUser, input.Title, input.Content);
+
+            input.MapExtraPropertiesTo(message);
+
+            await _privateMessageRepository.InsertAsync(message, true);
+
+            await _privateMessageNotificationRepository.InsertAsync(
+                new PrivateMessageNotification(GuidGenerator.Create(), CurrentTenant.Id, toUser.Id, message.Id,
+                    message.GetTitlePreview()));
+
+            return await MapToDtoAndLoadMoreInfosAsync(message);
+        }
+
         protected virtual async Task<IReadOnlyList<PrivateMessageDto>> MapToDtoAndLoadMoreInfosAsync(
             IReadOnlyList<PrivateMessage> entityList)
         {
