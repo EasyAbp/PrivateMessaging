@@ -141,7 +141,7 @@ namespace EasyAbp.PrivateMessaging.PrivateMessages
         public virtual async Task<PrivateMessageDto> CreateByUserIdAsync(CreatePrivateMessageByUserIdDto input)
         {
             var fromUser = await _externalUserLookupServiceProvider.FindByIdAsync(CurrentUser.GetId());
-            var toUser = await _externalUserLookupServiceProvider.FindByUserNameAsync(input.ToUserId);
+            var toUser = await _externalUserLookupServiceProvider.FindByIdAsync(input.ToUserId);
 
             var message =
                 await _privateMessageSenderSideManager.CreateAsync(fromUser, toUser, input.Title, input.Content);
