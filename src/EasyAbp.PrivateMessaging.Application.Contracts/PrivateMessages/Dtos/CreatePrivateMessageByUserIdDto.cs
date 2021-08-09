@@ -12,7 +12,7 @@ namespace EasyAbp.PrivateMessaging.PrivateMessages.Dtos
     {
         [Required]
         [DisplayName("PrivateMessageToUserId")]
-        public string ToUserId { get; set; }
+        public Guid ToUserId { get; set; }
 
         [Required]
         [DynamicMaxLength(typeof(PrivateMessageConsts), nameof(PrivateMessageConsts.TitleMaxLength))]
