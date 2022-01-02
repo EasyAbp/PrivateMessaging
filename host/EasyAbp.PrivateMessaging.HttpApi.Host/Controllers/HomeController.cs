@@ -3,7 +3,7 @@ using Volo.Abp.AspNetCore.Mvc;
 
 namespace EasyAbp.PrivateMessaging.Controllers
 {
-    public class HomeController : AbpController
+    public class HomeController : AbpControllerBase
     {
         public ActionResult Index()
         {

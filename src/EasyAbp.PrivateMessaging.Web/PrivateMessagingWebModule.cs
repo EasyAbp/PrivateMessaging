@@ -14,7 +14,7 @@ using Volo.Abp.VirtualFileSystem;
 namespace EasyAbp.PrivateMessaging.Web
 {
     [DependsOn(
-        typeof(PrivateMessagingHttpApiModule),
+        typeof(PrivateMessagingApplicationContractsModule),
         typeof(AbpAspNetCoreMvcUiThemeSharedModule),
         typeof(AbpAutoMapperModule)
         )]

@@ -8,7 +8,7 @@ using Volo.Abp.Application.Dtos;
 
 namespace EasyAbp.PrivateMessaging.PrivateMessageNotifications
 {
-    [RemoteService(Name = "EasyAbpPrivateMessaging")]
+    [RemoteService(Name = PrivateMessagingRemoteServiceConsts.RemoteServiceName)]
     [Route("/api/private-messaging/private-message-notification")]
     public class PrivateMessageNotificationController : PrivateMessagingController, IPrivateMessageNotificationAppService
     {

@@ -2,6 +2,9 @@
   display: flex;
   justify-content: space-between;
 }
+.pmNotification-dropdown-menu {
+  min-width: 280px;
+}
 .pmNotification-table {
   width: 100%;
 }

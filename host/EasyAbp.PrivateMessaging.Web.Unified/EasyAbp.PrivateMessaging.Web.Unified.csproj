@@ -3,7 +3,7 @@
   <Import Project="..\..\common.props" />
 
   <PropertyGroup>
-    <TargetFramework>net5.0</TargetFramework>
+    <TargetFramework>net6.0</TargetFramework>
     <RootNamespace>EasyAbp.PrivateMessaging</RootNamespace>
     <PreserveCompilationReferences>true</PreserveCompilationReferences>
     <UserSecretsId>EasyAbp.PrivateMessaging-c2d31439-b723-48e2-b061-5ebd7aeb6010</UserSecretsId>
@@ -14,8 +14,8 @@
   <ItemGroup>
 <!--    <PackageReference Include="Lsw.Abp.AspNetCore.Mvc.UI.Theme.Stisla" Version="1.3.1" />-->
     <PackageReference Include="Serilog.AspNetCore" Version="4.1.0" />
-    <PackageReference Include="Serilog.Sinks.File" Version="4.1.0" />
-    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="5.0.*" />
+    <PackageReference Include="Serilog.Sinks.File" Version="5.0.0" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="6.0.*" />
     <PackageReference Include="Volo.Abp.Account.Web.IdentityServer" Version="$(AbpVersion)" />
     <PackageReference Include="Volo.Abp.Autofac" Version="$(AbpVersion)" />
     <PackageReference Include="Volo.Abp.AspNetCore.Mvc.UI.Theme.Basic" Version="$(AbpVersion)" />
@@ -27,15 +27,19 @@
     <PackageReference Include="Volo.Abp.IdentityServer.EntityFrameworkCore" Version="$(AbpVersion)" />
     <PackageReference Include="Volo.Abp.SettingManagement.EntityFrameworkCore" Version="$(AbpVersion)" />
     <PackageReference Include="Volo.Abp.PermissionManagement.Application" Version="$(AbpVersion)" />
+    <PackageReference Include="Volo.Abp.PermissionManagement.HttpApi" Version="$(AbpVersion)" />
     <PackageReference Include="Volo.Abp.PermissionManagement.EntityFrameworkCore" Version="$(AbpVersion)" />
     <PackageReference Include="Volo.Abp.Identity.Application" Version="$(AbpVersion)" />
+    <PackageReference Include="Volo.Abp.Identity.HttpApi" Version="$(AbpVersion)" />
     <PackageReference Include="Volo.Abp.Identity.Web" Version="$(AbpVersion)" />
     <PackageReference Include="Volo.Abp.Identity.EntityFrameworkCore" Version="$(AbpVersion)" />
     <PackageReference Include="Volo.Abp.PermissionManagement.Domain.Identity" Version="$(AbpVersion)" />
     <PackageReference Include="Volo.Abp.TenantManagement.Application" Version="$(AbpVersion)" />
+    <PackageReference Include="Volo.Abp.TenantManagement.HttpApi" Version="$(AbpVersion)" />
     <PackageReference Include="Volo.Abp.TenantManagement.Web" Version="$(AbpVersion)" />
     <PackageReference Include="Volo.Abp.TenantManagement.EntityFrameworkCore" Version="$(AbpVersion)" />
     <PackageReference Include="Volo.Abp.FeatureManagement.Application" Version="$(AbpVersion)" />
+    <PackageReference Include="Volo.Abp.FeatureManagement.HttpApi" Version="$(AbpVersion)" />
     <PackageReference Include="Volo.Abp.FeatureManagement.EntityFrameworkCore" Version="$(AbpVersion)" />
     <PackageReference Include="Volo.Abp.FeatureManagement.Web" Version="$(AbpVersion)" />
     <PackageReference Include="Volo.Abp.Swashbuckle" Version="$(AbpVersion)" />
@@ -43,6 +47,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\..\src\EasyAbp.PrivateMessaging.Application\EasyAbp.PrivateMessaging.Application.csproj" />
+    <ProjectReference Include="..\..\src\EasyAbp.PrivateMessaging.HttpApi\EasyAbp.PrivateMessaging.HttpApi.csproj" />
     <ProjectReference Include="..\..\src\EasyAbp.PrivateMessaging.EntityFrameworkCore\EasyAbp.PrivateMessaging.EntityFrameworkCore.csproj" />
     <ProjectReference Include="..\..\src\EasyAbp.PrivateMessaging.Web\EasyAbp.PrivateMessaging.Web.csproj" />
     <ProjectReference Include="..\EasyAbp.PrivateMessaging.Host.Shared\EasyAbp.PrivateMessaging.Host.Shared.csproj" />

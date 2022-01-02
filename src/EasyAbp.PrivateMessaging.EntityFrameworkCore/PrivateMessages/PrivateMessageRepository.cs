@@ -21,39 +21,43 @@ namespace EasyAbp.PrivateMessaging.PrivateMessages
         public virtual async Task<IReadOnlyList<PrivateMessage>> GetListAsync(IEnumerable<Guid> ids,
             bool includeDetails = false, CancellationToken cancellationToken = default)
         {
-            var query = includeDetails ? WithDetails() : this;
+            var query = includeDetails ? await WithDetailsAsync() : await GetQueryableAsync();
 
-            return await query.Where(p => ids.Contains(p.Id)).ToListAsync(cancellationToken: cancellationToken);
+            return await query.Where(p => ids.Contains(p.Id)).ToListAsync(cancellationToken);
         }
 
         public virtual async Task<long> CountSendingAsync(Guid userId, bool unreadOnly = false,
             CancellationToken cancellationToken = default)
         {
-            return await this.Where(m => m.FromUserId == userId && (!unreadOnly || !m.ReadTime.HasValue))
-                .CountAsync(cancellationToken: cancellationToken);
+            return await (await GetQueryableAsync())
+                .Where(m => m.FromUserId == userId && (!unreadOnly || !m.ReadTime.HasValue))
+                .CountAsync(cancellationToken);
         }
 
         public virtual async Task<IReadOnlyList<PrivateMessage>> GetListSendingAsync(Guid userId, int skipCount,
             int maxResultCount, bool unreadOnly = false, CancellationToken cancellationToken = default)
         {
-            return await this.Where(m => m.FromUserId == userId && (!unreadOnly || !m.ReadTime.HasValue))
+            return await (await GetQueryableAsync())
+                .Where(m => m.FromUserId == userId && (!unreadOnly || !m.ReadTime.HasValue))
                 .OrderByDescending(m => m.CreationTime).PageBy(skipCount, maxResultCount)
-                .ToListAsync(cancellationToken: cancellationToken);
+                .ToListAsync(cancellationToken);
         }
 
         public virtual async Task<long> CountReceivingAsync(Guid userId, bool unreadOnly = false,
             CancellationToken cancellationToken = default)
         {
-            return await this.Where(m => m.ToUserId == userId && (!unreadOnly || !m.ReadTime.HasValue))
-                .CountAsync(cancellationToken: cancellationToken);
+            return await (await GetQueryableAsync())
+                .Where(m => m.ToUserId == userId && (!unreadOnly || !m.ReadTime.HasValue))
+                .CountAsync(cancellationToken);
         }
 
         public virtual async Task<IReadOnlyList<PrivateMessage>> GetListReceivingAsync(Guid userId, int skipCount,
             int maxResultCount, bool unreadOnly = false, CancellationToken cancellationToken = default)
         {
-            return await this.Where(m => m.ToUserId == userId && (!unreadOnly || !m.ReadTime.HasValue))
+            return await (await GetQueryableAsync())
+                .Where(m => m.ToUserId == userId && (!unreadOnly || !m.ReadTime.HasValue))
                 .OrderByDescending(m => m.CreationTime).PageBy(skipCount, maxResultCount)
-                .ToListAsync(cancellationToken: cancellationToken);
+                .ToListAsync(cancellationToken);
         }
     }
 }
