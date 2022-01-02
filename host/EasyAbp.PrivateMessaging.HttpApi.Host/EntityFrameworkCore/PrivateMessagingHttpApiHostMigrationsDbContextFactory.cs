@@ -12,7 +12,7 @@ namespace EasyAbp.PrivateMessaging.EntityFrameworkCore
             var configuration = BuildConfiguration();
 
             var builder = new DbContextOptionsBuilder<PrivateMessagingHttpApiHostMigrationsDbContext>()
-                .UseSqlServer(configuration.GetConnectionString("PrivateMessaging"));
+                .UseSqlServer(configuration.GetConnectionString("EasyAbpPrivateMessaging"));
 
             return new PrivateMessagingHttpApiHostMigrationsDbContext(builder.Options);
         }

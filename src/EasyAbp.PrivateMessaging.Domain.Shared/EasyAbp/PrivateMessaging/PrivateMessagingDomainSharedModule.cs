@@ -25,12 +25,12 @@ namespace EasyAbp.PrivateMessaging
                 options.Resources
                     .Add<PrivateMessagingResource>("en")
                     .AddBaseTypes(typeof(AbpValidationResource))
-                    .AddVirtualJson("/Localization/PrivateMessaging");
+                    .AddVirtualJson("/EasyAbp/PrivateMessaging/Localization");
             });
 
             Configure<AbpExceptionLocalizationOptions>(options =>
             {
-                options.MapCodeNamespace("PrivateMessaging", typeof(PrivateMessagingResource));
+                options.MapCodeNamespace("EasyAbpPrivateMessaging", typeof(PrivateMessagingResource));
             });
         }
     }

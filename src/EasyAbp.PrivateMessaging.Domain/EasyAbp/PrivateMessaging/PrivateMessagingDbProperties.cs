@@ -6,6 +6,6 @@
 
         public static string DbSchema { get; set; } = null;
 
-        public const string ConnectionStringName = "PrivateMessaging";
+        public const string ConnectionStringName = "EasyAbpPrivateMessaging";
     }
 }
