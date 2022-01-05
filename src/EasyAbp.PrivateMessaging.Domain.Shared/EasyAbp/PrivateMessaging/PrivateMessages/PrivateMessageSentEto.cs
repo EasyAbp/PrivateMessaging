@@ -2,11 +2,12 @@
 using JetBrains.Annotations;
 using Volo.Abp.Data;
 using Volo.Abp.MultiTenancy;
+using Volo.Abp.ObjectExtending;
 
 namespace EasyAbp.PrivateMessaging.PrivateMessages
 {
     [Serializable]
-    public class PrivateMessageSentEto : IMultiTenant, IHasExtraProperties
+    public class PrivateMessageSentEto : ExtensibleObject, IMultiTenant
     {
         public Guid? TenantId { get; set; }
         
@@ -26,8 +27,6 @@ namespace EasyAbp.PrivateMessaging.PrivateMessages
         
         [NotNull]
         public string Title { get; set; }
-        
-        public ExtraPropertyDictionary ExtraProperties { get; set; }
 
         protected PrivateMessageSentEto()
         {
