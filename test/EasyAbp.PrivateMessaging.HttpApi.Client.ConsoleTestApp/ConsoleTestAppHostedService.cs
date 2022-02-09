@@ -10,14 +10,14 @@ namespace EasyAbp.PrivateMessaging.HttpApi.Client.ConsoleTestApp
     {
         public virtual async Task StartAsync(CancellationToken cancellationToken)
         {
-            using (var application = AbpApplicationFactory.Create<PrivateMessagingConsoleApiClientModule>())
+            using (var application = await AbpApplicationFactory.CreateAsync<PrivateMessagingConsoleApiClientModule>())
             {
-                application.Initialize();
+                await application.InitializeAsync();
 
                 var demo = application.ServiceProvider.GetRequiredService<ClientDemoService>();
                 await demo.RunAsync();
 
-                application.Shutdown();
+                await application.ShutdownAsync();
             }
         }
 
