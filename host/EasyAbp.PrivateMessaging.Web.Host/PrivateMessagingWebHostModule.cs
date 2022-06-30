@@ -19,7 +19,7 @@ using Volo.Abp.AspNetCore.Mvc.Client;
 using Volo.Abp.AspNetCore.Mvc.Localization;
 using Volo.Abp.AspNetCore.Mvc.UI;
 using Volo.Abp.AspNetCore.Mvc.UI.Bootstrap;
-using Volo.Abp.AspNetCore.Mvc.UI.Theme.Basic;
+using Volo.Abp.AspNetCore.Mvc.UI.Theme.LeptonXLite;
 using Volo.Abp.AspNetCore.Mvc.UI.Theme.Shared;
 using Volo.Abp.AspNetCore.Serilog;
 using Volo.Abp.Autofac;
@@ -50,7 +50,7 @@ namespace EasyAbp.PrivateMessaging
         typeof(PrivateMessagingHttpApiClientModule),
         typeof(AbpAspNetCoreAuthenticationOAuthModule),
         typeof(AbpAspNetCoreMvcClientModule),
-        typeof(AbpAspNetCoreMvcUiBasicThemeModule),
+        typeof(AbpAspNetCoreMvcUiLeptonXLiteThemeModule),
         typeof(AbpAutofacModule),
         typeof(AbpHttpClientIdentityModelWebModule),
         typeof(AbpHttpClientWebModule),
