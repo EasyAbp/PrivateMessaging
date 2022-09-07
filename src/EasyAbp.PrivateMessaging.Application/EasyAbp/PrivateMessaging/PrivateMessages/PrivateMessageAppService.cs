@@ -3,9 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using EasyAbp.PrivateMessaging.Authorization;
-using EasyAbp.PrivateMessaging.PrivateMessageNotifications;
 using EasyAbp.PrivateMessaging.PrivateMessages.Dtos;
-using EasyAbp.PrivateMessaging.Users;
 using EasyAbp.PrivateMessaging.Users.Dtos;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Authorization.Infrastructure;
@@ -13,7 +11,6 @@ using Volo.Abp;
 using Volo.Abp.Application.Dtos;
 using Volo.Abp.Application.Services;
 using Volo.Abp.Data;
-using Volo.Abp.Identity;
 using Volo.Abp.ObjectExtending;
 using Volo.Abp.Users;
 
@@ -27,22 +24,19 @@ namespace EasyAbp.PrivateMessaging.PrivateMessages
         private readonly IPrivateMessageRepository _privateMessageRepository;
         private readonly IPrivateMessageSenderSideManager _privateMessageSenderSideManager;
         private readonly IPrivateMessageReceiverSideManager _privateMessageReceiverSideManager;
-        private readonly IPrivateMessageNotificationRepository _privateMessageNotificationRepository;
 
         public PrivateMessageAppService(
             IDataFilter dataFilter,
             IExternalUserLookupServiceProvider externalUserLookupServiceProvider,
             IPrivateMessageRepository privateMessageRepository,
             IPrivateMessageSenderSideManager privateMessageSenderSideManager,
-            IPrivateMessageReceiverSideManager privateMessageReceiverSideManager,
-            IPrivateMessageNotificationRepository privateMessageNotificationRepository)
+            IPrivateMessageReceiverSideManager privateMessageReceiverSideManager)
         {
             _dataFilter = dataFilter;
             _externalUserLookupServiceProvider = externalUserLookupServiceProvider;
             _privateMessageRepository = privateMessageRepository;
             _privateMessageSenderSideManager = privateMessageSenderSideManager;
             _privateMessageReceiverSideManager = privateMessageReceiverSideManager;
-            _privateMessageNotificationRepository = privateMessageNotificationRepository;
         }
 
         public virtual async Task<PrivateMessageDto> GetAsync(Guid id)
@@ -52,7 +46,8 @@ namespace EasyAbp.PrivateMessaging.PrivateMessages
                 var message = await _privateMessageRepository.GetAsync(id);
 
                 await AuthorizationService.CheckAsync(message,
-                    new OperationAuthorizationRequirement {Name = PrivateMessagingPermissions.PrivateMessages.Default});
+                    new OperationAuthorizationRequirement
+                        { Name = PrivateMessagingPermissions.PrivateMessages.Default });
 
                 return await MapToDtoAndLoadMoreInfosAsync(message);
             }
@@ -94,11 +89,12 @@ namespace EasyAbp.PrivateMessaging.PrivateMessages
         public virtual async Task DeleteAsync(IEnumerable<Guid> ids)
         {
             var messageList = await _privateMessageRepository.GetListAsync(ids);
-            
+
             foreach (var message in messageList)
             {
                 await AuthorizationService.CheckAsync(message,
-                    new OperationAuthorizationRequirement {Name = PrivateMessagingPermissions.PrivateMessages.Delete});
+                    new OperationAuthorizationRequirement
+                        { Name = PrivateMessagingPermissions.PrivateMessages.Delete });
 
                 await _privateMessageReceiverSideManager.DeleteAsync(message);
             }
@@ -111,7 +107,8 @@ namespace EasyAbp.PrivateMessaging.PrivateMessages
             foreach (var message in messageList)
             {
                 await AuthorizationService.CheckAsync(message,
-                    new OperationAuthorizationRequirement {Name = PrivateMessagingPermissions.PrivateMessages.SetRead});
+                    new OperationAuthorizationRequirement
+                        { Name = PrivateMessagingPermissions.PrivateMessages.SetRead });
 
                 await _privateMessageReceiverSideManager.SetReadAsync(message);
             }
@@ -127,12 +124,8 @@ namespace EasyAbp.PrivateMessaging.PrivateMessages
                 await _privateMessageSenderSideManager.CreateAsync(fromUser, toUser, input.Title, input.Content);
 
             input.MapExtraPropertiesTo(message);
-            
-            await _privateMessageRepository.InsertAsync(message, true);
 
-            await _privateMessageNotificationRepository.InsertAsync(
-                new PrivateMessageNotification(GuidGenerator.Create(), CurrentTenant.Id, toUser.Id, message.Id,
-                    message.GetTitlePreview()));
+            await _privateMessageRepository.InsertAsync(message, true);
 
             return await MapToDtoAndLoadMoreInfosAsync(message);
         }
@@ -149,10 +142,6 @@ namespace EasyAbp.PrivateMessaging.PrivateMessages
             input.MapExtraPropertiesTo(message);
 
             await _privateMessageRepository.InsertAsync(message, true);
-
-            await _privateMessageNotificationRepository.InsertAsync(
-                new PrivateMessageNotification(GuidGenerator.Create(), CurrentTenant.Id, toUser.Id, message.Id,
-                    message.GetTitlePreview()));
 
             return await MapToDtoAndLoadMoreInfosAsync(message);
         }
@@ -172,9 +161,10 @@ namespace EasyAbp.PrivateMessaging.PrivateMessages
             foreach (var userId in userIds)
             {
                 userDtoDict[userId] =
-                    ObjectMapper.Map<IUserData, PmUserDto>(await _externalUserLookupServiceProvider.FindByIdAsync(userId));
+                    ObjectMapper.Map<IUserData, PmUserDto>(
+                        await _externalUserLookupServiceProvider.FindByIdAsync(userId));
             }
-            
+
             foreach (var dto in dtoList)
             {
                 dto.ToUser = userDtoDict[dto.ToUserId];
@@ -190,7 +180,7 @@ namespace EasyAbp.PrivateMessaging.PrivateMessages
 
         protected virtual async Task<PrivateMessageDto> MapToDtoAndLoadMoreInfosAsync(PrivateMessage entity)
         {
-            return (await MapToDtoAndLoadMoreInfosAsync(new[] {entity})).First();
+            return (await MapToDtoAndLoadMoreInfosAsync(new[] { entity })).First();
         }
     }
 }
