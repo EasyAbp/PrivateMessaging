@@ -31,7 +31,7 @@ namespace EasyAbp.PrivateMessaging.PrivateMessages
             _distributedEventBus = distributedEventBus;
             _repository = repository;
         }
-        
+
         public virtual async Task<long> CountAsync(Guid userId)
         {
             using (_dataFilter.Disable<ISoftDelete>())
@@ -40,7 +40,8 @@ namespace EasyAbp.PrivateMessaging.PrivateMessages
             }
         }
 
-        public virtual async Task<IReadOnlyList<PrivateMessage>> GetListAsync(Guid userId, int skipCount, int maxResultCount)
+        public virtual async Task<IReadOnlyList<PrivateMessage>> GetListAsync(Guid userId, int skipCount,
+            int maxResultCount)
         {
             using (_dataFilter.Disable<ISoftDelete>())
             {
@@ -48,22 +49,20 @@ namespace EasyAbp.PrivateMessaging.PrivateMessages
             }
         }
 
+        [UnitOfWork(true)]
         public virtual Task<PrivateMessage> CreateAsync(IUserData fromUser, IUserData toUser, string title,
             string content)
         {
-            var privateMessage = new PrivateMessage(GuidGenerator.Create(), CurrentTenant.Id, fromUser?.Id, toUser.Id,
-                title, content);
+            var privateMessage = new PrivateMessage(
+                GuidGenerator.Create(), CurrentTenant.Id, fromUser?.Id, toUser.Id, title, content);
 
-            _unitOfWorkManager.Current.OnCompleted(async () =>
-            {
-                var eto = new PrivateMessageSentEto(privateMessage.TenantId, privateMessage.Id, fromUser?.Id,
-                    fromUser?.UserName, toUser.Id, toUser.UserName, privateMessage.CreationTime, privateMessage.Title);
-                
-                privateMessage.MapExtraPropertiesTo(eto, MappingPropertyDefinitionChecks.None);
-                
-                await _distributedEventBus.PublishAsync(eto);
-            });
-            
+            var eto = new PrivateMessageSentEto(privateMessage.TenantId, privateMessage.Id, fromUser?.Id,
+                fromUser?.UserName, toUser.Id, toUser.UserName, privateMessage.CreationTime, privateMessage.Title);
+
+            privateMessage.MapExtraPropertiesTo(eto, MappingPropertyDefinitionChecks.None);
+
+            privateMessage.AddDistributedEvent(eto);
+
             return Task.FromResult(privateMessage);
         }
     }

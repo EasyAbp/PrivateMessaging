@@ -41,6 +41,11 @@ namespace EasyAbp.PrivateMessaging.PrivateMessages
             Content = content;
         }
 
+        internal void AddDistributedEvent(PrivateMessageSentEto eto)
+        {
+            base.AddDistributedEvent(eto);
+        }
+
         public void TrySetReadTime(DateTime time)
         {
             if (ReadTime.HasValue)
