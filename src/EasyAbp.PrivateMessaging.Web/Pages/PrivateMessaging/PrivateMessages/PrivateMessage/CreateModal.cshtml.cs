@@ -4,6 +4,7 @@ using EasyAbp.PrivateMessaging.PrivateMessages;
 using EasyAbp.PrivateMessaging.PrivateMessages.Dtos;
 using EasyAbp.PrivateMessaging.Web.Pages.PrivateMessaging.PrivateMessages.PrivateMessage.InfoModels;
 using Microsoft.AspNetCore.Mvc;
+using CreatePrivateMessageInfoModel = EasyAbp.PrivateMessaging.Web.Pages.PrivateMessaging.PrivateMessages.PrivateMessage.InfoModels.CreatePrivateMessageInfoModel;
 
 namespace EasyAbp.PrivateMessaging.Web.Pages.PrivateMessaging.PrivateMessages.PrivateMessage
 {

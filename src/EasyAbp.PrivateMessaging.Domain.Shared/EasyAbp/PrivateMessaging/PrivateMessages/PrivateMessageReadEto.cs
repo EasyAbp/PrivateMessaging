@@ -30,7 +30,7 @@ namespace EasyAbp.PrivateMessaging.PrivateMessages
         [NotNull]
         public string Title { get; set; }
         
-        protected PrivateMessageReadEto()
+        public PrivateMessageReadEto()
         {
             ExtraProperties = new ExtraPropertyDictionary();
         }

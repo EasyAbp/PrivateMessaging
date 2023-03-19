@@ -57,6 +57,17 @@ namespace EasyAbp.PrivateMessaging
             var hostingEnvironment = context.Services.GetHostingEnvironment();
             var configuration = context.Services.GetConfiguration();
 
+            Configure<AbpAspNetCoreMvcOptions>(options =>
+            {
+                options
+                    .ConventionalControllers
+                    .Create(typeof(PrivateMessagingApplicationModule).Assembly, conventionalControllerSetting =>
+                    {
+                        conventionalControllerSetting.ApplicationServiceTypes =
+                            ApplicationServiceTypes.IntegrationServices;
+                    });
+            });
+
             Configure<AbpDbContextOptions>(options =>
             {
                 options.UseSqlServer();

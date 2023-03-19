@@ -28,7 +28,7 @@ namespace EasyAbp.PrivateMessaging.PrivateMessages
         [NotNull]
         public string Title { get; set; }
 
-        protected PrivateMessageSentEto()
+        public PrivateMessageSentEto()
         {
             ExtraProperties = new ExtraPropertyDictionary();
         }
