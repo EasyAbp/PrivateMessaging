@@ -57,7 +57,7 @@ namespace EasyAbp.PrivateMessaging
             var hostingEnvironment = context.Services.GetHostingEnvironment();
             var configuration = context.Services.GetConfiguration();
 
-            Configure<AbpAspNetCoreMvcOptions>(options =>
+            PreConfigure<AbpAspNetCoreMvcOptions>(options =>
             {
                 options
                     .ConventionalControllers
@@ -187,7 +187,7 @@ namespace EasyAbp.PrivateMessaging
         
         private void ConfigureConventionalControllers()
         {
-            Configure<AbpAspNetCoreMvcOptions>(options =>
+            PreConfigure<AbpAspNetCoreMvcOptions>(options =>
             {
             });
         }
