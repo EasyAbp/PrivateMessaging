@@ -1,0 +1,49 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+	<Import Project="..\..\..\..\common.props" />
+
+	<PropertyGroup>
+		<TargetFramework>net8.0</TargetFramework>
+		<Nullable>enable</Nullable>
+		<RootNamespace>EasyAbp.PrivateMessaging.UnifiedDemo</RootNamespace>
+	</PropertyGroup>
+
+	<PropertyGroup>
+		<GenerateDocumentationFile>true</GenerateDocumentationFile>
+		<NoWarn>$(NoWarn);1591</NoWarn>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<ProjectReference Include="..\..\..\..\modules\src\EasyAbp.PrivateMessaging.Domain\EasyAbp.PrivateMessaging.Domain.csproj" />
+		<ProjectReference Include="..\EasyAbp.PrivateMessaging.UnifiedDemo.Domain.Shared\EasyAbp.PrivateMessaging.UnifiedDemo.Domain.Shared.csproj" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<PackageReference Include="Volo.Abp.Emailing" Version="$(AbpVersion)" />
+
+		<PackageReference Include="Volo.Abp.AuditLogging.Domain" Version="$(AbpVersion)" />
+		<PackageReference Include="Volo.Abp.TenantManagement.Domain" Version="$(AbpVersion)" />
+		<PackageReference Include="Volo.Abp.FeatureManagement.Domain" Version="$(AbpVersion)" />
+		<PackageReference Include="Volo.Abp.SettingManagement.Domain" Version="$(AbpVersion)" />
+
+		<PackageReference Include="Volo.Abp.IdentityServer.Domain" Version="$(AbpVersion)" />
+		<PackageReference Include="Volo.Abp.Identity.Domain" Version="$(AbpVersion)" />
+		<PackageReference Include="Volo.Abp.PermissionManagement.Domain" Version="$(AbpVersion)" />
+		<PackageReference Include="Volo.Abp.PermissionManagement.Domain.Identity" Version="$(AbpVersion)" />
+		<PackageReference Include="Volo.Abp.PermissionManagement.Domain.IdentityServer" Version="$(AbpVersion)" />
+
+		<PackageReference Include="Volo.Abp.Ddd.Domain" Version="$(AbpVersion)" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<PackageReference Include="Microsoft.Extensions.ApiDescription.Client" Version="8.0.0">
+			<PrivateAssets>all</PrivateAssets>
+			<IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+		</PackageReference>
+		<PackageReference Include="NSwag.ApiDescription.Client" Version="14.2.0">
+			<PrivateAssets>all</PrivateAssets>
+			<IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+		</PackageReference>
+	</ItemGroup>
+
+</Project>

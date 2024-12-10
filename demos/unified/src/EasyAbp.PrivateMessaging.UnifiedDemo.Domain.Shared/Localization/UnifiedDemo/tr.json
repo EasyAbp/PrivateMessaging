@@ -1,0 +1,21 @@
+{
+  "culture": "tr",
+  "texts": {
+    "Menu:Home": "Ana sayfa",
+    "Menu:Demo": "Demo",
+    "Welcome": "Hoşgeldiniz",
+    "LongWelcomeMessage": "Demo.",
+    "DisplayName:EasyAbp.PrivateMessaging.RememberGridFilterState": "Grid Filtrelerini Anımsa",
+    "RememberGridFilterStateHelpText": "Çalışmanız bitip ekranınızı kapatırken otomatik olarak grid filtre ayarlarını kaydedecektir.",
+    "Grid_Edit": "Düzenle",
+    "Grid_Delete": "Sil",
+    "Ok": "Tamam",
+    "Cancel": "İptal",
+    "Yes": "Evet",
+    "Info": "Bilgi",
+    "Success": "Başarılı",
+    "Warn": "Uyarı",
+    "Error": "Hata",
+    "Confirm": "Onay"
+  }
+}

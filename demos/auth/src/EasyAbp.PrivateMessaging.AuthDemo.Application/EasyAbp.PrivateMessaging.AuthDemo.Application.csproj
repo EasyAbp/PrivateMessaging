@@ -1,0 +1,33 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+	<Import Project="..\..\..\..\common.props" />
+
+	<PropertyGroup>
+		<TargetFramework>net8.0</TargetFramework>
+		<Nullable>enable</Nullable>
+		<RootNamespace>EasyAbp.PrivateMessaging.AuthDemo</RootNamespace>
+	</PropertyGroup>
+
+	<PropertyGroup>
+		<GenerateDocumentationFile>true</GenerateDocumentationFile>
+		<NoWarn>$(NoWarn);1591</NoWarn>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<ProjectReference Include="..\EasyAbp.PrivateMessaging.AuthDemo.Domain\EasyAbp.PrivateMessaging.AuthDemo.Domain.csproj" />
+		<ProjectReference Include="..\EasyAbp.PrivateMessaging.AuthDemo.Application.Contracts\EasyAbp.PrivateMessaging.AuthDemo.Application.Contracts.csproj" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<PackageReference Include="Volo.Abp.AspNetCore.Mvc" Version="$(AbpVersion)" />
+		<PackageReference Include="Volo.Abp.AspNetCore.Mvc.Contracts" Version="$(AbpVersion)" />
+		<PackageReference Include="Volo.Abp.Account.Application" Version="$(AbpVersion)" />
+		<PackageReference Include="Volo.Abp.TenantManagement.Application" Version="$(AbpVersion)" />
+		<PackageReference Include="Volo.Abp.FeatureManagement.Application" Version="$(AbpVersion)" />
+		<PackageReference Include="Volo.Abp.SettingManagement.Application" Version="$(AbpVersion)" />
+
+		<PackageReference Include="Volo.Abp.Identity.Application" Version="$(AbpVersion)" />
+		<PackageReference Include="Volo.Abp.PermissionManagement.Application" Version="$(AbpVersion)" />
+	</ItemGroup>
+
+</Project>

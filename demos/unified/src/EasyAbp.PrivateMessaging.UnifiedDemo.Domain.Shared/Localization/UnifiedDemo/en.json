@@ -1,0 +1,21 @@
+{
+  "culture": "en",
+  "texts": {
+    "Menu:Home": "Home",
+    "Menu:Demo": "Demo",
+    "Welcome": "Welcome",
+    "LongWelcomeMessage": "Welcome to the application. This is a startup project based on the ABP framework. For more information, visit abp.io.",
+    "DisplayName:EasyAbp.PrivateMessaging.RememberGridFilterState": "Remember Grid Filter State",
+    "RememberGridFilterStateHelpText": "It will automatically save the grid filter settings when you finish working and close your screen.",
+    "Grid_Edit": "Edit",
+    "Grid_Delete": "Delete",
+    "Ok": "OK",
+    "Cancel": "Cancel",
+    "Yes": "Yes",
+    "Info": "Info",
+    "Success": "Success",
+    "Warn": "Warning",
+    "Error": "Error",
+    "Confirm": "Confirm"
+  }
+}
