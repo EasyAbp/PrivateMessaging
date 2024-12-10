@@ -1,15 +1,15 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 16
-VisualStudioVersion = 16.0.29001.49
+# Visual Studio Version 17
+VisualStudioVersion = 17.12.35527.113
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EasyAbp.PrivateMessaging.Domain.Shared", "src\EasyAbp.PrivateMessaging.Domain.Shared\EasyAbp.PrivateMessaging.Domain.Shared.csproj", "{D64C1577-4929-4B60-939E-96DE1534891A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EasyAbp.PrivateMessaging.Domain.Shared", "modules\src\EasyAbp.PrivateMessaging.Domain.Shared\EasyAbp.PrivateMessaging.Domain.Shared.csproj", "{D64C1577-4929-4B60-939E-96DE1534891A}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EasyAbp.PrivateMessaging.Domain", "src\EasyAbp.PrivateMessaging.Domain\EasyAbp.PrivateMessaging.Domain.csproj", "{F2840BC7-0188-4606-9126-DADD0F5ABF7A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EasyAbp.PrivateMessaging.Domain", "modules\src\EasyAbp.PrivateMessaging.Domain\EasyAbp.PrivateMessaging.Domain.csproj", "{F2840BC7-0188-4606-9126-DADD0F5ABF7A}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EasyAbp.PrivateMessaging.Application.Contracts", "src\EasyAbp.PrivateMessaging.Application.Contracts\EasyAbp.PrivateMessaging.Application.Contracts.csproj", "{BD65D04F-08D5-40C1-8C24-77CA0BACB877}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EasyAbp.PrivateMessaging.Application.Contracts", "modules\src\EasyAbp.PrivateMessaging.Application.Contracts\EasyAbp.PrivateMessaging.Application.Contracts.csproj", "{BD65D04F-08D5-40C1-8C24-77CA0BACB877}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EasyAbp.PrivateMessaging.Application", "src\EasyAbp.PrivateMessaging.Application\EasyAbp.PrivateMessaging.Application.csproj", "{78040F9E-3501-4A40-82DF-00A597710F35}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EasyAbp.PrivateMessaging.Application", "modules\src\EasyAbp.PrivateMessaging.Application\EasyAbp.PrivateMessaging.Application.csproj", "{78040F9E-3501-4A40-82DF-00A597710F35}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{649A3FFA-182F-4E56-9717-E6A9A2BEC545}"
 EndProject
@@ -17,37 +17,121 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{CCD2960C-2
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "host", "host", "{E400416D-2895-4512-9D17-90681EEC7E0A}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EasyAbp.PrivateMessaging.EntityFrameworkCore", "src\EasyAbp.PrivateMessaging.EntityFrameworkCore\EasyAbp.PrivateMessaging.EntityFrameworkCore.csproj", "{0CE86223-D31D-4315-A1F5-87BA3EE1B844}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EasyAbp.PrivateMessaging.EntityFrameworkCore", "modules\src\EasyAbp.PrivateMessaging.EntityFrameworkCore\EasyAbp.PrivateMessaging.EntityFrameworkCore.csproj", "{0CE86223-D31D-4315-A1F5-87BA3EE1B844}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EasyAbp.PrivateMessaging.MongoDB", "src\EasyAbp.PrivateMessaging.MongoDB\EasyAbp.PrivateMessaging.MongoDB.csproj", "{F1C58097-4C08-4D88-8976-6B3389391481}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EasyAbp.PrivateMessaging.MongoDB", "modules\src\EasyAbp.PrivateMessaging.MongoDB\EasyAbp.PrivateMessaging.MongoDB.csproj", "{F1C58097-4C08-4D88-8976-6B3389391481}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EasyAbp.PrivateMessaging.HttpApi", "src\EasyAbp.PrivateMessaging.HttpApi\EasyAbp.PrivateMessaging.HttpApi.csproj", "{077AA5F8-8B61-420C-A6B5-0150A66FDB34}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EasyAbp.PrivateMessaging.HttpApi", "modules\src\EasyAbp.PrivateMessaging.HttpApi\EasyAbp.PrivateMessaging.HttpApi.csproj", "{077AA5F8-8B61-420C-A6B5-0150A66FDB34}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EasyAbp.PrivateMessaging.HttpApi.Client", "src\EasyAbp.PrivateMessaging.HttpApi.Client\EasyAbp.PrivateMessaging.HttpApi.Client.csproj", "{36E2735F-CEAB-44C8-A6D1-2CDAFF399751}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EasyAbp.PrivateMessaging.HttpApi.Client", "modules\src\EasyAbp.PrivateMessaging.HttpApi.Client\EasyAbp.PrivateMessaging.HttpApi.Client.csproj", "{36E2735F-CEAB-44C8-A6D1-2CDAFF399751}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EasyAbp.PrivateMessaging.TestBase", "test\EasyAbp.PrivateMessaging.TestBase\EasyAbp.PrivateMessaging.TestBase.csproj", "{C5BB573D-3030-4BCB-88B7-F6A85C32766C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EasyAbp.PrivateMessaging.TestBase", "modules\test\EasyAbp.PrivateMessaging.TestBase\EasyAbp.PrivateMessaging.TestBase.csproj", "{C5BB573D-3030-4BCB-88B7-F6A85C32766C}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EasyAbp.PrivateMessaging.EntityFrameworkCore.Tests", "test\EasyAbp.PrivateMessaging.EntityFrameworkCore.Tests\EasyAbp.PrivateMessaging.EntityFrameworkCore.Tests.csproj", "{527F645C-C1FC-406E-8479-81386C8ECF13}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EasyAbp.PrivateMessaging.EntityFrameworkCore.Tests", "modules\test\EasyAbp.PrivateMessaging.EntityFrameworkCore.Tests\EasyAbp.PrivateMessaging.EntityFrameworkCore.Tests.csproj", "{527F645C-C1FC-406E-8479-81386C8ECF13}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EasyAbp.PrivateMessaging.MongoDB.Tests", "test\EasyAbp.PrivateMessaging.MongoDB.Tests\EasyAbp.PrivateMessaging.MongoDB.Tests.csproj", "{D0AD9179-125C-40B2-A8EE-CD4C1EE24BB6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EasyAbp.PrivateMessaging.MongoDB.Tests", "modules\test\EasyAbp.PrivateMessaging.MongoDB.Tests\EasyAbp.PrivateMessaging.MongoDB.Tests.csproj", "{D0AD9179-125C-40B2-A8EE-CD4C1EE24BB6}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EasyAbp.PrivateMessaging.Domain.Tests", "test\EasyAbp.PrivateMessaging.Domain.Tests\EasyAbp.PrivateMessaging.Domain.Tests.csproj", "{E60895E5-79C4-447D-88B7-85CB5BA336A4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EasyAbp.PrivateMessaging.Domain.Tests", "modules\test\EasyAbp.PrivateMessaging.Domain.Tests\EasyAbp.PrivateMessaging.Domain.Tests.csproj", "{E60895E5-79C4-447D-88B7-85CB5BA336A4}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EasyAbp.PrivateMessaging.Application.Tests", "test\EasyAbp.PrivateMessaging.Application.Tests\EasyAbp.PrivateMessaging.Application.Tests.csproj", "{90CB5DC4-C040-45C7-8900-9688B26405BC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EasyAbp.PrivateMessaging.Application.Tests", "modules\test\EasyAbp.PrivateMessaging.Application.Tests\EasyAbp.PrivateMessaging.Application.Tests.csproj", "{90CB5DC4-C040-45C7-8900-9688B26405BC}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EasyAbp.PrivateMessaging.HttpApi.Host", "host\EasyAbp.PrivateMessaging.HttpApi.Host\EasyAbp.PrivateMessaging.HttpApi.Host.csproj", "{37B135B0-DAFE-4616-B25C-1BDF32FC44A2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EasyAbp.PrivateMessaging.HttpApi.Host", "demos\main\host\EasyAbp.PrivateMessaging.HttpApi.Host\EasyAbp.PrivateMessaging.HttpApi.Host.csproj", "{37B135B0-DAFE-4616-B25C-1BDF32FC44A2}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EasyAbp.PrivateMessaging.Web", "src\EasyAbp.PrivateMessaging.Web\EasyAbp.PrivateMessaging.Web.csproj", "{3B7B6317-1B85-4164-8E11-75574F80AE17}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EasyAbp.PrivateMessaging.Web", "modules\src\EasyAbp.PrivateMessaging.Web\EasyAbp.PrivateMessaging.Web.csproj", "{3B7B6317-1B85-4164-8E11-75574F80AE17}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EasyAbp.PrivateMessaging.HttpApi.Client.ConsoleTestApp", "test\EasyAbp.PrivateMessaging.HttpApi.Client.ConsoleTestApp\EasyAbp.PrivateMessaging.HttpApi.Client.ConsoleTestApp.csproj", "{1EDCD6D4-DF3A-4E3B-ABB6-C0D0B373EAB8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EasyAbp.PrivateMessaging.HttpApi.Client.ConsoleTestApp", "modules\test\EasyAbp.PrivateMessaging.HttpApi.Client.ConsoleTestApp\EasyAbp.PrivateMessaging.HttpApi.Client.ConsoleTestApp.csproj", "{1EDCD6D4-DF3A-4E3B-ABB6-C0D0B373EAB8}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EasyAbp.PrivateMessaging.Web.Host", "host\EasyAbp.PrivateMessaging.Web.Host\EasyAbp.PrivateMessaging.Web.Host.csproj", "{73513786-B6C6-4A21-89C5-0FBDD0A46107}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EasyAbp.PrivateMessaging.Web.Host", "demos\main\host\EasyAbp.PrivateMessaging.Web.Host\EasyAbp.PrivateMessaging.Web.Host.csproj", "{73513786-B6C6-4A21-89C5-0FBDD0A46107}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EasyAbp.PrivateMessaging.IdentityServer", "host\EasyAbp.PrivateMessaging.IdentityServer\EasyAbp.PrivateMessaging.IdentityServer.csproj", "{690203F4-3CD5-4569-88D9-EE831EEA5F5F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EasyAbp.PrivateMessaging.IdentityServer", "demos\auth\host\EasyAbp.PrivateMessaging.IdentityServer\EasyAbp.PrivateMessaging.IdentityServer.csproj", "{690203F4-3CD5-4569-88D9-EE831EEA5F5F}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EasyAbp.PrivateMessaging.Host.Shared", "host\EasyAbp.PrivateMessaging.Host.Shared\EasyAbp.PrivateMessaging.Host.Shared.csproj", "{F6AC8D4A-EDD7-4514-8E8A-5BCB019864DB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EasyAbp.PrivateMessaging.Host.Shared", "demos\shared\src\EasyAbp.PrivateMessaging.Host.Shared\EasyAbp.PrivateMessaging.Host.Shared.csproj", "{F6AC8D4A-EDD7-4514-8E8A-5BCB019864DB}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EasyAbp.PrivateMessaging.Web.Unified", "host\EasyAbp.PrivateMessaging.Web.Unified\EasyAbp.PrivateMessaging.Web.Unified.csproj", "{3D872C41-E226-45C8-89C1-9D3DBD7C73F2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EasyAbp.PrivateMessaging.Web.Unified", "demos\unified\host\EasyAbp.PrivateMessaging.Web.Unified\EasyAbp.PrivateMessaging.Web.Unified.csproj", "{3D872C41-E226-45C8-89C1-9D3DBD7C73F2}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "modules", "modules", "{569DC619-56E0-4D70-A793-492C3E42854E}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "demos", "demos", "{CE0E2EF5-3584-4191-BF92-E576D43A5EE3}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "unified", "unified", "{13A816E6-1F4B-4DD8-9FDB-A49479F97F09}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "auth", "auth", "{6D88751C-965D-45E9-8C43-0FB2148DED6B}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{F4EB94DD-4501-47C9-8BCF-2CE1A16C65BD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EasyAbp.PrivateMessaging.UnifiedDemo.Application", "demos\unified\src\EasyAbp.PrivateMessaging.UnifiedDemo.Application\EasyAbp.PrivateMessaging.UnifiedDemo.Application.csproj", "{C2D8643D-45E7-41D5-A77E-20D568259348}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EasyAbp.PrivateMessaging.UnifiedDemo.Application.Contracts", "demos\unified\src\EasyAbp.PrivateMessaging.UnifiedDemo.Application.Contracts\EasyAbp.PrivateMessaging.UnifiedDemo.Application.Contracts.csproj", "{CA7C84D7-7649-4699-ADA2-C3952AF653F8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EasyAbp.PrivateMessaging.UnifiedDemo.DbMigrator", "demos\unified\src\EasyAbp.PrivateMessaging.UnifiedDemo.DbMigrator\EasyAbp.PrivateMessaging.UnifiedDemo.DbMigrator.csproj", "{E2B8FE98-1E2A-41C6-A832-462C673F8372}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EasyAbp.PrivateMessaging.UnifiedDemo.Domain", "demos\unified\src\EasyAbp.PrivateMessaging.UnifiedDemo.Domain\EasyAbp.PrivateMessaging.UnifiedDemo.Domain.csproj", "{E8FEF296-A7AF-4019-90CC-658B8414543B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EasyAbp.PrivateMessaging.UnifiedDemo.Domain.Shared", "demos\unified\src\EasyAbp.PrivateMessaging.UnifiedDemo.Domain.Shared\EasyAbp.PrivateMessaging.UnifiedDemo.Domain.Shared.csproj", "{3390D429-9FDC-4CC4-8B5A-D596B2836BF6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EasyAbp.PrivateMessaging.UnifiedDemo.EntityFrameworkCore", "demos\unified\src\EasyAbp.PrivateMessaging.UnifiedDemo.EntityFrameworkCore\EasyAbp.PrivateMessaging.UnifiedDemo.EntityFrameworkCore.csproj", "{06A20744-EB3A-41F9-B7B2-E471457C440B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EasyAbp.PrivateMessaging.UnifiedDemo.HttpApi", "demos\unified\src\EasyAbp.PrivateMessaging.UnifiedDemo.HttpApi\EasyAbp.PrivateMessaging.UnifiedDemo.HttpApi.csproj", "{4E7E48F2-CB7D-425F-A4FD-88EFEF123E2D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EasyAbp.PrivateMessaging.UnifiedDemo.HttpApi.Client", "demos\unified\src\EasyAbp.PrivateMessaging.UnifiedDemo.HttpApi.Client\EasyAbp.PrivateMessaging.UnifiedDemo.HttpApi.Client.csproj", "{0FA97A9C-265E-46C9-8AD6-21EC4C368355}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EasyAbp.PrivateMessaging.UnifiedDemo.SqlServer.EntityFrameworkCore", "demos\unified\src\EasyAbp.PrivateMessaging.UnifiedDemo.SqlServer.EntityFrameworkCore\EasyAbp.PrivateMessaging.UnifiedDemo.SqlServer.EntityFrameworkCore.csproj", "{3BEBAA0E-2FF2-4D10-980A-A516290B99D1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EasyAbp.PrivateMessaging.UnifiedDemo.Web", "demos\unified\src\EasyAbp.PrivateMessaging.UnifiedDemo.Web\EasyAbp.PrivateMessaging.UnifiedDemo.Web.csproj", "{D954281A-9850-4BD6-B359-1E448F041281}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "host", "host", "{09043B16-B4ED-46B6-985A-4A2DE9BAD6EF}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{45578F1D-2037-405B-BEDE-A78D48446143}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EasyAbp.PrivateMessaging.AuthDemo.Application", "demos\auth\src\EasyAbp.PrivateMessaging.AuthDemo.Application\EasyAbp.PrivateMessaging.AuthDemo.Application.csproj", "{D4254AF5-7E93-407D-AC49-0236AD52A9BA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EasyAbp.PrivateMessaging.AuthDemo.Application.Contracts", "demos\auth\src\EasyAbp.PrivateMessaging.AuthDemo.Application.Contracts\EasyAbp.PrivateMessaging.AuthDemo.Application.Contracts.csproj", "{A2E10A02-9D9A-4BF9-A1E2-C75AAC3CC2AC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EasyAbp.PrivateMessaging.AuthDemo.DbMigrator", "demos\auth\src\EasyAbp.PrivateMessaging.AuthDemo.DbMigrator\EasyAbp.PrivateMessaging.AuthDemo.DbMigrator.csproj", "{B3F798E3-012B-4934-8DDC-93049C4D6C1C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EasyAbp.PrivateMessaging.AuthDemo.Domain", "demos\auth\src\EasyAbp.PrivateMessaging.AuthDemo.Domain\EasyAbp.PrivateMessaging.AuthDemo.Domain.csproj", "{7115DF17-31F2-455E-A060-2B5A0BC6F27B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EasyAbp.PrivateMessaging.AuthDemo.Domain.Shared", "demos\auth\src\EasyAbp.PrivateMessaging.AuthDemo.Domain.Shared\EasyAbp.PrivateMessaging.AuthDemo.Domain.Shared.csproj", "{24351339-1EC6-4D5B-8A84-927FE4F6285B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EasyAbp.PrivateMessaging.AuthDemo.EntityFrameworkCore", "demos\auth\src\EasyAbp.PrivateMessaging.AuthDemo.EntityFrameworkCore\EasyAbp.PrivateMessaging.AuthDemo.EntityFrameworkCore.csproj", "{6EF3D15D-B081-452A-A046-A1322E4851D3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EasyAbp.PrivateMessaging.AuthDemo.HttpApi", "demos\auth\src\EasyAbp.PrivateMessaging.AuthDemo.HttpApi\EasyAbp.PrivateMessaging.AuthDemo.HttpApi.csproj", "{9E02F4B8-2EE0-4F9A-82B1-D558341503C0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EasyAbp.PrivateMessaging.AuthDemo.HttpApi.Client", "demos\auth\src\EasyAbp.PrivateMessaging.AuthDemo.HttpApi.Client\EasyAbp.PrivateMessaging.AuthDemo.HttpApi.Client.csproj", "{183C95C8-6F75-4D8D-9B6D-CCD8C3CB14BD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EasyAbp.PrivateMessaging.AuthDemo.SqlServer.EntityFrameworkCore", "demos\auth\src\EasyAbp.PrivateMessaging.AuthDemo.SqlServer.EntityFrameworkCore\EasyAbp.PrivateMessaging.AuthDemo.SqlServer.EntityFrameworkCore.csproj", "{3B88FC02-3869-4351-A942-27BC72AA6D0D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EasyAbp.PrivateMessaging.AuthDemo.Web", "demos\auth\src\EasyAbp.PrivateMessaging.AuthDemo.Web\EasyAbp.PrivateMessaging.AuthDemo.Web.csproj", "{943F43C3-8754-4FC8-9FAB-053AFA2BDAB8}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "main", "main", "{02B10D33-657A-4938-B89F-8E855E1DD7E4}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "host", "host", "{C1DF84CB-D8A6-41D2-BA07-2683D997A215}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{E16FBB2F-F469-41E6-ACB3-6741494C6E52}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EasyAbp.PrivateMessaging.MainDemo.Application", "demos\main\src\EasyAbp.PrivateMessaging.MainDemo.Application\EasyAbp.PrivateMessaging.MainDemo.Application.csproj", "{4D68C8ED-B1C7-4A27-8DB1-10139BBB99B6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EasyAbp.PrivateMessaging.MainDemo.Application.Contracts", "demos\main\src\EasyAbp.PrivateMessaging.MainDemo.Application.Contracts\EasyAbp.PrivateMessaging.MainDemo.Application.Contracts.csproj", "{50A630AF-CC95-4764-A26F-F60BCB6C1CB9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EasyAbp.PrivateMessaging.MainDemo.DbMigrator", "demos\main\src\EasyAbp.PrivateMessaging.MainDemo.DbMigrator\EasyAbp.PrivateMessaging.MainDemo.DbMigrator.csproj", "{C2AFAA72-749C-474D-8E75-90367AEC348D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EasyAbp.PrivateMessaging.MainDemo.Domain", "demos\main\src\EasyAbp.PrivateMessaging.MainDemo.Domain\EasyAbp.PrivateMessaging.MainDemo.Domain.csproj", "{E6CD658A-EC23-4326-87AE-633A1EB49FDF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EasyAbp.PrivateMessaging.MainDemo.Domain.Shared", "demos\main\src\EasyAbp.PrivateMessaging.MainDemo.Domain.Shared\EasyAbp.PrivateMessaging.MainDemo.Domain.Shared.csproj", "{8E167908-D95A-4ED6-B31C-7BFA1246EE88}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EasyAbp.PrivateMessaging.MainDemo.EntityFrameworkCore", "demos\main\src\EasyAbp.PrivateMessaging.MainDemo.EntityFrameworkCore\EasyAbp.PrivateMessaging.MainDemo.EntityFrameworkCore.csproj", "{960B71B9-AA27-43AD-A47F-CACC56BADEC3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EasyAbp.PrivateMessaging.MainDemo.HttpApi", "demos\main\src\EasyAbp.PrivateMessaging.MainDemo.HttpApi\EasyAbp.PrivateMessaging.MainDemo.HttpApi.csproj", "{1DA63358-9834-494F-B3C6-57F538BE9B47}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EasyAbp.PrivateMessaging.MainDemo.HttpApi.Client", "demos\main\src\EasyAbp.PrivateMessaging.MainDemo.HttpApi.Client\EasyAbp.PrivateMessaging.MainDemo.HttpApi.Client.csproj", "{080A5DCF-90F1-4F11-8810-90469FD40F34}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EasyAbp.PrivateMessaging.MainDemo.SqlServer.EntityFrameworkCore", "demos\main\src\EasyAbp.PrivateMessaging.MainDemo.SqlServer.EntityFrameworkCore\EasyAbp.PrivateMessaging.MainDemo.SqlServer.EntityFrameworkCore.csproj", "{31E484D7-5099-41E9-A15A-CBCA9B8E45E9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EasyAbp.PrivateMessaging.MainDemo.Web", "demos\main\src\EasyAbp.PrivateMessaging.MainDemo.Web\EasyAbp.PrivateMessaging.MainDemo.Web.csproj", "{09F8D1F0-55CE-488B-8057-C5C581785B27}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "shared", "shared", "{C6ED937B-AC7E-4179-ACDF-6A219742194B}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{E523A9EF-B789-4213-A528-1A73D9197C64}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -135,6 +219,126 @@ Global
 		{3D872C41-E226-45C8-89C1-9D3DBD7C73F2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3D872C41-E226-45C8-89C1-9D3DBD7C73F2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3D872C41-E226-45C8-89C1-9D3DBD7C73F2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C2D8643D-45E7-41D5-A77E-20D568259348}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C2D8643D-45E7-41D5-A77E-20D568259348}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C2D8643D-45E7-41D5-A77E-20D568259348}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C2D8643D-45E7-41D5-A77E-20D568259348}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CA7C84D7-7649-4699-ADA2-C3952AF653F8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CA7C84D7-7649-4699-ADA2-C3952AF653F8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CA7C84D7-7649-4699-ADA2-C3952AF653F8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CA7C84D7-7649-4699-ADA2-C3952AF653F8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E2B8FE98-1E2A-41C6-A832-462C673F8372}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E2B8FE98-1E2A-41C6-A832-462C673F8372}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E2B8FE98-1E2A-41C6-A832-462C673F8372}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E2B8FE98-1E2A-41C6-A832-462C673F8372}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E8FEF296-A7AF-4019-90CC-658B8414543B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E8FEF296-A7AF-4019-90CC-658B8414543B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E8FEF296-A7AF-4019-90CC-658B8414543B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E8FEF296-A7AF-4019-90CC-658B8414543B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3390D429-9FDC-4CC4-8B5A-D596B2836BF6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3390D429-9FDC-4CC4-8B5A-D596B2836BF6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3390D429-9FDC-4CC4-8B5A-D596B2836BF6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3390D429-9FDC-4CC4-8B5A-D596B2836BF6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{06A20744-EB3A-41F9-B7B2-E471457C440B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{06A20744-EB3A-41F9-B7B2-E471457C440B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{06A20744-EB3A-41F9-B7B2-E471457C440B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{06A20744-EB3A-41F9-B7B2-E471457C440B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4E7E48F2-CB7D-425F-A4FD-88EFEF123E2D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4E7E48F2-CB7D-425F-A4FD-88EFEF123E2D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4E7E48F2-CB7D-425F-A4FD-88EFEF123E2D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4E7E48F2-CB7D-425F-A4FD-88EFEF123E2D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0FA97A9C-265E-46C9-8AD6-21EC4C368355}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0FA97A9C-265E-46C9-8AD6-21EC4C368355}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0FA97A9C-265E-46C9-8AD6-21EC4C368355}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0FA97A9C-265E-46C9-8AD6-21EC4C368355}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3BEBAA0E-2FF2-4D10-980A-A516290B99D1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3BEBAA0E-2FF2-4D10-980A-A516290B99D1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3BEBAA0E-2FF2-4D10-980A-A516290B99D1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3BEBAA0E-2FF2-4D10-980A-A516290B99D1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D954281A-9850-4BD6-B359-1E448F041281}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D954281A-9850-4BD6-B359-1E448F041281}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D954281A-9850-4BD6-B359-1E448F041281}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D954281A-9850-4BD6-B359-1E448F041281}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D4254AF5-7E93-407D-AC49-0236AD52A9BA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D4254AF5-7E93-407D-AC49-0236AD52A9BA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D4254AF5-7E93-407D-AC49-0236AD52A9BA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D4254AF5-7E93-407D-AC49-0236AD52A9BA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A2E10A02-9D9A-4BF9-A1E2-C75AAC3CC2AC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A2E10A02-9D9A-4BF9-A1E2-C75AAC3CC2AC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A2E10A02-9D9A-4BF9-A1E2-C75AAC3CC2AC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A2E10A02-9D9A-4BF9-A1E2-C75AAC3CC2AC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B3F798E3-012B-4934-8DDC-93049C4D6C1C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B3F798E3-012B-4934-8DDC-93049C4D6C1C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B3F798E3-012B-4934-8DDC-93049C4D6C1C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B3F798E3-012B-4934-8DDC-93049C4D6C1C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7115DF17-31F2-455E-A060-2B5A0BC6F27B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7115DF17-31F2-455E-A060-2B5A0BC6F27B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7115DF17-31F2-455E-A060-2B5A0BC6F27B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7115DF17-31F2-455E-A060-2B5A0BC6F27B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{24351339-1EC6-4D5B-8A84-927FE4F6285B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{24351339-1EC6-4D5B-8A84-927FE4F6285B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{24351339-1EC6-4D5B-8A84-927FE4F6285B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{24351339-1EC6-4D5B-8A84-927FE4F6285B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6EF3D15D-B081-452A-A046-A1322E4851D3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6EF3D15D-B081-452A-A046-A1322E4851D3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6EF3D15D-B081-452A-A046-A1322E4851D3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6EF3D15D-B081-452A-A046-A1322E4851D3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9E02F4B8-2EE0-4F9A-82B1-D558341503C0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9E02F4B8-2EE0-4F9A-82B1-D558341503C0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9E02F4B8-2EE0-4F9A-82B1-D558341503C0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9E02F4B8-2EE0-4F9A-82B1-D558341503C0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{183C95C8-6F75-4D8D-9B6D-CCD8C3CB14BD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{183C95C8-6F75-4D8D-9B6D-CCD8C3CB14BD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{183C95C8-6F75-4D8D-9B6D-CCD8C3CB14BD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{183C95C8-6F75-4D8D-9B6D-CCD8C3CB14BD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3B88FC02-3869-4351-A942-27BC72AA6D0D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3B88FC02-3869-4351-A942-27BC72AA6D0D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3B88FC02-3869-4351-A942-27BC72AA6D0D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3B88FC02-3869-4351-A942-27BC72AA6D0D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{943F43C3-8754-4FC8-9FAB-053AFA2BDAB8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{943F43C3-8754-4FC8-9FAB-053AFA2BDAB8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{943F43C3-8754-4FC8-9FAB-053AFA2BDAB8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{943F43C3-8754-4FC8-9FAB-053AFA2BDAB8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4D68C8ED-B1C7-4A27-8DB1-10139BBB99B6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4D68C8ED-B1C7-4A27-8DB1-10139BBB99B6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4D68C8ED-B1C7-4A27-8DB1-10139BBB99B6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4D68C8ED-B1C7-4A27-8DB1-10139BBB99B6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{50A630AF-CC95-4764-A26F-F60BCB6C1CB9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{50A630AF-CC95-4764-A26F-F60BCB6C1CB9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{50A630AF-CC95-4764-A26F-F60BCB6C1CB9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{50A630AF-CC95-4764-A26F-F60BCB6C1CB9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C2AFAA72-749C-474D-8E75-90367AEC348D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C2AFAA72-749C-474D-8E75-90367AEC348D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C2AFAA72-749C-474D-8E75-90367AEC348D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C2AFAA72-749C-474D-8E75-90367AEC348D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E6CD658A-EC23-4326-87AE-633A1EB49FDF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E6CD658A-EC23-4326-87AE-633A1EB49FDF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E6CD658A-EC23-4326-87AE-633A1EB49FDF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E6CD658A-EC23-4326-87AE-633A1EB49FDF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8E167908-D95A-4ED6-B31C-7BFA1246EE88}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8E167908-D95A-4ED6-B31C-7BFA1246EE88}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8E167908-D95A-4ED6-B31C-7BFA1246EE88}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8E167908-D95A-4ED6-B31C-7BFA1246EE88}.Release|Any CPU.Build.0 = Release|Any CPU
+		{960B71B9-AA27-43AD-A47F-CACC56BADEC3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{960B71B9-AA27-43AD-A47F-CACC56BADEC3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{960B71B9-AA27-43AD-A47F-CACC56BADEC3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{960B71B9-AA27-43AD-A47F-CACC56BADEC3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1DA63358-9834-494F-B3C6-57F538BE9B47}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1DA63358-9834-494F-B3C6-57F538BE9B47}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1DA63358-9834-494F-B3C6-57F538BE9B47}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1DA63358-9834-494F-B3C6-57F538BE9B47}.Release|Any CPU.Build.0 = Release|Any CPU
+		{080A5DCF-90F1-4F11-8810-90469FD40F34}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{080A5DCF-90F1-4F11-8810-90469FD40F34}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{080A5DCF-90F1-4F11-8810-90469FD40F34}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{080A5DCF-90F1-4F11-8810-90469FD40F34}.Release|Any CPU.Build.0 = Release|Any CPU
+		{31E484D7-5099-41E9-A15A-CBCA9B8E45E9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{31E484D7-5099-41E9-A15A-CBCA9B8E45E9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{31E484D7-5099-41E9-A15A-CBCA9B8E45E9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{31E484D7-5099-41E9-A15A-CBCA9B8E45E9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{09F8D1F0-55CE-488B-8057-C5C581785B27}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{09F8D1F0-55CE-488B-8057-C5C581785B27}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{09F8D1F0-55CE-488B-8057-C5C581785B27}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{09F8D1F0-55CE-488B-8057-C5C581785B27}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -144,6 +348,9 @@ Global
 		{F2840BC7-0188-4606-9126-DADD0F5ABF7A} = {649A3FFA-182F-4E56-9717-E6A9A2BEC545}
 		{BD65D04F-08D5-40C1-8C24-77CA0BACB877} = {649A3FFA-182F-4E56-9717-E6A9A2BEC545}
 		{78040F9E-3501-4A40-82DF-00A597710F35} = {649A3FFA-182F-4E56-9717-E6A9A2BEC545}
+		{649A3FFA-182F-4E56-9717-E6A9A2BEC545} = {569DC619-56E0-4D70-A793-492C3E42854E}
+		{CCD2960C-23CC-4AB4-B84D-60C7AAA52F4D} = {569DC619-56E0-4D70-A793-492C3E42854E}
+		{E400416D-2895-4512-9D17-90681EEC7E0A} = {13A816E6-1F4B-4DD8-9FDB-A49479F97F09}
 		{0CE86223-D31D-4315-A1F5-87BA3EE1B844} = {649A3FFA-182F-4E56-9717-E6A9A2BEC545}
 		{F1C58097-4C08-4D88-8976-6B3389391481} = {649A3FFA-182F-4E56-9717-E6A9A2BEC545}
 		{077AA5F8-8B61-420C-A6B5-0150A66FDB34} = {649A3FFA-182F-4E56-9717-E6A9A2BEC545}
@@ -153,13 +360,53 @@ Global
 		{D0AD9179-125C-40B2-A8EE-CD4C1EE24BB6} = {CCD2960C-23CC-4AB4-B84D-60C7AAA52F4D}
 		{E60895E5-79C4-447D-88B7-85CB5BA336A4} = {CCD2960C-23CC-4AB4-B84D-60C7AAA52F4D}
 		{90CB5DC4-C040-45C7-8900-9688B26405BC} = {CCD2960C-23CC-4AB4-B84D-60C7AAA52F4D}
-		{37B135B0-DAFE-4616-B25C-1BDF32FC44A2} = {E400416D-2895-4512-9D17-90681EEC7E0A}
+		{37B135B0-DAFE-4616-B25C-1BDF32FC44A2} = {C1DF84CB-D8A6-41D2-BA07-2683D997A215}
 		{3B7B6317-1B85-4164-8E11-75574F80AE17} = {649A3FFA-182F-4E56-9717-E6A9A2BEC545}
 		{1EDCD6D4-DF3A-4E3B-ABB6-C0D0B373EAB8} = {CCD2960C-23CC-4AB4-B84D-60C7AAA52F4D}
-		{73513786-B6C6-4A21-89C5-0FBDD0A46107} = {E400416D-2895-4512-9D17-90681EEC7E0A}
-		{690203F4-3CD5-4569-88D9-EE831EEA5F5F} = {E400416D-2895-4512-9D17-90681EEC7E0A}
-		{F6AC8D4A-EDD7-4514-8E8A-5BCB019864DB} = {E400416D-2895-4512-9D17-90681EEC7E0A}
+		{73513786-B6C6-4A21-89C5-0FBDD0A46107} = {C1DF84CB-D8A6-41D2-BA07-2683D997A215}
+		{690203F4-3CD5-4569-88D9-EE831EEA5F5F} = {09043B16-B4ED-46B6-985A-4A2DE9BAD6EF}
+		{F6AC8D4A-EDD7-4514-8E8A-5BCB019864DB} = {E523A9EF-B789-4213-A528-1A73D9197C64}
 		{3D872C41-E226-45C8-89C1-9D3DBD7C73F2} = {E400416D-2895-4512-9D17-90681EEC7E0A}
+		{13A816E6-1F4B-4DD8-9FDB-A49479F97F09} = {CE0E2EF5-3584-4191-BF92-E576D43A5EE3}
+		{6D88751C-965D-45E9-8C43-0FB2148DED6B} = {CE0E2EF5-3584-4191-BF92-E576D43A5EE3}
+		{F4EB94DD-4501-47C9-8BCF-2CE1A16C65BD} = {13A816E6-1F4B-4DD8-9FDB-A49479F97F09}
+		{C2D8643D-45E7-41D5-A77E-20D568259348} = {F4EB94DD-4501-47C9-8BCF-2CE1A16C65BD}
+		{CA7C84D7-7649-4699-ADA2-C3952AF653F8} = {F4EB94DD-4501-47C9-8BCF-2CE1A16C65BD}
+		{E2B8FE98-1E2A-41C6-A832-462C673F8372} = {E400416D-2895-4512-9D17-90681EEC7E0A}
+		{E8FEF296-A7AF-4019-90CC-658B8414543B} = {F4EB94DD-4501-47C9-8BCF-2CE1A16C65BD}
+		{3390D429-9FDC-4CC4-8B5A-D596B2836BF6} = {F4EB94DD-4501-47C9-8BCF-2CE1A16C65BD}
+		{06A20744-EB3A-41F9-B7B2-E471457C440B} = {F4EB94DD-4501-47C9-8BCF-2CE1A16C65BD}
+		{4E7E48F2-CB7D-425F-A4FD-88EFEF123E2D} = {F4EB94DD-4501-47C9-8BCF-2CE1A16C65BD}
+		{0FA97A9C-265E-46C9-8AD6-21EC4C368355} = {F4EB94DD-4501-47C9-8BCF-2CE1A16C65BD}
+		{3BEBAA0E-2FF2-4D10-980A-A516290B99D1} = {F4EB94DD-4501-47C9-8BCF-2CE1A16C65BD}
+		{D954281A-9850-4BD6-B359-1E448F041281} = {F4EB94DD-4501-47C9-8BCF-2CE1A16C65BD}
+		{09043B16-B4ED-46B6-985A-4A2DE9BAD6EF} = {6D88751C-965D-45E9-8C43-0FB2148DED6B}
+		{45578F1D-2037-405B-BEDE-A78D48446143} = {6D88751C-965D-45E9-8C43-0FB2148DED6B}
+		{D4254AF5-7E93-407D-AC49-0236AD52A9BA} = {45578F1D-2037-405B-BEDE-A78D48446143}
+		{A2E10A02-9D9A-4BF9-A1E2-C75AAC3CC2AC} = {45578F1D-2037-405B-BEDE-A78D48446143}
+		{B3F798E3-012B-4934-8DDC-93049C4D6C1C} = {45578F1D-2037-405B-BEDE-A78D48446143}
+		{7115DF17-31F2-455E-A060-2B5A0BC6F27B} = {45578F1D-2037-405B-BEDE-A78D48446143}
+		{24351339-1EC6-4D5B-8A84-927FE4F6285B} = {45578F1D-2037-405B-BEDE-A78D48446143}
+		{6EF3D15D-B081-452A-A046-A1322E4851D3} = {45578F1D-2037-405B-BEDE-A78D48446143}
+		{9E02F4B8-2EE0-4F9A-82B1-D558341503C0} = {45578F1D-2037-405B-BEDE-A78D48446143}
+		{183C95C8-6F75-4D8D-9B6D-CCD8C3CB14BD} = {45578F1D-2037-405B-BEDE-A78D48446143}
+		{3B88FC02-3869-4351-A942-27BC72AA6D0D} = {45578F1D-2037-405B-BEDE-A78D48446143}
+		{943F43C3-8754-4FC8-9FAB-053AFA2BDAB8} = {45578F1D-2037-405B-BEDE-A78D48446143}
+		{02B10D33-657A-4938-B89F-8E855E1DD7E4} = {CE0E2EF5-3584-4191-BF92-E576D43A5EE3}
+		{C1DF84CB-D8A6-41D2-BA07-2683D997A215} = {02B10D33-657A-4938-B89F-8E855E1DD7E4}
+		{E16FBB2F-F469-41E6-ACB3-6741494C6E52} = {02B10D33-657A-4938-B89F-8E855E1DD7E4}
+		{4D68C8ED-B1C7-4A27-8DB1-10139BBB99B6} = {E16FBB2F-F469-41E6-ACB3-6741494C6E52}
+		{50A630AF-CC95-4764-A26F-F60BCB6C1CB9} = {E16FBB2F-F469-41E6-ACB3-6741494C6E52}
+		{C2AFAA72-749C-474D-8E75-90367AEC348D} = {E16FBB2F-F469-41E6-ACB3-6741494C6E52}
+		{E6CD658A-EC23-4326-87AE-633A1EB49FDF} = {E16FBB2F-F469-41E6-ACB3-6741494C6E52}
+		{8E167908-D95A-4ED6-B31C-7BFA1246EE88} = {E16FBB2F-F469-41E6-ACB3-6741494C6E52}
+		{960B71B9-AA27-43AD-A47F-CACC56BADEC3} = {E16FBB2F-F469-41E6-ACB3-6741494C6E52}
+		{1DA63358-9834-494F-B3C6-57F538BE9B47} = {E16FBB2F-F469-41E6-ACB3-6741494C6E52}
+		{080A5DCF-90F1-4F11-8810-90469FD40F34} = {E16FBB2F-F469-41E6-ACB3-6741494C6E52}
+		{31E484D7-5099-41E9-A15A-CBCA9B8E45E9} = {E16FBB2F-F469-41E6-ACB3-6741494C6E52}
+		{09F8D1F0-55CE-488B-8057-C5C581785B27} = {E16FBB2F-F469-41E6-ACB3-6741494C6E52}
+		{C6ED937B-AC7E-4179-ACDF-6A219742194B} = {CE0E2EF5-3584-4191-BF92-E576D43A5EE3}
+		{E523A9EF-B789-4213-A528-1A73D9197C64} = {C6ED937B-AC7E-4179-ACDF-6A219742194B}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {4324B3B4-B60B-4E3C-91D8-59576B4E26DD}

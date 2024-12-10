@@ -1,0 +1,36 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+	<Import Project="..\..\..\..\common.props" />
+
+	<PropertyGroup>
+		<TargetFramework>net8.0</TargetFramework>
+		<Nullable>enable</Nullable>
+		<RootNamespace>EasyAbp.PrivateMessaging.AuthDemo</RootNamespace>
+		<GenerateEmbeddedFilesManifest>true</GenerateEmbeddedFilesManifest>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<PackageReference Include="Volo.Abp.AuditLogging.Domain.Shared" Version="$(AbpVersion)" />
+		<PackageReference Include="Volo.Abp.TenantManagement.Domain.Shared" Version="$(AbpVersion)" />
+		<PackageReference Include="Volo.Abp.FeatureManagement.Domain.Shared" Version="$(AbpVersion)" />
+		<PackageReference Include="Volo.Abp.SettingManagement.Domain.Shared" Version="$(AbpVersion)" />
+
+		<PackageReference Include="Volo.Abp.IdentityServer.Domain.Shared" Version="$(AbpVersion)" />
+		<PackageReference Include="Volo.Abp.Identity.Domain.Shared" Version="$(AbpVersion)" />
+		<PackageReference Include="Volo.Abp.PermissionManagement.Domain.Shared" Version="$(AbpVersion)" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<EmbeddedResource Include="Localization\AuthDemo\*.json" />
+		<Compile Remove="Settings\**" />
+		<Content Remove="Localization\AuthDemo\*.json" />
+		<Content Remove="Settings\**" />
+		<EmbeddedResource Remove="Settings\**" />
+		<None Remove="Settings\**" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<PackageReference Include="Microsoft.Extensions.FileProviders.Embedded" Version="8.0.4" />
+	</ItemGroup>
+
+</Project>

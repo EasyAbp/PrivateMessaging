@@ -1,0 +1,37 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+	<Import Project="..\..\..\..\common.props" />
+
+	<PropertyGroup>
+		<TargetFramework>net8.0</TargetFramework>
+		<Nullable>enable</Nullable>
+		<RootNamespace>EasyAbp.PrivateMessaging.AuthDemo.SqlServer</RootNamespace>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<Compile Remove="EntityFrameworkCore\PrivateMessagingEfCoreEntityExtensionMappings.cs" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<ProjectReference Include="..\EasyAbp.PrivateMessaging.AuthDemo.Domain\EasyAbp.PrivateMessaging.AuthDemo.Domain.csproj" />
+		<ProjectReference Include="..\EasyAbp.PrivateMessaging.AuthDemo.EntityFrameworkCore\EasyAbp.PrivateMessaging.AuthDemo.EntityFrameworkCore.csproj" />
+		
+		<PackageReference Include="Volo.Abp.EntityFrameworkCore.SqlServer" Version="$(AbpVersion)" />
+		
+		<PackageReference Include="Volo.Abp.SettingManagement.EntityFrameworkCore" Version="$(AbpVersion)" />
+		<PackageReference Include="Volo.Abp.AuditLogging.EntityFrameworkCore" Version="$(AbpVersion)" />
+		<PackageReference Include="Volo.Abp.TenantManagement.EntityFrameworkCore" Version="$(AbpVersion)" />
+		<PackageReference Include="Volo.Abp.FeatureManagement.EntityFrameworkCore" Version="$(AbpVersion)" />
+		<PackageReference Include="Volo.Abp.PermissionManagement.EntityFrameworkCore" Version="$(AbpVersion)" />
+		<PackageReference Include="Volo.Abp.Identity.EntityFrameworkCore" Version="$(AbpVersion)" />
+		<PackageReference Include="Volo.Abp.IdentityServer.EntityFrameworkCore" Version="$(AbpVersion)" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="8.0.4">
+			<PrivateAssets>all</PrivateAssets>
+			<IncludeAssets>runtime; build; native; contentfiles; analyzers</IncludeAssets>
+		</PackageReference>
+	</ItemGroup>
+
+</Project>

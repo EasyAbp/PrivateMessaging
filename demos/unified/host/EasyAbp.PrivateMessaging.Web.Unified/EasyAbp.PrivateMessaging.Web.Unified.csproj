@@ -1,0 +1,61 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+	<Import Project="..\..\..\..\common.props" />
+
+	<PropertyGroup>
+		<TargetFramework>net8.0</TargetFramework>
+		<RootNamespace>EasyAbp.PrivateMessaging</RootNamespace>
+		<PreserveCompilationReferences>true</PreserveCompilationReferences>
+		<UserSecretsId>EasyAbp.PrivateMessaging-c2d31439-b723-48e2-b061-5ebd7aeb6010</UserSecretsId>
+		<DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
+		<DockerfileContext>..\..\..\..</DockerfileContext>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<PackageReference Include="Serilog.AspNetCore" Version="8.0.0" />
+		<PackageReference Include="Serilog.Sinks.Async" Version="1.5.0" />
+		<PackageReference Include="Volo.Abp.EntityFrameworkCore.SqlServer" Version="$(AbpVersion)" />
+
+		<PackageReference Include="Volo.Abp.Autofac" Version="$(AbpVersion)" />
+		<PackageReference Include="Volo.Abp.AspNetCore.Mvc.UI.Theme.LeptonXLite" Version="3.3.2" />
+		<PackageReference Include="Volo.Abp.AspNetCore.Serilog" Version="$(AbpVersion)" />
+		<PackageReference Include="Volo.Abp.Swashbuckle" Version="$(AbpVersion)" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<ProjectReference Include="..\..\..\shared\src\EasyAbp.PrivateMessaging.Host.Shared\EasyAbp.PrivateMessaging.Host.Shared.csproj" />
+		<ProjectReference Include="..\..\src\EasyAbp.PrivateMessaging.UnifiedDemo.HttpApi\EasyAbp.PrivateMessaging.UnifiedDemo.HttpApi.csproj" />
+		<ProjectReference Include="..\..\src\EasyAbp.PrivateMessaging.UnifiedDemo.Web\EasyAbp.PrivateMessaging.UnifiedDemo.Web.csproj" />
+		<ProjectReference Include="..\..\src\EasyAbp.PrivateMessaging.UnifiedDemo.Application\EasyAbp.PrivateMessaging.UnifiedDemo.Application.csproj" />
+		<ProjectReference Include="..\..\src\EasyAbp.PrivateMessaging.UnifiedDemo.EntityFrameworkCore\EasyAbp.PrivateMessaging.UnifiedDemo.EntityFrameworkCore.csproj" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<Compile Remove="EntityFrameworkCore\**" />
+		<Compile Remove="IdentityServer\**" />
+		<Compile Remove="Logs\**" />
+		<Compile Remove="Migrations\**" />
+		<Content Remove="EntityFrameworkCore\**" />
+		<Content Remove="IdentityServer\**" />
+		<Content Remove="Logs\**" />
+		<Content Remove="Migrations\**" />
+		<EmbeddedResource Remove="EntityFrameworkCore\**" />
+		<EmbeddedResource Remove="IdentityServer\**" />
+		<EmbeddedResource Remove="Logs\**" />
+		<EmbeddedResource Remove="Migrations\**" />
+		<None Remove="EntityFrameworkCore\**" />
+		<None Remove="IdentityServer\**" />
+		<None Remove="Logs\**" />
+		<None Remove="Migrations\**" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<None Update="Pages\**\*.js">
+			<CopyToOutputDirectory>Always</CopyToOutputDirectory>
+		</None>
+		<None Update="Pages\**\*.css">
+			<CopyToOutputDirectory>Always</CopyToOutputDirectory>
+		</None>
+	</ItemGroup>
+
+</Project>

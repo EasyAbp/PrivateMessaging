@@ -1,0 +1,29 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+	<Import Project="..\..\..\..\common.props" />
+
+	<PropertyGroup>
+		<TargetFramework>net8.0</TargetFramework>
+		<Nullable>enable</Nullable>
+		<RootNamespace>EasyAbp.PrivateMessaging.AuthDemo</RootNamespace>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<ProjectReference Include="..\EasyAbp.PrivateMessaging.AuthDemo.Application.Contracts\EasyAbp.PrivateMessaging.AuthDemo.Application.Contracts.csproj" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<PackageReference Include="Volo.Abp.Account.HttpApi.Client" Version="$(AbpVersion)" />
+		<PackageReference Include="Volo.Abp.TenantManagement.HttpApi.Client" Version="$(AbpVersion)" />
+		<PackageReference Include="Volo.Abp.FeatureManagement.HttpApi.Client" Version="$(AbpVersion)" />
+		<PackageReference Include="Volo.Abp.SettingManagement.HttpApi.Client" Version="$(AbpVersion)" />
+		<PackageReference Include="Volo.Abp.Identity.HttpApi.Client" Version="$(AbpVersion)" />
+		<PackageReference Include="Volo.Abp.PermissionManagement.HttpApi.Client" Version="$(AbpVersion)" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<EmbeddedResource Include="**\*generate-proxy.json" />
+		<Content Remove="**\*generate-proxy.json" />
+	</ItemGroup>
+
+</Project>
