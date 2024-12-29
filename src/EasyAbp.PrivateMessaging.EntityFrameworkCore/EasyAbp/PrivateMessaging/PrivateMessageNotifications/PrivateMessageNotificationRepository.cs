@@ -27,7 +27,10 @@ namespace EasyAbp.PrivateMessaging.PrivateMessageNotifications
         public virtual async Task<IReadOnlyList<PrivateMessageNotification>> GetListByUserIdAsync(Guid userId, int skipCount,
             int maxResultCount, CancellationToken cancellationToken = default)
         {
-            return await (await GetQueryableAsync()).Where(n => n.UserId == userId).PageBy(skipCount, maxResultCount)
+            return await (await GetQueryableAsync())
+                .Where(n => n.UserId == userId)
+                .OrderByDescending(x => x.Id)
+                .PageBy(skipCount, maxResultCount)
                 .ToListAsync(cancellationToken);
         }
 

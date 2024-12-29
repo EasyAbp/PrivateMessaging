@@ -179,7 +179,7 @@ namespace EasyAbp.PrivateMessaging
             }
             app.UseHttpsRedirection();
             app.UseCorrelationId();
-            app.UseStaticFiles();
+            app.MapAbpStaticAssets();
             app.UseRouting();
             app.UseCors(DefaultCorsPolicyName);
             app.UseAuthentication();

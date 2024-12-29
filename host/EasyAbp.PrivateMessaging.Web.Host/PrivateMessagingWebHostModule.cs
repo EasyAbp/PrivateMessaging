@@ -232,7 +232,7 @@ namespace EasyAbp.PrivateMessaging
             }
 
             app.UseHttpsRedirection();
-            app.UseStaticFiles();
+            app.MapAbpStaticAssets();
             app.UseRouting();
             app.UseAuthentication();
 
