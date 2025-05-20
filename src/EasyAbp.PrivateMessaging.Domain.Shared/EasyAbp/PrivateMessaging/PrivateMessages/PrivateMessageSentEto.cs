@@ -38,7 +38,7 @@ namespace EasyAbp.PrivateMessaging.PrivateMessages
         
         public PrivateMessageSentEto(Guid? tenantId, Guid privateMessageId, Guid? fromUserId,
             [CanBeNull] string fromUserName, Guid toUserId, [NotNull] string toUserName, DateTime sentTime,
-            [NotNull] string title, [CanBeNull] string category)
+            [NotNull] string title, [CanBeNull] string category = null)
         {
             TenantId = tenantId;
             PrivateMessageId = privateMessageId;
