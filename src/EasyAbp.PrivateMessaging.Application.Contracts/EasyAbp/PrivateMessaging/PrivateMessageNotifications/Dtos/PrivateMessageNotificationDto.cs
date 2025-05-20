@@ -12,5 +12,7 @@ namespace EasyAbp.PrivateMessaging.PrivateMessageNotifications.Dtos
         public Guid PrivateMessageId { get; set; }
         
         public string TitlePreview { get; set; }
+
+        public string Category { get; set; }
     }
 }
