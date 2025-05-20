@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
-using JetBrains.Annotations;
 using Volo.Abp;
 using Volo.Abp.Data;
 using Volo.Abp.Domain.Services;
@@ -41,23 +40,23 @@ namespace EasyAbp.PrivateMessaging.PrivateMessages
         }
 
         public virtual async Task<IReadOnlyList<PrivateMessage>> GetListAsync(Guid userId, int skipCount,
-            int maxResultCount)
+            int maxResultCount, string category = null)
         {
             using (_dataFilter.Disable<ISoftDelete>())
             {
-                return await _repository.GetListSendingAsync(userId, skipCount, maxResultCount);
+                return await _repository.GetListSendingAsync(userId, skipCount, maxResultCount, category: category);
             }
         }
 
         [UnitOfWork(true)]
         public virtual Task<PrivateMessage> CreateAsync(IUserData fromUser, IUserData toUser, string title,
-            string content)
+            string content, string category = null)
         {
             var privateMessage = new PrivateMessage(
                 GuidGenerator.Create(), CurrentTenant.Id, fromUser?.Id, toUser.Id, title, content);
 
             var eto = new PrivateMessageSentEto(privateMessage.TenantId, privateMessage.Id, fromUser?.Id,
-                fromUser?.UserName, toUser.Id, toUser.UserName, privateMessage.CreationTime, privateMessage.Title);
+                fromUser?.UserName, toUser.Id, toUser.UserName, privateMessage.CreationTime, privateMessage.Title, privateMessage.Category);
 
             privateMessage.MapExtraPropertiesTo(eto, MappingPropertyDefinitionChecks.None);
 

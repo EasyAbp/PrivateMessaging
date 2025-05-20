@@ -32,7 +32,7 @@ namespace EasyAbp.PrivateMessaging.PrivateMessages
 
             var toUser = await _externalUserLookupServiceProvider.FindByIdAsync(eventData.ToUserId);
 
-            var privateMessage = await _manager.CreateAsync(fromUser, toUser, eventData.Title, eventData.Content);
+            var privateMessage = await _manager.CreateAsync(fromUser, toUser, eventData.Title, eventData.Content, eventData.Category);
 
             eventData.MapExtraPropertiesTo(privateMessage, MappingPropertyDefinitionChecks.None);
 

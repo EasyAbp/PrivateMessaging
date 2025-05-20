@@ -15,9 +15,9 @@ namespace EasyAbp.PrivateMessaging.PrivateMessageNotifications
             _repository = repository;
         }
         
-        public virtual async Task<IReadOnlyList<PrivateMessageNotification>> GetListAsync(Guid userId, int skipCount, int maxResultCount)
+        public virtual async Task<IReadOnlyList<PrivateMessageNotification>> GetListAsync(Guid userId, int skipCount, int maxResultCount, string category = null)
         {
-            return await _repository.GetListByUserIdAsync(userId, skipCount, maxResultCount);
+            return await _repository.GetListByUserIdAsync(userId, skipCount, maxResultCount, category);
         }
     }
 }

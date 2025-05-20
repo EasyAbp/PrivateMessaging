@@ -12,12 +12,13 @@ namespace EasyAbp.PrivateMessaging.PrivateMessages
         Task<long> CountAsync(Guid userId);
         
         Task<IReadOnlyList<PrivateMessage>>
-            GetListAsync(Guid userId, int skipCount, int maxResultCount);
+            GetListAsync(Guid userId, int skipCount, int maxResultCount, string category = null);
 
         Task<PrivateMessage> CreateAsync(
             [CanBeNull] IUserData fromUser,
             IUserData toUser,
             [NotNull] string title,
-            [CanBeNull] string content);
+            [CanBeNull] string content,
+            [CanBeNull] string category = null);
     }
 }

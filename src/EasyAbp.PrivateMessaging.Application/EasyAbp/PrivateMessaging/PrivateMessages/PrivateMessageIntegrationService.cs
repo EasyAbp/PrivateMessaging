@@ -30,7 +30,7 @@ public class PrivateMessageIntegrationService : ApplicationService, IPrivateMess
 
         var toUser = await _externalUserLookupServiceProvider.FindByIdAsync(input.ToUserId);
 
-        var privateMessage = await _manager.CreateAsync(fromUser, toUser, input.Title, input.Content);
+        var privateMessage = await _manager.CreateAsync(fromUser, toUser, input.Title, input.Content, input.Category); 
 
         input.MapExtraPropertiesTo(privateMessage, MappingPropertyDefinitionChecks.None);
 

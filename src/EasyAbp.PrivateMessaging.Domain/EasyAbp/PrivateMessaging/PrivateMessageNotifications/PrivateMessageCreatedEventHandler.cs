@@ -30,6 +30,7 @@ public class PrivateMessageCreatedEventHandler : ILocalEventHandler<EntityCreate
             eventData.Entity.TenantId,
             eventData.Entity.ToUserId,
             eventData.Entity.Id,
-            eventData.Entity.GetTitlePreview()));
+            eventData.Entity.GetTitlePreview(),
+            eventData.Entity.Category));
     }
 }

@@ -20,6 +20,8 @@ namespace EasyAbp.PrivateMessaging.PrivateMessages.Dtos
 
         public string Content { get; set; }
 
+        public string Category { get; set; }
+
         public DateTime? ReadTime { get; set; }
     }
 }

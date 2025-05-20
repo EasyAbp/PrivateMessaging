@@ -9,10 +9,10 @@ namespace EasyAbp.PrivateMessaging.PrivateMessageNotifications
 {
     public interface IPrivateMessageNotificationAppService : IApplicationService
     {
-        Task<long> CountAsync();
+        Task<long> CountAsync(string category = null);
         
         Task DeleteAsync(IEnumerable<Guid> ids);
     
-        Task<PagedResultDto<PrivateMessageNotificationDto>> GetListAsync(PagedResultRequestDto input);
+        Task<PagedResultDto<PrivateMessageNotificationDto>> GetListAsync(GetPrivateMessageNotificationInput input);
     }
 }

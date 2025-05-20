@@ -2,10 +2,11 @@
 @using EasyAbp.PrivateMessaging.PrivateMessageNotifications
 @using Microsoft.AspNetCore.Mvc.Localization
 @using Volo.Abp.Application.Dtos
+@using EasyAbp.PrivateMessaging.PrivateMessageNotifications.Dtos
 @inject IHtmlLocalizer<PrivateMessagingResource> L
 @inject IPrivateMessageNotificationAppService NotificationAppService
 @{
-    var result = await NotificationAppService.GetListAsync(new PagedResultRequestDto());
+    var result = await NotificationAppService.GetListAsync(new GetPrivateMessageNotificationInput());
 
     var count = result.TotalCount;
     

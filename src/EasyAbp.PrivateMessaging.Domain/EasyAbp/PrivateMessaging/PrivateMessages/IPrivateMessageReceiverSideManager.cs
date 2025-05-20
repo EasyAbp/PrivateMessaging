@@ -9,10 +9,10 @@ namespace EasyAbp.PrivateMessaging.PrivateMessages
     {
         Task SetReadAsync(PrivateMessage privateMessage);
         
-        Task<long> CountAsync(Guid userId, bool unreadOnly = false);
+        Task<long> CountAsync(Guid userId, bool unreadOnly = false, string category = null);
 
         Task<IReadOnlyList<PrivateMessage>> GetListAsync(Guid userId, int skipCount, int maxResultCount,
-            bool unreadOnly = false);
+            bool unreadOnly = false, string category = null);
 
         Task DeleteAsync(PrivateMessage privateMessage);
     }

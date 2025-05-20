@@ -27,21 +27,21 @@ namespace EasyAbp.PrivateMessaging.PrivateMessages
         }
 
         [HttpGet]
-        public Task<PagedResultDto<PrivateMessageDto>> GetListAsync(PagedResultRequestDto input)
+        public Task<PagedResultDto<PrivateMessageDto>> GetListAsync(GetPrivateMessageListInput input)
         {
             return _service.GetListAsync(input);
         }
 
         [HttpGet]
         [Route("unread")]
-        public Task<PagedResultDto<PrivateMessageDto>> GetListUnreadAsync(PagedResultRequestDto input)
+        public Task<PagedResultDto<PrivateMessageDto>> GetListUnreadAsync(GetPrivateMessageListInput input)
         {
             return _service.GetListUnreadAsync(input);
         }
 
         [HttpGet]
         [Route("sent")]
-        public Task<PagedResultDto<PrivateMessageDto>> GetListSentAsync(PagedResultRequestDto input)
+        public Task<PagedResultDto<PrivateMessageDto>> GetListSentAsync(GetPrivateMessageListInput input)
         {
             return _service.GetListSentAsync(input);
         }

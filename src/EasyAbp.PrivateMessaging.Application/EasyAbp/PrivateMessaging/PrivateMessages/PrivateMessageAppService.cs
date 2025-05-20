@@ -54,10 +54,10 @@ namespace EasyAbp.PrivateMessaging.PrivateMessages
         }
 
         [Authorize(PrivateMessagingPermissions.PrivateMessages.Default)]
-        public virtual async Task<PagedResultDto<PrivateMessageDto>> GetListAsync(PagedResultRequestDto input)
+        public virtual async Task<PagedResultDto<PrivateMessageDto>> GetListAsync(GetPrivateMessageListInput input)
         {
             var list = await _privateMessageReceiverSideManager.GetListAsync(CurrentUser.GetId(), input.SkipCount,
-                input.MaxResultCount);
+                input.MaxResultCount, category: input.Category);
 
             var count = await _privateMessageReceiverSideManager.CountAsync(CurrentUser.GetId());
 
@@ -65,10 +65,10 @@ namespace EasyAbp.PrivateMessaging.PrivateMessages
         }
 
         [Authorize(PrivateMessagingPermissions.PrivateMessages.Default)]
-        public virtual async Task<PagedResultDto<PrivateMessageDto>> GetListUnreadAsync(PagedResultRequestDto input)
+        public virtual async Task<PagedResultDto<PrivateMessageDto>> GetListUnreadAsync(GetPrivateMessageListInput input)
         {
             var list = await _privateMessageReceiverSideManager.GetListAsync(CurrentUser.GetId(), input.SkipCount,
-                input.MaxResultCount, true);
+                input.MaxResultCount, true, input.Category);
 
             var count = await _privateMessageReceiverSideManager.CountAsync(CurrentUser.GetId(), true);
 
@@ -76,10 +76,10 @@ namespace EasyAbp.PrivateMessaging.PrivateMessages
         }
 
         [Authorize(PrivateMessagingPermissions.PrivateMessages.Default)]
-        public virtual async Task<PagedResultDto<PrivateMessageDto>> GetListSentAsync(PagedResultRequestDto input)
+        public virtual async Task<PagedResultDto<PrivateMessageDto>> GetListSentAsync(GetPrivateMessageListInput input)
         {
             var list = await _privateMessageSenderSideManager.GetListAsync(CurrentUser.GetId(), input.SkipCount,
-                input.MaxResultCount);
+                input.MaxResultCount, input.Category);
 
             var count = await _privateMessageSenderSideManager.CountAsync(CurrentUser.GetId());
 
@@ -121,7 +121,7 @@ namespace EasyAbp.PrivateMessaging.PrivateMessages
             var toUser = await _externalUserLookupServiceProvider.FindByUserNameAsync(input.ToUserName);
 
             var message =
-                await _privateMessageSenderSideManager.CreateAsync(fromUser, toUser, input.Title, input.Content);
+                await _privateMessageSenderSideManager.CreateAsync(fromUser, toUser, input.Title, input.Content, input.Category);
 
             input.MapExtraPropertiesTo(message);
 
@@ -137,7 +137,7 @@ namespace EasyAbp.PrivateMessaging.PrivateMessages
             var toUser = await _externalUserLookupServiceProvider.FindByIdAsync(input.ToUserId);
 
             var message =
-                await _privateMessageSenderSideManager.CreateAsync(fromUser, toUser, input.Title, input.Content);
+                await _privateMessageSenderSideManager.CreateAsync(fromUser, toUser, input.Title, input.Content, input.Category);
 
             input.MapExtraPropertiesTo(message);
 
