@@ -60,11 +60,11 @@ namespace EasyAbp.PrivateMessaging.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("Category");
-
                     b.HasIndex("PrivateMessageId");
 
                     b.HasIndex("UserId");
+
+                    b.HasIndex("UserId", "Category");
 
                     b.ToTable("PmPrivateMessageNotifications", (string)null);
                 });
@@ -141,11 +141,11 @@ namespace EasyAbp.PrivateMessaging.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("Category");
-
                     b.HasIndex("FromUserId");
 
                     b.HasIndex("ToUserId");
+
+                    b.HasIndex("ToUserId", "Category");
 
                     b.ToTable("PmPrivateMessages", (string)null);
                 });
