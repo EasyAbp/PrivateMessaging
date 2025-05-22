@@ -49,7 +49,7 @@ namespace EasyAbp.PrivateMessaging.EntityFrameworkCore
                 /* Configure more properties here */
                 b.HasIndex(m => m.ToUserId);
                 b.HasIndex(m => m.FromUserId);
-                b.HasIndex(m => m.Category);
+                b.HasIndex(m => new { m.ToUserId, m.Category });
             });
 
             builder.Entity<PrivateMessageNotification>(b =>
@@ -59,7 +59,7 @@ namespace EasyAbp.PrivateMessaging.EntityFrameworkCore
                 /* Configure more properties here */
                 b.HasIndex(n => n.UserId);
                 b.HasIndex(n => n.PrivateMessageId);
-                b.HasIndex(m => m.Category);
+                b.HasIndex(m => new { m.UserId, m.Category });
             });
         }
     }
