@@ -13,7 +13,7 @@ using Volo.Abp.EntityFrameworkCore;
 namespace EasyAbp.PrivateMessaging.Migrations
 {
     [DbContext(typeof(UnifiedDbContext))]
-    [Migration("20250522013919_AddedCategory")]
+    [Migration("20250522070636_AddedCategory")]
     partial class AddedCategory
     {
         /// <inheritdoc />
@@ -64,8 +64,6 @@ namespace EasyAbp.PrivateMessaging.Migrations
                     b.HasKey("Id");
 
                     b.HasIndex("PrivateMessageId");
-
-                    b.HasIndex("UserId");
 
                     b.HasIndex("UserId", "Category");
 
@@ -145,8 +143,6 @@ namespace EasyAbp.PrivateMessaging.Migrations
                     b.HasKey("Id");
 
                     b.HasIndex("FromUserId");
-
-                    b.HasIndex("ToUserId");
 
                     b.HasIndex("ToUserId", "Category");
 

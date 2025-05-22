@@ -10,6 +10,14 @@ namespace EasyAbp.PrivateMessaging.Migrations
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
         {
+            migrationBuilder.DropIndex(
+                name: "IX_PmPrivateMessages_ToUserId",
+                table: "PmPrivateMessages");
+
+            migrationBuilder.DropIndex(
+                name: "IX_PmPrivateMessageNotifications_UserId",
+                table: "PmPrivateMessageNotifications");
+
             migrationBuilder.AddColumn<string>(
                 name: "Category",
                 table: "PmPrivateMessages",
@@ -51,6 +59,16 @@ namespace EasyAbp.PrivateMessaging.Migrations
             migrationBuilder.DropColumn(
                 name: "Category",
                 table: "PmPrivateMessageNotifications");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_PmPrivateMessages_ToUserId",
+                table: "PmPrivateMessages",
+                column: "ToUserId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_PmPrivateMessageNotifications_UserId",
+                table: "PmPrivateMessageNotifications",
+                column: "UserId");
         }
     }
 }
