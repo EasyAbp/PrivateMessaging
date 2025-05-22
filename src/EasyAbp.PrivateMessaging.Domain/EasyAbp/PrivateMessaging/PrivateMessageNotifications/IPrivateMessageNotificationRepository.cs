@@ -8,10 +8,10 @@ namespace EasyAbp.PrivateMessaging.PrivateMessageNotifications
 {
     public interface IPrivateMessageNotificationRepository : IRepository<PrivateMessageNotification, Guid>
     {
-        Task<long> CountByUserIdAsync(Guid userId, CancellationToken cancellationToken = default);
+        Task<long> CountByUserIdAsync(Guid userId, string category = null, CancellationToken cancellationToken = default);
         
         Task<IReadOnlyList<PrivateMessageNotification>> GetListByUserIdAsync(Guid userId, int skipCount,
-            int maxResultCount, CancellationToken cancellationToken = default);
+            int maxResultCount, string category = null, CancellationToken cancellationToken = default);
 
         Task DeleteByPrivateMessageIdAsync(IEnumerable<Guid> privateMessageIds,
             CancellationToken cancellationToken = default);

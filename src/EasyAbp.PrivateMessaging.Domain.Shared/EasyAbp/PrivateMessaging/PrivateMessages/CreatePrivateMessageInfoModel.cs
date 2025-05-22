@@ -17,16 +17,24 @@ public class CreatePrivateMessageInfoModel : ExtensibleObject
     [CanBeNull]
     public string Content { get; set; }
 
+    [CanBeNull]
+    public string Category { get; set; }
+
     public CreatePrivateMessageInfoModel()
     {
     }
 
-    public CreatePrivateMessageInfoModel(Guid? fromUserId, Guid toUserId, [NotNull] string title,
-        [CanBeNull] string content)
+    public CreatePrivateMessageInfoModel(
+        Guid? fromUserId, 
+        Guid toUserId, 
+        [NotNull] string title,
+        [CanBeNull] string content, 
+        string category = null)
     {
         FromUserId = fromUserId;
         ToUserId = toUserId;
         Title = title;
         Content = content;
+        Category = category;
     }
 }

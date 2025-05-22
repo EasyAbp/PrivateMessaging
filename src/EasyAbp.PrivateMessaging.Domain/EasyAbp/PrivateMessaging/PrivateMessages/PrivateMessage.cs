@@ -18,7 +18,10 @@ namespace EasyAbp.PrivateMessaging.PrivateMessages
         
         [CanBeNull]
         public virtual string Content { get; protected set; }
-        
+
+        [CanBeNull]
+        public virtual string Category { get; protected set; }
+
         public virtual DateTime? ReadTime { get; protected set; }
 
         protected PrivateMessage()
@@ -32,13 +35,15 @@ namespace EasyAbp.PrivateMessaging.PrivateMessages
             Guid? fromUserId,
             Guid toUserId,
             [NotNull] string title,
-            [CanBeNull] string content) : base(id)
+            [CanBeNull] string content,
+            string category = null) : base(id)
         {
             TenantId = tenantId;
             FromUserId = fromUserId;
             ToUserId = toUserId;
             Title = title;
             Content = content;
+            Category = category;
         }
 
         internal void AddDistributedEvent(PrivateMessageSentEto eto)

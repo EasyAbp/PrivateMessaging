@@ -25,12 +25,12 @@ namespace EasyAbp.PrivateMessaging.PrivateMessageNotifications
         {
             return ViewComponent("PmNotification");
         }
-        
+
         [HttpPost]
         [Route("count")]
-        public Task<long> CountAsync()
+        public Task<long> CountAsync(string category = null)
         {
-            return _service.CountAsync();
+            return _service.CountAsync(category);
         }
 
         [HttpDelete]
@@ -40,7 +40,7 @@ namespace EasyAbp.PrivateMessaging.PrivateMessageNotifications
         }
 
         [HttpGet]
-        public Task<PagedResultDto<PrivateMessageNotificationDto>> GetListAsync(PagedResultRequestDto input)
+        public Task<PagedResultDto<PrivateMessageNotificationDto>> GetListAsync(GetPrivateMessageNotificationInput input)
         {
             return _service.GetListAsync(input);
         }

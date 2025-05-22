@@ -21,6 +21,7 @@
     "PrivateMessageFromUserName": "From",
     "PrivateMessageTitle": "Title",
     "PrivateMessageContent": "Content",
+    "PrivateMessageCategory": "Category",
     "PrivateMessageCreationTime": "Sending Time",
     "CreatePrivateMessage": "Write Message",
     "PrivateMessageDeletionConfirmationMessage": "Are you sure to delete the message: {0}?",

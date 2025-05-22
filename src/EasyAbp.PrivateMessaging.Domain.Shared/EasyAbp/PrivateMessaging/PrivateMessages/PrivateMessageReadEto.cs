@@ -29,15 +29,18 @@ namespace EasyAbp.PrivateMessaging.PrivateMessages
         
         [NotNull]
         public string Title { get; set; }
-        
+
+        [CanBeNull]
+        public string Category { get; set; }
+
         public PrivateMessageReadEto()
         {
             ExtraProperties = new ExtraPropertyDictionary();
         }
-        
+
         public PrivateMessageReadEto(Guid? tenantId, Guid privateMessageId, Guid? fromUserId,
             [CanBeNull] string fromUserName, Guid toUserId, [NotNull] string toUserName, DateTime sentTime,
-            DateTime readTime, [NotNull] string title)
+            DateTime readTime, [NotNull] string title, [CanBeNull] string category = null)
         {
             TenantId = tenantId;
             PrivateMessageId = privateMessageId;
@@ -48,7 +51,8 @@ namespace EasyAbp.PrivateMessaging.PrivateMessages
             SentTime = sentTime;
             ReadTime = readTime;
             Title = title;
-            
+            Category = category;
+
             ExtraProperties = new ExtraPropertyDictionary();
         }
     }

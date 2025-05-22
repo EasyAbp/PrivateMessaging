@@ -16,6 +16,9 @@ namespace EasyAbp.PrivateMessaging.PrivateMessageNotifications
         [NotNull]
         public virtual string TitlePreview { get; protected set; }
 
+        [CanBeNull]
+        public string Category { get; set; }
+
         protected PrivateMessageNotification()
         {
             
@@ -26,12 +29,14 @@ namespace EasyAbp.PrivateMessaging.PrivateMessageNotifications
             Guid? tenantId,
             Guid userId,
             Guid privateMessageId,
-            [NotNull] string titlePreview) : base(id)
+            [NotNull] string titlePreview,
+            string category = null) : base(id)
         {
             TenantId = tenantId;
             UserId = userId;
             PrivateMessageId = privateMessageId;
             TitlePreview = titlePreview;
+            Category = category;
         }
     }
 }

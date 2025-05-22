@@ -11,11 +11,11 @@ namespace EasyAbp.PrivateMessaging.PrivateMessages
     {
         Task<PrivateMessageDto> GetAsync(Guid id);
         
-        Task<PagedResultDto<PrivateMessageDto>> GetListAsync(PagedResultRequestDto input);
+        Task<PagedResultDto<PrivateMessageDto>> GetListAsync(GetPrivateMessageListInput input);
         
-        Task<PagedResultDto<PrivateMessageDto>> GetListUnreadAsync(PagedResultRequestDto input);
+        Task<PagedResultDto<PrivateMessageDto>> GetListUnreadAsync(GetPrivateMessageListInput input);
         
-        Task<PagedResultDto<PrivateMessageDto>> GetListSentAsync(PagedResultRequestDto input);
+        Task<PagedResultDto<PrivateMessageDto>> GetListSentAsync(GetPrivateMessageListInput input);
 
         Task DeleteAsync(IEnumerable<Guid> ids);
 

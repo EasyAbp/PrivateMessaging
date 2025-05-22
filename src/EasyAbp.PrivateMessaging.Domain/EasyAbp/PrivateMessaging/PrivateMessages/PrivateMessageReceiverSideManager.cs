@@ -50,22 +50,22 @@ namespace EasyAbp.PrivateMessaging.PrivateMessages
 
             var eto = new PrivateMessageReadEto(privateMessage.TenantId, privateMessage.Id,
                 privateMessage.FromUserId, fromUser?.UserName, privateMessage.ToUserId, toUser.UserName,
-                privateMessage.CreationTime, privateMessage.ReadTime!.Value, privateMessage.Title);
+                privateMessage.CreationTime, privateMessage.ReadTime!.Value, privateMessage.Title, privateMessage.Category);
 
             privateMessage.MapExtraPropertiesTo(eto, MappingPropertyDefinitionChecks.None);
 
             await _distributedEventBus.PublishAsync(eto);
         }
 
-        public virtual async Task<long> CountAsync(Guid userId, bool unreadOnly = false)
+        public virtual async Task<long> CountAsync(Guid userId, bool unreadOnly = false, string category = null)
         {
-            return await _repository.CountReceivingAsync(userId, unreadOnly);
+            return await _repository.CountReceivingAsync(userId, unreadOnly, category);
         }
 
         public virtual async Task<IReadOnlyList<PrivateMessage>> GetListAsync(Guid userId, int skipCount,
-            int maxResultCount, bool unreadOnly = false)
+            int maxResultCount, bool unreadOnly = false, string category = null)
         {
-            return await _repository.GetListReceivingAsync(userId, skipCount, maxResultCount, unreadOnly);
+            return await _repository.GetListReceivingAsync(userId, skipCount, maxResultCount, unreadOnly, category);
         }
 
         public virtual async Task DeleteAsync(PrivateMessage privateMessage)

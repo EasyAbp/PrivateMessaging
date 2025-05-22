@@ -19,16 +19,16 @@ namespace EasyAbp.PrivateMessaging.PrivateMessageNotifications
         {
         }
 
-        public virtual async Task<long> CountByUserIdAsync(Guid userId, CancellationToken cancellationToken = default)
+        public virtual async Task<long> CountByUserIdAsync(Guid userId, string category = null, CancellationToken cancellationToken = default)
         {
-            return await (await GetQueryableAsync()).Where(n => n.UserId == userId).CountAsync(cancellationToken);
+            return await (await GetQueryableAsync()).Where(n => n.UserId == userId && n.Category == category).CountAsync(cancellationToken);
         }
 
         public virtual async Task<IReadOnlyList<PrivateMessageNotification>> GetListByUserIdAsync(Guid userId, int skipCount,
-            int maxResultCount, CancellationToken cancellationToken = default)
+            int maxResultCount, string category = null, CancellationToken cancellationToken = default)
         {
             return await (await GetQueryableAsync())
-                .Where(n => n.UserId == userId)
+                .Where(n => n.UserId == userId && n.Category == category)
                 .OrderByDescending(x => x.Id)
                 .PageBy(skipCount, maxResultCount)
                 .ToListAsync(cancellationToken);

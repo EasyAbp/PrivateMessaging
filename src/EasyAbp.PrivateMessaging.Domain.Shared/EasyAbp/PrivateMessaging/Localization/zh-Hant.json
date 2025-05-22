@@ -21,6 +21,7 @@
     "PrivateMessageFromUserName": "發件人",
     "PrivateMessageTitle": "主題",
     "PrivateMessageContent": "內容",
+    "PrivateMessageCategory": "類別",
     "PrivateMessageCreationTime": "發送時間",
     "CreatePrivateMessage": "寫私信",
     "PrivateMessageDeletionConfirmationMessage": "確認需要删除私信: {0} 嗎？",

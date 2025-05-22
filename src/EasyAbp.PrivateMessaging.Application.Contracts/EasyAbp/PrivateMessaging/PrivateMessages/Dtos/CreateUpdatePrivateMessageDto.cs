@@ -1,7 +1,5 @@
-using System;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
-using Volo.Abp.Data;
 using Volo.Abp.ObjectExtending;
 using Volo.Abp.Validation;
 
@@ -21,5 +19,9 @@ namespace EasyAbp.PrivateMessaging.PrivateMessages.Dtos
         [DynamicMaxLength(typeof(PrivateMessageConsts), nameof(PrivateMessageConsts.ContentMaxLength))]
         [DisplayName("PrivateMessageContent")]
         public string Content { get; set; }
+
+        [DynamicMaxLength(typeof(PrivateMessageConsts), nameof(PrivateMessageConsts.CategoryMaxLength))]  
+        [DisplayName("PrivateMessageCategory")]
+        public string Category { get; set; }
     }
 }
