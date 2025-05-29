@@ -53,7 +53,7 @@ namespace EasyAbp.PrivateMessaging.PrivateMessages
             string content, string category = null)
         {
             var privateMessage = new PrivateMessage(
-                GuidGenerator.Create(), CurrentTenant.Id, fromUser?.Id, toUser.Id, title, content);
+                GuidGenerator.Create(), CurrentTenant.Id, fromUser?.Id, toUser.Id, title, content, category);
 
             var eto = new PrivateMessageSentEto(privateMessage.TenantId, privateMessage.Id, fromUser?.Id,
                 fromUser?.UserName, toUser.Id, toUser.UserName, privateMessage.CreationTime, privateMessage.Title, privateMessage.Category);
