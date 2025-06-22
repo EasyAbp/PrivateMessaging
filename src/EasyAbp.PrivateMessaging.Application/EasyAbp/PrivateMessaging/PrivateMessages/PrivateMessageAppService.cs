@@ -59,7 +59,7 @@ namespace EasyAbp.PrivateMessaging.PrivateMessages
             var list = await _privateMessageReceiverSideManager.GetListAsync(CurrentUser.GetId(), input.SkipCount,
                 input.MaxResultCount, category: input.Category);
 
-            var count = await _privateMessageReceiverSideManager.CountAsync(CurrentUser.GetId());
+            var count = await _privateMessageReceiverSideManager.CountAsync(CurrentUser.GetId(), category: input.Category);
 
             return new PagedResultDto<PrivateMessageDto>(count, await MapToDtoAndLoadMoreInfosAsync(list));
         }
@@ -70,7 +70,7 @@ namespace EasyAbp.PrivateMessaging.PrivateMessages
             var list = await _privateMessageReceiverSideManager.GetListAsync(CurrentUser.GetId(), input.SkipCount,
                 input.MaxResultCount, true, input.Category);
 
-            var count = await _privateMessageReceiverSideManager.CountAsync(CurrentUser.GetId(), true);
+            var count = await _privateMessageReceiverSideManager.CountAsync(CurrentUser.GetId(), true, input.Category);
 
             return new PagedResultDto<PrivateMessageDto>(count, await MapToDtoAndLoadMoreInfosAsync(list));
         }
@@ -81,7 +81,7 @@ namespace EasyAbp.PrivateMessaging.PrivateMessages
             var list = await _privateMessageSenderSideManager.GetListAsync(CurrentUser.GetId(), input.SkipCount,
                 input.MaxResultCount, input.Category);
 
-            var count = await _privateMessageSenderSideManager.CountAsync(CurrentUser.GetId());
+            var count = await _privateMessageSenderSideManager.CountAsync(CurrentUser.GetId(), input.Category);
 
             return new PagedResultDto<PrivateMessageDto>(count, await MapToDtoAndLoadMoreInfosAsync(list));
         }

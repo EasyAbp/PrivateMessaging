@@ -26,5 +26,9 @@ namespace EasyAbp.PrivateMessaging.Web.Pages.PrivateMessaging.PrivateMessages.Pr
         [TextArea(Rows = 4)]
         [Display(Name = "PrivateMessageContent")]
         public string Content { get; set; }
+
+        [DisabledInput]
+        [Display(Name = "PrivateMessageCategory")]
+        public string Category { get; set; }
     }
 }

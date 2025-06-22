@@ -67,6 +67,10 @@ $(function () {
                 render: function ( data, type, row, meta ) { return renderRow(row, data) }
             },
             {
+                data: "category",
+                render: function ( data, type, row, meta ) { return renderRow(row, data || '') }
+            },
+            {
                 data: "creationTime",
                 render: function ( data, type, row, meta ) { return renderRow(row, data) }
             }
