@@ -21,5 +21,9 @@ namespace EasyAbp.PrivateMessaging.Web.Pages.PrivateMessaging.PrivateMessages.Pr
         [DynamicMaxLength(typeof(PrivateMessageConsts), nameof(PrivateMessageConsts.ContentMaxLength))]
         [Display(Name = "PrivateMessageContent")]
         public string Content { get; set; }
+
+        [DynamicMaxLength(typeof(PrivateMessageConsts), nameof(PrivateMessageConsts.CategoryMaxLength))]
+        [Display(Name = "PrivateMessageCategory")]
+        public string Category { get; set; }
     }
 }

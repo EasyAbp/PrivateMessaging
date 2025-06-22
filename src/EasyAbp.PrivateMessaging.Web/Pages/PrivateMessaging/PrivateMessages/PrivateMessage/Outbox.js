@@ -34,6 +34,7 @@ $(function () {
                 render: function ( data, type, row, meta ) { return GetUserName(row.toUser) }
             },
             { data: "title" },
+            { data: "category" },
             { data: "creationTime" },
         ]
     }));
