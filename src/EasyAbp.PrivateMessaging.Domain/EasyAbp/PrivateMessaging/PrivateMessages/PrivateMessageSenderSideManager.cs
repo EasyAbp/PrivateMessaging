@@ -31,11 +31,11 @@ namespace EasyAbp.PrivateMessaging.PrivateMessages
             _repository = repository;
         }
 
-        public virtual async Task<long> CountAsync(Guid userId)
+        public virtual async Task<long> CountAsync(Guid userId, string category = null)
         {
             using (_dataFilter.Disable<ISoftDelete>())
             {
-                return await _repository.CountSendingAsync(userId);
+                return await _repository.CountSendingAsync(userId, category: category);
             }
         }
 
