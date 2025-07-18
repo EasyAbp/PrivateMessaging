@@ -17,31 +17,26 @@
 {
     <abp-style src="/Pages/PrivateMessaging/PrivateMessages/PrivateMessage/common.css"/>
 }
+@section content_toolbar
+{
+    <abp-button id="OutboxButton"
+                text="@L["PrivateMessageOutbox"].Value"
+                size="Small"
+                button-type="Secondary" />
+    @if (await Authorization.IsGrantedAsync(PrivateMessagingPermissions.PrivateMessages.Create))
+    {
+        <abp-button id="NewPrivateMessageButton"
+                    text="@L["CreatePrivateMessage"].Value"
+                    icon="plus"
+                    size="Small"
+                    button-type="Primary" />
+    }
+}
 @{
     PageLayout.Content.Title = L["PrivateMessageInbox"].Value;
-    PageLayout.Content.BreadCrumb.Add(L["Menu:PrivateMessage"].Value);
 }
 
 <abp-card>
-    <abp-card-header>
-        <abp-row>
-            <abp-column size-md="_6">
-                <abp-card-title>@L["PrivateMessageInbox"]</abp-card-title>
-            </abp-column>
-            <abp-column size-md="_6" class="text-end">
-                <abp-button id="OutboxButton"
-                            text="@L["PrivateMessageOutbox"].Value"
-                            button-type="Secondary" />
-                @if (await Authorization.IsGrantedAsync(PrivateMessagingPermissions.PrivateMessages.Create))
-                {
-                    <abp-button id="NewPrivateMessageButton"
-                                text="@L["CreatePrivateMessage"].Value"
-                                icon="plus"
-                                button-type="Primary" />
-                }
-            </abp-column>
-        </abp-row>
-    </abp-card-header>
     <abp-card-body>
         <abp-table striped-rows="true" id="PrivateMessageTable" class="nowrap">
             <thead>
