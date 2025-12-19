@@ -17,7 +17,7 @@ using Volo.Abp.Users;
 namespace EasyAbp.PrivateMessaging.PrivateMessages
 {
     [Authorize]
-    public class PrivateMessageAppService : ApplicationService, IPrivateMessageAppService
+    public class PrivateMessageAppService : PrivateMessagingAppService, IPrivateMessageAppService
     {
         private readonly IDataFilter _dataFilter;
         private readonly IExternalUserLookupServiceProvider _externalUserLookupServiceProvider;

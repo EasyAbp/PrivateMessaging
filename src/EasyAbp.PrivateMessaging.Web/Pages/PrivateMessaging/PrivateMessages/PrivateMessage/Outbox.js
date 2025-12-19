@@ -35,7 +35,7 @@ $(function () {
             },
             { data: "title" },
             { data: "category" },
-            { data: "creationTime" },
+            { data: "creationTime", dataFormat: 'datetime'},
         ]
     }));
 

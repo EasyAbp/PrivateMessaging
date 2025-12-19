@@ -11,7 +11,7 @@ using Volo.Abp.Users;
 namespace EasyAbp.PrivateMessaging.PrivateMessageNotifications
 {
     [Authorize]
-    public class PrivateMessageNotificationAppService : ApplicationService, IPrivateMessageNotificationAppService
+    public class PrivateMessageNotificationAppService : PrivateMessagingAppService, IPrivateMessageNotificationAppService
     {
         private readonly IPrivateMessageNotificationRepository _repository;
 

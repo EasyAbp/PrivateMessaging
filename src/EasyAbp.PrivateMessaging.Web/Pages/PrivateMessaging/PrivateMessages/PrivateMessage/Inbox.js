@@ -72,7 +72,7 @@ $(function () {
             },
             {
                 data: "creationTime",
-                render: function ( data, type, row, meta ) { return renderRow(row, data) }
+                render: function ( data, type, row, meta ) { return renderRow(row, abp.clock.normalizeToLocaleString(data)) }
             }
         ]
     }));

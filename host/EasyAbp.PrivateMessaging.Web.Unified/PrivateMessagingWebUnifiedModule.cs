@@ -158,8 +158,8 @@ namespace EasyAbp.PrivateMessaging
             }
 
             app.UseHttpsRedirection();
-            app.MapAbpStaticAssets();
             app.UseRouting();
+            app.MapAbpStaticAssets();
             app.UseIdentityServer();
             app.UseAuthentication();
             app.UseAuthorization();

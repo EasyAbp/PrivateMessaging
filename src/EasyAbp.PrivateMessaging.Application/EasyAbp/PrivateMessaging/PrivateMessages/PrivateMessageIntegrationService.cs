@@ -6,7 +6,7 @@ using Volo.Abp.Users;
 
 namespace EasyAbp.PrivateMessaging.PrivateMessages;
 
-public class PrivateMessageIntegrationService : ApplicationService, IPrivateMessageIntegrationService
+public class PrivateMessageIntegrationService : PrivateMessagingAppService, IPrivateMessageIntegrationService
 {
     private readonly IPrivateMessageSenderSideManager _manager;
     private readonly IPrivateMessageRepository _privateMessageRepository;
