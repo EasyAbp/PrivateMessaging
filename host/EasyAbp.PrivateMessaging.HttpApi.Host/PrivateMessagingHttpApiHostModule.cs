@@ -10,7 +10,7 @@ using Microsoft.Extensions.Hosting;
 using EasyAbp.PrivateMessaging.EntityFrameworkCore;
 using EasyAbp.PrivateMessaging.MultiTenancy;
 using StackExchange.Redis;
-using Microsoft.OpenApi.Models;
+using Microsoft.OpenApi;
 using Swashbuckle.AspNetCore.Swagger;
 using Volo.Abp;
 using Volo.Abp.AspNetCore.MultiTenancy;
