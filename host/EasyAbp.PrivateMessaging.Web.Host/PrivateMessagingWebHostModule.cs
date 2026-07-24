@@ -23,7 +23,6 @@ using Volo.Abp.AspNetCore.Mvc.UI.Theme.LeptonXLite;
 using Volo.Abp.AspNetCore.Mvc.UI.Theme.Shared;
 using Volo.Abp.AspNetCore.Serilog;
 using Volo.Abp.Autofac;
-using Volo.Abp.AutoMapper;
 using Volo.Abp.Caching;
 using Volo.Abp.FeatureManagement;
 using Volo.Abp.Http.Client.IdentityModel.Web;
@@ -92,7 +91,6 @@ namespace EasyAbp.PrivateMessaging
             ConfigureCache(configuration);
             ConfigureUrls(configuration);
             ConfigureAuthentication(context, configuration);
-            ConfigureAutoMapper();
             ConfigureVirtualFileSystem(hostingEnvironment);
             ConfigureSwaggerServices(context.Services);
             ConfigureMultiTenancy();
@@ -162,14 +160,6 @@ namespace EasyAbp.PrivateMessaging
                     options.ClaimActions.MapJsonKey(AbpClaimTypes.UserName, "name");
                     options.ClaimActions.DeleteClaim("name");
                 });
-        }
-
-        private void ConfigureAutoMapper()
-        {
-            Configure<AbpAutoMapperOptions>(options =>
-            {
-                options.AddMaps<PrivateMessagingWebHostModule>();
-            });
         }
 
         private void ConfigureVirtualFileSystem(IWebHostEnvironment hostingEnvironment)

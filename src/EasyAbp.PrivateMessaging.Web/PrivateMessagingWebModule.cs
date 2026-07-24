@@ -7,7 +7,7 @@ using Volo.Abp.AspNetCore.Mvc.UI.Bundling;
 using Volo.Abp.AspNetCore.Mvc.UI.Theme.Shared;
 using Volo.Abp.AspNetCore.Mvc.UI.Theme.Shared.Bundling;
 using Volo.Abp.AspNetCore.Mvc.UI.Theme.Shared.Toolbars;
-using Volo.Abp.AutoMapper;
+using Volo.Abp.Mapperly;
 using Volo.Abp.Modularity;
 using Volo.Abp.VirtualFileSystem;
 
@@ -16,7 +16,7 @@ namespace EasyAbp.PrivateMessaging.Web
     [DependsOn(
         typeof(PrivateMessagingApplicationContractsModule),
         typeof(AbpAspNetCoreMvcUiThemeSharedModule),
-        typeof(AbpAutoMapperModule)
+        typeof(AbpMapperlyModule)
         )]
     public class PrivateMessagingWebModule : AbpModule
     {
@@ -45,11 +45,7 @@ namespace EasyAbp.PrivateMessaging.Web
                 options.FileSets.AddEmbedded<PrivateMessagingWebModule>();
             });
 
-            context.Services.AddAutoMapperObjectMapper<PrivateMessagingWebModule>();
-            Configure<AbpAutoMapperOptions>(options =>
-            {
-                options.AddMaps<PrivateMessagingWebModule>(validate: true);
-            });
+            context.Services.AddMapperlyObjectMapper<PrivateMessagingWebModule>();
 
             Configure<RazorPagesOptions>(options =>
             {
